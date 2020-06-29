@@ -1,0 +1,82 @@
+﻿@model List<EcommerceProject.Models.SubCategory>
+<div class="container">
+    @if (Model.Any())
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+
+                        <td>
+                            <button class="btn btn-info" onclick="DetailsSubCategory(@item.ID)">Details</button>
+                            <button class="btn btn-success" onclick="EditSubCategory(@item.ID)">Edit</button>
+                            <button class="btn btn-danger" onclick="DeleteSubCategory(@item.ID)">Delete</button>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="alert alert-danger">No data found</p>
+    }
+</div>
+<script>
+    function DetailsSubCategory(id) {
+        $.ajax({
+            url: '/Admin/SubCategroy/DetailsSubCategory',
+            type: 'Get',
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $('#subcategoryform').html(data);
+            $('#form0 input').attr('disabled', true)
+            $('#form0 select').attr('disabled', true)
+        }).fail(function (data){
+
+        });
+    }
+    function EditSubCategory(id) {
+        $.ajax({
+            url: '/Admin/SubCategroy/EditSubCategory',
+            type: 'Get',
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $('#subcategoryform').html(data);
+
+        }).fail(function (data) {
+
+        });
+    }
+    function DeleteSubCategory(id) {
+           $.ajax({
+            url: '/Admin/SubCategroy/DeleteSubCategory',
+            type: 'Get',
+            data:{
+            id: id
+        }
+        }).done(function (data) {
+            LoadData();
+
+        }).fail(function (data) {
+            $('.alert').html('Erorr In Delete');
+        });
+    }
+
+
+</script>
+

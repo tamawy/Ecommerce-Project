@@ -1,0 +1,81 @@
+﻿@model List<EcommerceProject.Models.OrderDetails>
+<div class="container">
+    @if (Model.Any())
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>TotalPrice</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Quantity</td>
+                        <td>@item.Price</td>
+                        <td>@item.TotalPrice</td>
+
+
+                        <td>
+                            <button class="btn btn-info" onclick="DetailsOrderDetails(@item.ID)">Details</button>
+                            <button class="btn btn-primary" onclick="EditOrderDetails(@item.ID)">Delete</button>
+                            <button class="btn btn-danger" onclick="DeleteOrderDetails(@item.ID)">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="alert alert-danger"> NO DATA </p>
+    }
+</div>
+<script>
+
+    function  DetailsOrderDetails(id) {
+        $.ajax({
+            url: '/Admin/OrderDetails/ DetailsOrderDetails',
+            type: 'Get',
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $('OrderDetailsForm').html(data);
+            $('#form0 input').attr('disable',true);
+        }).fail(function (data) {
+
+        });
+    }
+    function EditOrderDetails(id) {
+        $.ajax({
+            url: '/Admin/OrderDetails/EditOrderDetails',
+            type: 'Get',
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $('OrderDetailsForm').html(data);
+        }).fail(function (data) {
+
+        });
+    }
+    function DeleteOrderDetails(id) {
+        $.ajax({
+            url: '/Admin/OrderDetails/DeleteOrderDetails',
+            type: 'Get',
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            LoadData();
+        }).fail(function (data) {
+            $('.alert').html('Error in Delete')
+        });
+    }
+</script>

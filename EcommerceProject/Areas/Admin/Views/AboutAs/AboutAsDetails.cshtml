@@ -1,0 +1,35 @@
+﻿@model List<EcommerceProject.Models.AboutUs>
+    <div class="container">
+@if (Model.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Vision</th>
+                <th>Mission</th>
+                <th>WhoAreWe</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Vision</td>
+                    <td>@item.Mission</td>
+                    <td>@item.WhoAreWe</td>
+                    <td>
+                        <a href="" class="btn btn-info">Details</a>
+                        <a href="" class="btn btn-primary">Edit</a>
+                        <a href="" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="alert alert-danger">No data found</p>
+}
+</div>
+

@@ -1,0 +1,59 @@
+﻿@model List<EcommerceProject.Models.UserAddress>
+@if (Model.Any())
+{
+    <h2>Info.</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>USerName</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.User.Name</td>
+                    <td>@item.Address</td>
+                    <td>@item.phone</td>
+                    <td>
+                        <button class="btn btn-info" onclick="Details(@item.ID)">Details</button>
+                        <button class="btn btn-danger" onclick="Delete(@item.ID)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="alert alert-warning">No Data Found</p>
+}
+<script>
+    function Details(Id) {
+        $.ajax({
+            url: '/Admin/UserAddress/Detail',
+            type: 'Get',
+            data: { id: Id }
+        }).done(function (data) {
+            $('#Addform').html(data);
+            $('#form0 input').attr('disabled', true);
+        }).fail(function (data) {
+            alert("error in show Details");
+        });
+    }
+    function Delete(Id) {
+        $.ajax({
+            url: '/Admin/UserAddress/Delete',
+            type: 'Get',
+            data: { id: Id }
+        }).done(function (data) {
+            Loading();
+        }).fail(function (data) {
+            $('#Alert').html('Error in Delete !!');
+        });
+    }
+</script>

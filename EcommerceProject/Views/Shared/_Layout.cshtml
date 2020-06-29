@@ -1,0 +1,461 @@
+﻿<!DOCTYPE html>
+@{ 
+    var currentUser = (EcommerceProject.Models.User)Session["user"];
+}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMA Shop</title>
+    <link rel="stylesheet" href="~/customs/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/customs/css/owl/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/customs/css/owl/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/customs/webfont/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/customs/css/he-fo.css">
+    <link rel="stylesheet" href="~/customs/css/style.css">
+
+</head>
+<body>
+    
+
+    <header class="w-100 ">
+        <div class="container">
+            <!-- First Header-->
+            <div class="first-header">
+                <div class="row">
+                    <div class="col-md-3 col-12">
+                        <a href="index.html" class="logo text-center">
+                            <img src="~/customs/img/logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="search-bar">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search aa"></i></span>
+                                </div>
+
+                                <input type="text" class="form-control" placeholder="Search ...">
+
+                                <div class="input-group-append">
+                                    <button class="input-group-text">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-12">
+                        <div class="user-icons mt-2">
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <div class="wish-list" id="wish-list">
+                                        <i class="far fa-heart ico"></i>
+                                        <span class="badge badge-danger">2</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="cart" id="cart">
+                                        <i class="fas fa-shopping-cart ico"></i>
+                                        <span class="badge badge-danger">1</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    @if (currentUser == null)
+                                    {
+                                        <div class="user" id="user">
+                                            <i class="far fa-user ico"></i>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="user">
+                                            <i class="far fa-user ico"></i><a href="/User/index">@currentUser.Name</a>
+                                        </div>
+                                        <a href="/Register/Logout">Logout</a>
+                                    }
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <!-- Cart items -->
+                    <div class="cart-items text-center col-4 p-2" id="cart-items">
+
+                        <div class="categ my-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="top-categ-img px-1">
+                                        <img src="~/customs/img/top-category/3.png" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="top-categ-content pt-1">
+                                        <h5 class="pb-2 m-0">
+                                            <a href="">Fusion Backpack</a>
+                                        </h5>
+                                        <p class="m-0">
+                                            <span>$100.00</span>
+                                        </p>
+                                        <div class="delete">
+                                            <a href=""><i class="far fa-trash-alt del"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <hr>
+                        <div class="show-more px-3 py-2">
+                            <a href="./cart.html">Show More</a>
+                        </div>
+                    </div><!-- End Cart items -->
+                    <!-- Wish List -->
+                    <div class="wish-list-items text-center col-4 px-2" id="wish-list-items">
+                        <div class="categ my-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="top-categ-img px-1">
+                                        <img src="~/customs/img/top-category/3.png" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="top-categ-content pt-1">
+                                        <h5 class="pb-2 m-0">
+                                            <a href="">Fusion Backpack</a>
+                                        </h5>
+                                        <p class="m-0">
+                                            <span>$100.00</span>
+                                        </p>
+                                        <div class="delete">
+                                            <a href=""><i class="far fa-trash-alt del"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="categ my-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="top-categ-img px-1">
+                                        <img src="~/customs/img/top-category/3.png" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="top-categ-content pt-1">
+                                        <h5 class="pb-2 m-0">
+                                            <a href="">Fusion Backpack</a>
+                                        </h5>
+                                        <p class="m-0">
+                                            <span>$100.00</span>
+                                        </p>
+                                        <div class="delete">
+                                            <a href=""><i class="far fa-trash-alt del"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="show-more px-3 py-2">
+                            <a href="./wishlist.html">Show More</a>
+                        </div>
+                    </div><!-- End Wish List -->
+                    <!-- Login And register tabs -->
+
+                    <div class="user-tabs py-3 col-4" id="log-regi">
+                        <!-- tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#register">register</a>
+                            </li>
+
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+                            <div class="tab-pane container active" id="login">
+                                <!-- Login Tab -->
+                                <div class="login">
+                                    <div class="form-group">
+                                        <label class="p-0">Email address</label>
+                                        <input type="email" class="form-control" id="lo-email" autocomplete="off">
+                                        <i class="fas fa-at ico"></i>
+                                        <p class="m-0 text-danger d-none lo-email"> Pleas Enter Your Email.</p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="p-0">Password</label>
+                                        <input type="password" class="form-control" id="lo-pass">
+                                        <i class="fas fa-unlock-alt ico"></i>
+                                        <p class="m-0 text-danger d-none lo-pass"> Pleas Enter Your password.</p>
+                                    </div>
+
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="remember" style="
+                      padding: 10px 25px">
+                                        <label class="custom-control-label" for="remember">Remember Me</label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary mt-4 rounded-0">Login</button>
+                                </div>
+
+                            </div>
+                            <!-- register -->
+                            <div class="tab-pane container fade" id="register">
+                                <!-- Login Tab -->
+                                <div class="register">
+                                    <div class="form-group">
+                                        <label for="">Name</label>
+                                        <input type="text" id="name" class="form-control" autocomplete="off">
+                                        <i class="far fa-user ico"></i>
+                                        <p class="m-0 text-danger d-none name"> Pleas Enter Your Name.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Email</label>
+                                        <input type="email" id="email" class="form-control" autocomplete="off">
+                                        <i class="fas fa-at ico"></i>
+                                        <p class="m-0 text-danger d-none email"> Pleas Enter Your Email.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Password</label>
+                                        <input type="password" id="pass" class="form-control">
+                                        <i class="fas fa-unlock ico"></i>
+                                        <p class="m-0 text-danger d-none pass"> Pleas Enter Your Password.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Re-Password</label>
+                                        <input type="password" id="re-pass" class="form-control">
+                                        <i id="ico" class="fas fa-undo ico"></i>
+                                        <p class="m-0 text-danger d-none re-pass"> This Not Equal Password.</p>
+                                    </div>
+                                    <div class="m-or-f">
+                                        <div class="custom-control custom-radio custom-control-inline male">
+                                            <input type="radio" class="custom-control-input" id="maleRadio" name="radio">
+                                            <label class="custom-control-label" for="maleRadio">Male</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline female">
+                                            <input type="radio" class="custom-control-input" id="femaleRadio" name="radio" value="Male">
+                                            <label class="custom-control-label" for="femaleRadio">Female</label>
+                                        </div>
+                                        <button type="button" class="btn btn-danger mt-4 d-block rounded-0">Sign Up</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  <!-- End Login And Register Tab-->
+                </div><!-- End First Header Row-->
+            </div><!-- End First Header-->
+
+            <hr>
+
+            <!-- Second Header-->
+            <div class="second-header">
+                <div class="row">
+
+                    <div class="col-lg-7 col-6">
+                        <div class="category-nav">
+
+                            <nav class="navbar navbar-expand-lg p-0 " data-toggle="collapse"
+                                 data-target="#category">
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                        data-target="#category" aria-controls="navbarNav" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                    <span class="fas fa-bars"></span>
+                                </button>
+                                <div class="collapse navbar-collapse justify-content-start" id="category">
+                                    @{
+                                        var categories = new EcommerceProject.DAL.CategoryDAL().GetAll();
+                                        if (categories.Any())
+                                        {
+                                    <ul class="navbar-nav categ-nav">
+                                        @foreach (var item in categories)
+                                        {
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="index.html">
+                                                    <i class="fas fa-arrow-right categ-ico"></i> @item.Name
+                                                </a>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                        }
+                                    }
+
+
+                                </div>
+                            </nav>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-6">
+                        <div class="menu">
+                            <nav class="navbar navbar-expand-lg p-0 justify-content-end" data-target="#navbar" data-toggle="collapse">
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                        data-target="#navbar" aria-controls="navbarNav" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                    <span class="fas fa-bars"></span>
+                                </button>
+                                <div class="collapse navbar-collapse justify-content-end" id="navbar">
+
+                                    <ul class="navbar-nav ">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="index.html" class="active">Home</a>
+                                        </li>
+                                        <li class="nav-item shop" id="shop">
+                                            <a class="nav-link" href="shop.html">shop</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="about.html">About us</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="contact.html">contact</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="faq.html">Faq</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div><!-- End second Header-->
+
+        </div>
+    </header>
+        @RenderBody()
+
+    <footer>
+        <div class="last-footer py-4">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-lg-3  col-6 py-3">
+                        <div class="about">
+                            <a href="./index.html">
+                                <img src="~/customs/img/logo.png" alt="" class="pb-3">
+                            </a>
+                            <ul class="list-group col-12 list-unstyled">
+                                @{
+                                    var contact = new EcommerceProject.DAL.ContactUsDAL().GetAll().FirstOrDefault();
+                                    if (contact != null)
+                                    {
+                                        <div class="row">
+                                            @if (!string.IsNullOrEmpty(contact.phone))
+                                            {
+                                                <li class="col-12 py-2">
+                                                    <div class="row">
+
+                                                        <i class="fas fa-phone-volume col-3 ico"></i>
+                                                        <span class="col-9">@contact.phone</span>
+                                                    </div>
+                                                </li>
+                                            }
+
+                                            <li class="col-12 py-2">
+                                                <div class="row">
+                                                    <i class="fas fa-envelope-open-text col-3 ico"></i>
+                                                    <span class="col-9">@contact.Email</span>
+                                                </div>
+
+                                            </li>
+                                            <li class="col-12 py-2">
+                                                <div class="row">
+                                                    <i class="fas fa-map-marker-alt col-3 ico"></i>
+                                                    <span class="col-9"> @contact.address</span>
+                                                </div>
+
+                                            </li>
+                                        </div>
+                                    }
+
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3  col-6 py-3">
+                        <div class="account">
+                            <h3 class="pb-3">MY ACCOUNT</h3>
+
+                            <ul class="list-group col-12 list-unstyled">
+                                <li class=""><a href="">Sitemap</a></li>
+                                <li class=""><a href="">Privacy Policy</a></li>
+                                <li class=""><a href="">Your Account</a></li>
+                                <li class=""><a href="">Adanced Search</a></li>
+                                <li class=""><a href="">Contact Us</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3  col-6 py-3">
+                        <div class="pay-ship">
+                            <h3 class="pb-3">PAYMENT & SHIPPING</h3>
+
+                            <ul class="list-group col-12 list-unstyled">
+                                <li class=""><a href="">Terms Of Use</a></li>
+                                <li class=""><a href="">Payment Method</a></li>
+                                <li class=""><a href="">Locations We Ship To</a></li>
+                                <li class=""><a href="">Shipping Guide</a></li>
+                                <li class=""><a href="">Estimated Delivery Time</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-6 py-3">
+                        <div class="customr">
+                            <h3 class="pb-3">CUSTOMER SERVICE</h3>
+
+                            <ul class="list-group col-12 list-unstyled">
+                                <li class=""><a href="">Shipping Policy</a></li>
+                                <li class=""><a href="">Compensation First</a></li>
+                                <li class=""><a href="">My Account</a></li>
+                                <li class=""><a href="">Return Policy</a></li>
+                                <li class=""><a href="">Contact Us</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="~/customs/js/jQuery3.js"></script>
+    <script src="~/customs/css/bootstrap/js/bootstrap.min.js"></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/customs/js/main.js"></script>
+    <script src="~/customs/js/owl/owl.carousel.min.js"></script>
+    @*  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>*@
+    <script src="~/customs/webfont/fontawesome/js/all.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

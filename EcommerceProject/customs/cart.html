@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl/owl.theme.default.min.css">
+    <link rel="stylesheet" href="webfont/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/he-fo.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+
+
+<!-- Header -->
+
+<header class="w-100 ">
+    <div class="container">
+      <!-- First Header-->
+       <div class="first-header">
+          <div class="row">
+          <div class="col-md-3 col-12">
+            <a href="index.html" class="logo text-center">
+                <img src="./img/logo.png" alt="">
+            </a>
+          </div>
+          <div class="col-md-6 col-12">
+           <div class="search-bar">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-search aa"></i></span>
+                    </div>
+                    
+                    <input type="text" class="form-control" placeholder="Search ...">
+                    
+                    <div class="input-group-append">
+                        <button class="input-group-text">Search</button>
+                    </div>
+                </div>
+           </div>
+          </div>
+          
+          <div class="col-md-3 col-12">
+           <div class="user-icons mt-2">
+               <div class="row text-center">
+                  <div class="col-4">
+                   <div class="wish-list" id="wish-list">
+                       <i class="far fa-heart ico" ></i>
+                       <span class="badge badge-danger">2</span>
+                   </div>
+                  </div>
+                  
+                  <div class="col-4">
+                   <div class="cart" id="cart">
+                    <i class="fas fa-shopping-cart ico"></i>
+                       <span class="badge badge-danger">1</span>
+                   </div>
+                  </div>
+                  
+                  <div class="col-4">
+                   <div class="user" id="user">
+                    <i class="far fa-user ico" ></i>
+                   </div>
+                  </div>
+               </div>
+               
+               
+           </div>
+          </div>
+          
+          
+          <!-- Cart items -->
+          <div class="cart-items col-4 px-5" id="cart-items">
+              <h1>Test</h1>
+          </div><!-- End Cart items -->
+          
+          
+          
+          
+          <!-- Wish List -->
+          <div class="wish-list-items col-4 px-5" id="wish-list-items">
+              <h1>Test</h1>
+              <a href="./wishlist.html">Show More</a>
+          </div><!-- End Wish List -->
+          
+          
+          
+          
+          <!-- Login And register tabs -->
+          
+          <div class="user-tabs py-3 col-4" id="log-regi">
+           <!-- tabs -->
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#register">register</a>
+              </li>
+
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+              <div class="tab-pane container active" id="login">
+                <!-- Login Tab -->
+                  <div class="login">
+                    <div class="form-group">
+                      <label class="p-0">Email address</label>
+                      <input type="email" class="form-control" id="lo-email" autocomplete="off">
+                      <i class="fas fa-at ico"></i>
+                      <p class="m-0 text-danger d-none lo-email"> Pleas Enter Your Email.</p>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="p-0">Password</label>
+                      <input type="password" class="form-control" id="lo-pass">
+                      <i class="fas fa-unlock-alt ico"></i>
+                      <p class="m-0 text-danger d-none lo-pass"> Pleas Enter Your password.</p>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="remember" style="
+                      padding: 10px 25px">
+                      <label class="custom-control-label" for="remember">Remember Me</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-4 rounded-0">Login</button>
+                    </div>
+                  
+              </div>
+              <!-- register -->
+              <div class="tab-pane container fade" id="register">
+                  <!-- Login Tab -->
+                  <div class="register">
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <input type="text" id="name" class="form-control" autocomplete="off">
+                        <i class="far fa-user ico"></i>
+                        <p class="m-0 text-danger d-none name"> Pleas Enter Your Name.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="email" id="email" class="form-control" autocomplete="off">
+                        <i class="fas fa-at ico"></i>
+                        <p class="m-0 text-danger d-none email"> Pleas Enter Your Email.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" id="pass" class="form-control">
+                        <i class="fas fa-unlock ico"></i>
+                        <p class="m-0 text-danger d-none pass"> Pleas Enter Your Password.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Re-Password</label>
+                        <input type="password" id="re-pass" class="form-control">
+                        <i id="ico" class="fas fa-undo ico"></i>
+                        <p class="m-0 text-danger d-none re-pass"> This Not Equal Password.</p>
+                    </div>
+                    <div class="m-or-f">
+                        <div class="custom-control custom-radio custom-control-inline male">
+                            <input type="radio" class="custom-control-input" id="maleRadio" name="radio">
+                            <label class="custom-control-label" for="maleRadio">Male</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline female">
+                            <input type="radio" class="custom-control-input" id="femaleRadio" name="radio" value="Male">
+                            <label class="custom-control-label" for="femaleRadio">Female</label>
+                        </div>
+                        <button type="button" class="btn btn-danger mt-4 d-block rounded-0">Sign Up</button>
+
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>  <!-- End Login And Register Tab-->    
+    </div><!-- End First Header Row-->
+</div><!-- End First Header-->
+      
+       <hr>
+       
+<!-- Second Header-->
+       <div class="second-header">
+  <div class="row">
+
+  <div class="col-lg-7 col-6">
+   <div class="category-nav">
+            
+   <nav class="navbar navbar-expand-lg p-0 " data-toggle="collapse"
+         data-target="#category">
+       
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+         data-target="#category" aria-controls="navbarNav" aria-expanded="false"
+         aria-label="Toggle navigation">
+        <span class="fas fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-start" id="category">
+
+        <ul class="navbar-nav categ-nav">
+           <li class="nav-item">
+               <a class="nav-link" href="index.html" class="active">
+               <i class="fas fa-laptop categ-ico"></i> Labtop
+               </a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="">
+               <i class="fas fa-mobile-alt categ-ico"></i> Smart phone
+               </a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="">
+               <i class="fas fa-camera-retro categ-ico"></i> camera
+               </a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="">
+               <i class="far fa-keyboard categ-ico"></i> accessories
+               </a>
+           </li>
+
+       </ul>
+       
+       </div>
+    </nav>
+
+    </div>
+   </div>
+
+  <div class="col-lg-5 col-6">
+  <div class="menu">
+   <nav class="navbar navbar-expand-lg p-0 justify-content-end" data-target="#navbar" data-toggle="collapse">
+       
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+     data-target="#navbar" aria-controls="navbarNav" aria-expanded="false"
+     aria-label="Toggle navigation">
+    <span class="fas fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbar">
+       
+        <ul class="navbar-nav ">
+           <li class="nav-item">
+               <a class="nav-link" href="index.html">Home</a>
+           </li>
+           <li class="nav-item shop"  id="shop">
+               <a class="nav-link " href="shop.html">shop</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="about.html">About us</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="contact.html">contact</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="faq.html">Faq</a>
+           </li>
+       </ul>
+       
+    </div>
+   </nav>
+   </div>
+  </div>
+
+ 
+ </div>       
+</div><!-- End second Header-->
+   
+   </div>
+</header>
+
+<!-- start page baner section  -->
+<section class="page-baner">
+    <div class="container">
+        <div class="page-baner-content text-center">
+            <h5>My Cart</h5>
+            <div class="baner-link">
+                <span ><a href="">Home / </a></span>
+                <span ><a href="">Cart</a></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end page baner section  -->
+
+<section class="cart">
+    <div class="container">
+
+        <div class="cart-prod ">
+            <ul class="list-group list-group-horizontal">
+                <div class="row w-100">
+                <div class="col-md-2 col-4 p-0">
+                    <li class="list-group-item"><img src="./img/wishlist/1.jpg" alt="" class="w-100"></li>
+                </div>
+                <div class="col-md-4 col-8 p-0">
+                    <li class="list-group-item">
+                        <div class="prod-details text-center mt-2 pt-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Ultra Wireless S50 Headphones S50 with Bluetooth</h5>
+                                </div>
+                                <div class="col-12 pt-2 text-center">
+                                    <p class="m-0">Price:  $<span class="price">2000</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                <div class="col-md-2 col-4 pt-md-5">
+                    <li class="list-group-item">
+                        <div class="quant">
+                            <input id="jq-quant" class="jq-quant form-control h-auto px-2 p-0 shadow-none" type="text" value="1">
+                            <div class="qunt-action">
+                                <span id="plus">+</span>
+                                <span id="sub">-</span>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+
+                <div class="col-md-2 col-4 pt-md-5 prod-details">
+                    <li class="list-group-item">
+                        <p class="m-0">TotalPrice: $<span id="total-price">2000</span></p>
+                    </li>
+                </div>
+
+                <div class="col-md-2 col-4 p-0">
+                    <li class="list-group-item">
+                        <div class="prod-icons text-center pt-md-5">
+                            <div class="row">
+                            <div class="col-6  res-ico">
+                                <i class="fas fa-shopping-cart tab-icon"></i>
+                            </div>
+                            <div class="col-6  res-ico">
+                                <i class="far fa-trash-alt tab-icon"></i>
+                            </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+               
+                </div>
+            </ul>
+
+            <ul class="list-group list-group-horizontal">
+                <div class="row w-100">
+                <div class="col-md-2 col-4 p-0">
+                    <li class="list-group-item"><img src="./img/wishlist/1.jpg" alt="" class="w-100"></li>
+                </div>
+                <div class="col-md-4 col-8 p-0">
+                    <li class="list-group-item">
+                        <div class="prod-details text-center mt-2 pt-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Ultra Wireless S50 Headphones S50 with Bluetooth</h5>
+                                </div>
+                                <div class="col-12 pt-2 text-center">
+                                    <p class="m-0">Price:  $<span class="price">2000</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                <div class="col-md-2 col-4 pt-md-5">
+                    <li class="list-group-item">
+                        <div class="quant">
+                            <input id="jq-quant" class="jq-quant form-control h-auto px-2 p-0 shadow-none" type="text" value="1">
+                            <div class="qunt-action">
+                                <span id="plus">+</span>
+                                <span id="sub">-</span>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+
+                <div class="col-md-2 col-4 pt-md-5 prod-details">
+                    <li class="list-group-item">
+                        <p class="m-0">TotalPrice: $<span id="total-price">2000</span></p>
+                    </li>
+                </div>
+
+                <div class="col-md-2 col-4 p-0">
+                    <li class="list-group-item">
+                        <div class="prod-icons text-center pt-md-5">
+                            <div class="row">
+                            <div class="col-6  res-ico">
+                                <i class="fas fa-shopping-cart tab-icon"></i>
+                            </div>
+                            <div class="col-6  res-ico">
+                                <i class="far fa-trash-alt tab-icon"></i>
+                            </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+               
+                </div>
+            </ul>
+
+            <ul class="list-group list-group-horizontal">
+                <div class="row w-100">
+                <div class="col-md-2 col-4 p-0">
+                    <li class="list-group-item"><img src="./img/wishlist/1.jpg" alt="" class="w-100"></li>
+                </div>
+                <div class="col-md-4 col-8 p-0">
+                    <li class="list-group-item">
+                        <div class="prod-details text-center mt-2 pt-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Ultra Wireless S50 Headphones S50 with Bluetooth</h5>
+                                </div>
+                                <div class="col-12 pt-2 text-center">
+                                    <p class="m-0">Price:  $<span class="price">2000</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                <div class="col-md-2 col-4 pt-md-5">
+                    <li class="list-group-item">
+                        <div class="quant">
+                            <input id="jq-quant" class="jq-quant form-control h-auto px-2 p-0 shadow-none" type="text" value="1">
+                            <div class="qunt-action">
+                                <span id="plus">+</span>
+                                <span id="sub">-</span>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+
+                <div class="col-md-2 col-4 pt-md-5 prod-details">
+                    <li class="list-group-item">
+                        <p class="m-0">TotalPrice: $<span id="total-price">2000</span></p>
+                    </li>
+                </div>
+
+                <div class="col-md-2 col-4 p-0">
+                    <li class="list-group-item">
+                        <div class="prod-icons text-center pt-md-5">
+                            <div class="row">
+                            <div class="col-6  res-ico">
+                                <i class="fas fa-shopping-cart tab-icon"></i>
+                            </div>
+                            <div class="col-6  res-ico">
+                                <i class="far fa-trash-alt tab-icon"></i>
+                            </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+               
+                </div>
+            </ul>
+
+            <ul class="list-group list-group-horizontal">
+                <div class="row w-100">
+                <div class="col-md-2 col-4 p-0">
+                    <li class="list-group-item"><img src="./img/wishlist/1.jpg" alt="" class="w-100"></li>
+                </div>
+                <div class="col-md-4 col-8 p-0">
+                    <li class="list-group-item">
+                        <div class="prod-details text-center mt-2 pt-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5>Ultra Wireless S50 Headphones S50 with Bluetooth</h5>
+                                </div>
+                                <div class="col-12 pt-2 text-center">
+                                    <p class="m-0">Price:  $<span class="price">2000</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                <div class="col-md-2 col-4 pt-md-5">
+                    <li class="list-group-item">
+                        <div class="quant">
+                            <input id="jq-quant" class="jq-quant form-control h-auto px-2 p-0 shadow-none" type="text" value="1">
+                            <div class="qunt-action">
+                                <span id="plus">+</span>
+                                <span id="sub">-</span>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+
+                <div class="col-md-2 col-4 pt-md-5 prod-details">
+                    <li class="list-group-item">
+                        <p class="m-0">TotalPrice: $<span id="total-price">2000</span></p>
+                    </li>
+                </div>
+
+                <div class="col-md-2 col-4 p-0">
+                    <li class="list-group-item">
+                        <div class="prod-icons text-center pt-md-5">
+                            <div class="row">
+                            <div class="col-6  res-ico">
+                                <i class="fas fa-shopping-cart tab-icon"></i>
+                            </div>
+                            <div class="col-6  res-ico">
+                                <i class="far fa-trash-alt tab-icon"></i>
+                            </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+               
+                </div>
+            </ul>
+        </div>
+
+
+        <!-- <div class="table-responsive-sm">
+        <table class="table  table-bordered text-center">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th colspan="2">Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+
+              <tr>
+                <td class="pt-5" >1</td>
+                <td><img src="./img/wishlist/2.jpg" alt=""></td>
+                <td class="pt-5">Ultra Wireless S50 Headphones S50 with Bluetooth</td>
+                <td id="price" class="pt-5 price">$210.00</td>
+                <td class="pt-5">
+                    <div class="quant">
+                        <input id="jq-quant" class="jq-quant form-control h-auto px-2 p-0 shadow-none" type="text" value="1">
+                        <div class="qunt-action">
+                            <span id="plus">+</span>
+                            <span id="sub">-</span>
+                        </div>
+                    </div>
+                </td>
+                <td id="total" class="pt-5 total">$2000.00</td>
+                <td class="pt-5">
+                    <div class=" tab-action del">
+                        <i class="far fa-trash-alt tab-icon"></i>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                  <td colspan="5" class="total-price">
+                    <span>Total Price : </span>
+                    <span class="">$2,540</span>
+                  </td>
+                  <td colspan="4" class="go-checkout">
+                    <a class="px-3 py-2" href="">To Checkout</a>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+          <div class="proceed py-4">
+              <div class="row">
+                  <div class="col-6">
+                      <div class="coupon">
+                        <form class="form-inline">
+                        <input type="text" class="form-control shadow-none" placeholder="are u have coupon" id="coupon">
+                        <button>Enter Coupon</button>
+                        </form>
+                      </div>
+                  </div> 
+                   <div class="col-6 ">
+                      <div class="go-checkout pt-2">
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <span>Total Price : </span>
+                                <span class="total-price">$2,540</span>
+                            </div>
+                            <div class="col-6">
+                                <a class="px-5 py-3" href="">To Checkout</a>
+                            </div>
+                            
+                        
+                        </div>
+                      </div>
+                  </div> 
+              </div>
+          </div>  -->
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+
+<footer>
+     
+    <!--brands-->
+    <div class="brands">
+        <div class="container">
+           <!--slider img brands by owl carousel-->
+            <div class="owl-carousel owl-theme brand">
+                <div class="item"><img src="img/Brands/brand1.png" alt=""></div>
+                <div class="item"><img src="img/Brands/brand2.png" alt=""></div>
+                <div class="item"><img src="img/Brands/brand3.png" alt=""></div>
+                <div class="item"><img src="img/Brands/brand4.png" alt=""></div>
+                <div class="item"><img src="img/Brands/brand5.png" alt=""></div>
+                <div class="item"><img src="img/Brands/brand6.png" alt=""></div>
+                <div class="item"><img src="img/Brands/brand7.png" alt=""></div>
+                <div class="item"><img src="img/Brands/brand8.png" alt=""></div>
+                <div class="item"><img src="img/Brands/brand9.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+     
+     
+    <!--services-->
+    <div class="services py-3">
+         <div class="container">
+             <div class="row">
+                 <div class="col-md-3 col-6">
+                     <div class="serv px-2">
+                         <div class="row">
+                             <div class="col-3">
+                                 <div class="icon-serv">
+                                     <i class="fas fa-shipping-fast"></i>
+                                 </div>
+                             </div>
+                             <div class="col-9">
+                                <div class="content-serv">
+                                    <h6>FREE SHIPING</h6>
+                                    <p>Orders over $100</p>
+                                </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 
+                 <div class="col-md-3 col-6">
+                     <div class="serv px-2">
+                         <div class="row">
+                             <div class="col-3">
+                                 <div class="icon-serv">
+                                     <i class="fas fa-undo"></i>
+                                 </div>
+                             </div>
+                             <div class="col-9">
+                                <div class="content-serv">
+                                    <h6>FREE RETURN</h6>
+                                    <p>Within 30 days returns</p>
+                                </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 
+                 <div class="col-md-3 col-6">
+                     <div class="serv px-2">
+                         <div class="row">
+                             <div class="col-3">
+                                 <div class="icon-serv">
+                                     <i class="fas fa-credit-card"></i>
+                                 </div>
+                             </div>
+                             <div class="col-9">
+                                <div class="content-serv">
+                                    <h6>SUCURE PAYMENT</h6>
+                                    <p>100% secure payment</p>
+                                </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 
+                 <div class="col-md-3 col-6">
+                     <div class="serv px-2">
+                         <div class="row">
+                             <div class="col-3">
+                                 <div class="icon-serv">
+                                     <i class="fas fa-hand-holding-usd"></i>
+                                 </div>
+                             </div>
+                             <div class="col-9">
+                                <div class="content-serv">
+                                    <h6>BEST PREICE</h6>
+                                    <p>Guaranteed price</p>
+                                </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div> 
+     
+     
+    <!--newsletter-->
+    <div class="newsletter py-2 ">
+        <div class="container">
+         <div class="row">
+           <div class="col-lg-6 col-12 text-center">
+                <div class="news-content ">
+                    <h4 class="m-0">GET UPDATE FROM <span>ANYWHERE</span></h4>
+                    <p class="m-0 ml-5">$20 coupon for first shopping.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="news-subscrib mt-2">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-paper-plane"></i></span>
+                        </div>
+
+                        <input type="text" class="form-control" placeholder="Subscribe ...">
+
+                        <div class="input-group-append">
+                            <button class="input-group-text">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+      
+    <!--last-footer-->
+    <div class="last-footer py-4">
+       <div class="container">
+           <div class="row ">
+               <div class="col-lg-3  col-6 py-3">
+                   <div class="about">
+                       <h3 class="logo pb-2">ASM LOGO <span>.</span></h3>
+                       <ul class="list-group col-12 list-unstyled">
+                          <div class="row">
+                           <li class="col-12 py-2">
+                              <div class="row">
+                               <i class="fas fa-phone-volume col-3 ico"></i>
+                               <span class="col-9">+201012895020</span>
+                               </div>
+                           </li>
+                           <li class="col-12 py-2">
+                              <div class="row">
+                               <i class="fas fa-envelope-open-text col-3 ico"></i>
+                               <span class="col-9">asmofficial@gmail.com</span>
+                               </div>
+                               
+                           </li>
+                           <li class="col-12 py-2">
+                              <div class="row">
+                               <i class="fas fa-map-marker-alt col-3 ico"></i>
+                               <span class="col-9"> ShebinElkom 40 Parice Sreet 133/2</span>
+                               </div>
+                               
+                           </li>
+                           </div>
+                       </ul>
+                   </div>
+               </div>
+               
+               <div class="col-lg-3  col-6 py-3">
+                   <div class="account">
+                       <h3 class="pb-3">MY ACCOUNT</h3>
+                      
+                       <ul class="list-group col-12 list-unstyled">
+                           <li class=""><a href="">Sitemap</a></li>
+                           <li class=""><a href="">Privacy Policy</a></li>
+                           <li class=""><a href="">Your Account</a></li>
+                           <li class=""><a href="">Adanced Search</a></li>
+                           <li class=""><a href="">Contact Us</a></li>
+                       </ul>
+                       
+                   </div>
+               </div>
+               
+               <div class="col-lg-3  col-6 py-3">
+                   <div class="pay-ship">
+                       <h3 class="pb-3">PAYMENT & SHIPPING</h3>
+                      
+                       <ul class="list-group col-12 list-unstyled">
+                           <li class=""><a href="">Terms Of Use</a></li>
+                           <li class=""><a href="">Payment Method</a></li>
+                           <li class=""><a href="">Locations We Ship To</a></li>
+                           <li class=""><a href="">Shipping Guide</a></li>
+                           <li class=""><a href="">Estimated Delivery Time</a></li>
+                       </ul>
+                       
+                   </div>
+               </div>
+               
+               <div class="col-lg-3 col-6 py-3">
+                   <div class="customr">
+                       <h3 class="pb-3">CUSTOMER SERVICE</h3>
+                      
+                       <ul class="list-group col-12 list-unstyled">
+                           <li class=""><a href="">Shipping Policy</a></li>
+                           <li class=""><a href="">Compensation First</a></li>
+                           <li class=""><a href="">My Account</a></li>
+                           <li class=""><a href="">Return Policy</a></li>
+                           <li class=""><a href="">Contact Us</a></li>
+                       </ul>
+                       
+                   </div>
+               </div>
+           </div>
+       </div>
+     </div>
+     
+ </footer>
+
+
+
+
+
+    <script src="js/jQuery3.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/owl/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+    <script src="css/bootstrap/js/bootstrap.min.js"></script>
+    <script src="webfont/fontawesome/js/all.min.js"></script>
+</body>
+</html>

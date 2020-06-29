@@ -1,0 +1,46 @@
+﻿@model List<EcommerceProject.Models.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="alert"></div>
+<div class="row" id="categoryfrom">
+    @Html.Action("AddCategory")
+</div>
+<div id="CategroyDetails">
+    @Html.Action("CategroyDetails")
+</div>
+<script>
+    function onsuccess(data) {
+        if (data.done) {
+            LoadData();
+            Clear();
+
+        }
+        else {
+            alert("Errorr");
+        }
+
+    }
+    function OnFailure() {
+        toastr.error("Errror");
+    }
+    function Clear() {
+        $("#form0")[0].reset();
+    }
+    function LoadData() {
+        $.ajax({
+            url: '/Admin/Categroy/CategroyDetails',
+            type: 'Get'
+        }).done(function (data) {
+            $('#CategroyDetails').html(data);
+
+        }).fail(function (data) {
+            $('.alert').html('Erorr In Save');
+
+        });
+    }
+
+</script>

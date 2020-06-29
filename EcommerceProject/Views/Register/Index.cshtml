@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var user = (EcommerceProject.Models.User) ViewBag.User;
+
+}
+
+<h2>Index</h2>
+<div class="alert">
+
+</div>
+@if (user != null)
+{
+    <div class="alert alert-warning">
+        <label>You are already login</label>
+    </div>
+}
+else
+{
+    <div>
+        @Html.Action("Register")
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        $('#confirmPassword').change(function () {
+            confirmPassword();
+        })
+    });
+
+    function onSuccess(data) {
+        var message;
+        if (data.done) {
+            message = '<div class="alert alert-success">' + data.message + '</div > ';
+
+            $('.alert').html(message)
+            $("#form0")[0].reset();
+        }
+        else {
+            message = '<div class="alert alert-success">' + data.message + '</div>';
+            $('.alert').html(message)
+        }
+    }
+    function onFailure(data) {
+        var message = '<div class="alert alert-success">' + data.message + '</div>';
+        $('.alert').html(message)
+    }
+
+
+    function confirmPassword() {
+        var password = $('#password').val();
+        var confirmPasswd = $('#confirmPassword').val();
+        var message = "Not matches";
+        if (password != confirmPasswd) {
+            $('#confirmationPassword').text(message)
+        }
+        else {
+            $('#confirmationPassword').text('')
+        }
+    }
+    $('#Email').change(function () {
+        checkEmail();
+    })
+    function checkEmail() {
+        $.ajax({
+            url: '/Register/EmailExists',
+            type: 'Get',
+            data: {
+                email: $('#Email').val()
+            }
+        }).done(function (data) {
+            if (data) {
+                $('#confirmationEmail').text('This email is used, try another email.')
+            }
+            else {
+                $('#confirmationEmail').text('')
+            }
+        }).fail(function (data) {
+
+        });
+    }
+
+
+</script>

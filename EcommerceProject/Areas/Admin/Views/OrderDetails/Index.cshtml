@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="alert"></div>
+<div class="row" id="OrderDetailsForm">
+    @Html.Action("AddOrderDetails")
+</div>
+<div id="orderDetails">
+    @Html.Action("OrderDetails")
+</div>
+<script>
+    function onsuccess(data) {
+        if (data.done) {
+            LoadData();
+            Clear();
+        }
+        else {
+            alert("Error");
+        }
+        function Clear() {
+            $("form0")[0].reset();
+        }
+        function LoadData() {
+            $.ajax({
+                url: '/Admin/OrderDetails/OrderDetails',
+                type: 'Get'
+            }).done(function (data) {
+                $('#orderDetails').html(data);
+            }).fail(function (data) {
+                $('.alert').html('Error in save')
+            });
+
+
+        }
+    }
+</script>
+
+
+

@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="row" id="ProductForm">
+    @Html.Action("AddProduct")
+</div>
+<div id="ProductDetails">
+    @Html.Action("ProductDetails")
+</div>
+<div class="modal" id="UploadImage">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Upload Image</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function onsuccess(data) {
+        if (data.done) {
+            LoadData();
+            Clear();
+            if (data.edit) {
+                Add();
+            }
+        }
+        else {
+            alert("Error");
+        }
+    }
+    var onFailure = function () {
+
+    }
+    
+    function LoadData() {
+        $.ajax({
+            url: "/Admin/Product/ProductDetails",
+            type: "Get"
+        }).done(function (data) {
+            $('#ProductDetails').html(data)
+        }).fail(function (data) {
+            $('.alert').html('error in save')
+        })
+    }
+    function Clear() {
+        $("#form0")[0].reset();
+    }
+    
+    function BindSubCat() {
+        $.ajax({
+            url: "/Product/GetSubCats",
+            method: "Get",
+            data: {
+                id: $('#CatFK').val()
+            }
+        }).done(function (data) {
+            var rows = "";
+            $.each(data, function (i, item) {
+                rows += '<option value = "' + item.ID + '">' + item.Name + '</option>'
+            })
+            $('#SubCatFK').html(rows)
+        }).fail(function (data) {
+            
+        });
+    }
+
+    function uploadImage(id) {
+        $.ajax({
+            url: '/Admin/product/uploadImage',
+            method: 'Get',
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+        $('#UploadImage .modal-body').html(data);
+        $("#UploadImage").modal('show');
+        }).fail(function (data) {
+
+        });
+    }
+
+    
+</script>

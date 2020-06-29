@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="20c952ebefbe4c139cefd4f98696c495" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="EcommerceProjectModel.AboutUs" Width="1.5" PointX="5.25" PointY="21.25" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.Brand" Width="1.5" PointX="5.25" PointY="24.5" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.Category" Width="1.5" PointX="5.25" PointY="17.875" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.Color" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.ContactMesaage" Width="1.5" PointX="5.25" PointY="31.375" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.ContactUs" Width="1.5" PointX="5.25" PointY="27.875" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.Order" Width="1.5" PointX="7.5" PointY="14.5" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.OrderDetails" Width="1.5" PointX="12" PointY="16.875" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.Product" Width="1.5" PointX="9.75" PointY="18.75" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.ProductColor" Width="1.5" PointX="12" PointY="13.25" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.Role" Width="1.5" PointX="0.75" PointY="17.625" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.SubCategory" Width="1.5" PointX="7.5" PointY="19" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.User" Width="1.5" PointX="3" PointY="14.375" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.UserAddress" Width="1.5" PointX="5.25" PointY="10" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_AboutUs_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_AboutUs_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Brand_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Brand_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Product_Brand" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Category_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Category_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Product_Category" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_SubCategory_Category" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Color_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Color_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_ProductColor_Color" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_ContactMesaage_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_ContactMesaage_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_ContactUs_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_ContactUs_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Order_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Order_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Order_User2" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Order_UserAddress" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_OrderDetails_Order" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_OrderDetails_Product" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_OrderDetails_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_OrderDetails_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Product_SubCategory" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Product_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_Product_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_ProductColor_Product" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_ProductColor_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_ProductColor_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_User_Role" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_SubCategory_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_SubCategory_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_User_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_User_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_UserAddress_User" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_UserAddress_User1" />
+        <AssociationConnector Association="EcommerceProjectModel.FK_UserAddress_User2" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

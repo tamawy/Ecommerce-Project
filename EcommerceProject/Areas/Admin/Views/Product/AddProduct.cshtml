@@ -1,0 +1,103 @@
+﻿@model EcommerceProject.VM.ProductVM
+@{
+    string FormName = ViewBag.FormName;
+}
+
+<div>
+    @using (Ajax.BeginForm(FormName,
+    new AjaxOptions { OnSuccess = "onsuccess", OnFailure = "onFailure" }))
+    {
+
+        if (FormName == "EditProduct")
+        {
+            @Html.HiddenFor(z => z.ID)
+            @Html.HiddenFor(z => z.CreatedBy)
+            @Html.HiddenFor(z => z.CreationDate)
+
+        }
+        <div class="form-group col-md-4 col-sm-4 col-xs-12">
+            <div>
+                @Html.LabelFor(z => z.Name, new { @class = "control-label" })
+                @Html.TextBoxFor(z => z.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(z => z.Name)
+            </div>
+
+            <div>
+                @Html.LabelFor(z => z.Price, new { @class = "control-label" })
+                @Html.TextBoxFor(z => z.Price, new { @class = "form-control" })
+                @Html.ValidationMessageFor(z => z.Price)
+            </div>
+
+            <div>
+                @Html.LabelFor(z => z.Decription, new { @class = "control-label" })
+                @Html.TextAreaFor(z => z.Decription, new { @class = "form-control" })
+                @Html.ValidationMessageFor(z => z.Decription)
+            </div>
+
+            <div>
+                <label>Category</label>
+                @Html.DropDownListFor(z => z.CatFK,
+                     new SelectList(new EcommerceProject.DAL.CategoryDAL().GetAll(),
+                     "ID", "Name"),
+                     new { @class = "form-control" })
+            </div>
+
+            
+                <div id="SubCatDiv">
+                    <label>Subcategory</label>
+                    <select id="SubCatFK" name="SubCatFK" class="form-control">
+                    </select>
+
+                </div>
+            <label>Brand</label>
+            @Html.DropDownListFor(z => z.BrandFK,
+           new SelectList
+           (new EcommerceProject.DAL.BrandDAL().GetAll(), "ID", "Name"),
+           new { @class = "form-control" }
+           )
+        </div>
+
+        if (FormName == "EditProduct")
+        {
+            @Html.HiddenFor(z => z.Image)
+            @Html.HiddenFor(z => z.CreatedBy)
+            @Html.HiddenFor(z => z.CreationDate)
+            <button class="btn btn-success">Edit</button>
+        }
+        else if (FormName == "PostProduct")
+        {
+            <button type="submit" class="btn btn-success">Save</button>
+            <button type="reset" class="btn btn-danger">Clear</button>
+        }
+        else if(FormName == "DetailsProduct")
+        {
+            <div>
+                @Html.Label("Created by")
+                @Html.TextBoxFor(z=> z.UserCreated, 
+               new { @class = "form-control"})
+
+                @Html.LabelFor(z=> z.CreationDate)
+                @Html.TextBoxFor(z=> z.CreationDate, 
+               new { @class = "form-control"})
+
+                @Html.LabelFor(z=> z.UpdatedBy)
+                @Html.TextBoxFor(z=> z.UserUpdated, 
+               new { @class = "form-control"})
+                
+                @Html.LabelFor(z=> z.UpdatedDate)
+                @Html.TextBoxFor(z=> z.UpdatedDate, 
+               new { @class = "form-control"})
+            </div>
+            <div>
+                <br />
+                <img src="@Model.Image" width="250px" />
+                <br />
+            </div>
+        }
+    }
+</div>
+<script>
+    $('#CatFK').change(function () {
+        BindSubCat();
+    })
+</script>

@@ -1,0 +1,51 @@
+﻿@model EcommerceProject.VM.OrderDetailsVM
+@{
+    string FormName = ViewBag.FormName;
+
+}
+<div class="container">
+    <div class="form-group">
+        @using (Ajax.BeginForm(FormName,
+                        new AjaxOptions { OnSuccess = "onsuccess", OnFailure = "onFailure" }))
+        {
+            if (FormName == "EditOrderDetails")
+            {
+                @Html.HiddenFor(z => z.ID)
+                @Html.HiddenFor(z => z.CreatedBy)
+                @Html.HiddenFor(z => z.CreationDate)
+                @Html.HiddenFor(z => z.UpdatedBy)
+                @Html.HiddenFor(z => z.UpdatedDate)
+            }
+
+            <div class="form-group">
+                <label class="control-label"> Price</label>
+                @Html.TextBoxFor(z => z.Price, new { @class = "form-control" })
+                @Html.ValidationMessageFor(z => z.Price)
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Quantity</label>
+                @Html.TextBoxFor(z => z.Quantity, new { @class = "form-control" })
+                @Html.ValidationMessageFor(z => z.Quantity)
+            </div>
+            <div class="form-group">
+                <label class="control-label">TotalPrice</label>
+                @Html.TextBoxFor(z => z.TotalPrice, new { @class = "form-control" })
+                @Html.ValidationMessageFor(z => z.TotalPrice)
+            </div>
+            <div class="form-group">
+                @if (FormName == "EditOrderDetails")
+                {
+                    <button type="submit" class="btn btn-primary"> Edit</button>
+
+                }
+                else if (FormName == "PostOrderDetails")
+                {
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="reset" class="btn btn-danger"> Clear</button>
+
+                }
+            </div>
+        }
+    </div>
+</div>
+

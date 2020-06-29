@@ -1,0 +1,49 @@
+﻿@model List<EcommerceProject.Models.Product>
+    @if (Model.Any())
+    {
+
+
+<section class="baner">
+    <div class="container">
+        <div class="row">
+            <div class="owl-carousel owl-theme baner-slider">
+                @foreach (var item in Model)
+                {
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="baner-content pt-4">
+                                    <div class="baner-prodc-subname">
+                                        <h3 class="m-0">@item.Name</h3>
+                                        <p class="baner-prodc-name">@item.Category.Name</p>
+                                    </div>
+                                    <div class="baner-prodc-about">
+                                        <p>@item.Decription</p>
+                                    </div>
+                                    <div class="baner-prodc-price">
+                                        <span class="pr-2">@item.Price</span>
+                                    </div>
+                                    <div class="baner-btn py-4">
+                                        <a href="/Product/Details" class="p-2 px-4"> Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-5">
+                                <div class="baner-img">
+                                    <img src="@item.Image" alt="" class="img-fluid mx-auto d-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    }

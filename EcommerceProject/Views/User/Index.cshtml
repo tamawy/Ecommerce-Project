@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div id="alert">
+
+</div>
+
+<div id="userDetails">
+    @Html.Action("UserDetails")
+</div>
+<script>
+    function onSuccess(data) {
+        var message = "";
+        if (data.done) {
+            message = '<div class="alert alert-success">' + data.message + '</div>';
+            $('#alert').html(message)
+            getUserDetails();
+        }
+        else {
+            message = '<div class="alert alert-danger"> Error in edit : ' + data.message + '</div>';
+            $('#alert').html(message)
+            getUserDetails();
+        }
+    }
+    function onFailure(data) {
+            message = '<div class="alert alert-danger"> Error in edit </div>';
+            $('#alert').html(message)
+
+    }
+    function getUserDetails() {
+        $.ajax({
+            url: "/User/UserDetails",
+            method : "Get"
+        }).done(function (data) {
+            $('#userDetails').html(data)
+        }).fail(function (data) {
+            var message = '<div class="alert alert-danger"> Faild to load data </div>';
+            $('#userDetails').html()
+        });
+    }
+    function edit() {
+        $.ajax({
+            url: "/Register/Edit",
+            method: "Get"
+        }).done(function (data) {
+            $('#userDetails').html(data)
+        }).fail(function (data) {
+            var message = '<div class="alert alert-danger"> Faild to load edit form </div>';
+            $('#alert').html(message)
+        })
+    }
+    function Delete(id) {
+        $.ajax({
+            url: "/User/Delete",
+            method: "Post",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            message = '<div class="alert alert-success">' + data.message + '</div>';
+            $('#alert').html(message)
+            getUserDetails();
+        }).fail(function (data) {
+            var message = '<div class="alert alert-danger"> Faild to load data </div>';
+            $('#userDetails').html()
+            getUserDetails();
+        });
+    }
+</script>

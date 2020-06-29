@@ -1,0 +1,31 @@
+﻿@model EcommerceProject.Models.User
+@if (Model == null)
+{
+    <div class="alert alert-warning">
+        <label>You must login first</label>
+    </div>
+    <div>
+        <a href="/home/index" class="btn btn-success">Login</a>
+    </div>
+}
+else
+{
+    <div>
+        <label>Name : @Model.Name</label>
+    </div>
+    <div>
+        <label>Email : @Model.Email</label>
+    </div>
+    <div>
+        <label>Password : @Model.Password</label>
+    </div>
+    <div>
+        <label>Address : @Model.Address</label>
+    </div>
+    <div>
+        <label>Phone : @Model.Phone</label>
+    </div>
+    <div>
+        <button class="btn btn-success" onclick="edit()">Edit</button>
+    </div>
+}

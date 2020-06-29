@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="Alert">
+
+</div>
+<div id="Addform">
+    @Html.Action("form")
+</div>
+<div class="container" id="show">
+    @Html.Action("Show")
+</div>
+<script>
+    function onsuccess(data) {
+        if (data.done) {
+            Loading();
+            clear();
+        } else {
+            alert('Error');
+        }
+    }
+    function onfailure(data) {
+
+        alert("Fail");
+    }
+
+    function clear() {
+        $("#form0")[0].reset();
+    }
+    function Loading() {
+        $.ajax({
+            url: '/Admin/UserAddress/Show',
+            type: 'Get'
+        }).done(function (data) {
+            $('#show').html(data);
+        }).fail(function (data) {
+            $('#Alert').addClass("alert alert-danger").html('Error in saving data !!');
+        });
+    }
+
+</script>

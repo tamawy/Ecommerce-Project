@@ -1,0 +1,64 @@
+﻿@model EcommerceProject.VM.ContactMessageVM
+@{
+    string FormName = ViewBag.FormName;
+}
+<div class="container">
+
+    <div class="col-md-12">
+        @using (Ajax.BeginForm(FormName, new AjaxOptions { OnSuccess = "OnSuccess", OnFailure = "OnFailure" }))
+        {
+            if (FormName == "IsAnswered")
+            {
+                @Html.HiddenFor(z => z.Name)
+                @Html.HiddenFor(z => z.Email)
+                @Html.HiddenFor(z => z.Message)
+                @Html.HiddenFor(z => z.ID)
+                @Html.HiddenFor(z => z.CreatedBy)
+                @Html.HiddenFor(z => z.CreationDate)
+                @Html.HiddenFor(z => z.UpdatedBy)
+                @Html.HiddenFor(z => z.UpdatedDate)
+
+            }
+            <div class="form-group" id="form0">
+                @Html.LabelFor(z => z.Name)
+                @Html.TextBoxFor(z => z.Name, new { @class = "form-control", id = "is" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(z => z.Email)
+                @Html.TextBoxFor(z => z.Email, new { @class = "form-control", id = "is" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(z => z.Message)
+                @Html.TextBoxFor(z => z.Message, new { @class = "form-control", id = "is" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(z => z.CreatedBy)
+                @Html.TextBoxFor(z => z.CreatedBy, new { @class = "form-control", id = "is" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(z => z.CreationDate)
+                @Html.TextBoxFor(z => z.CreationDate, new { @class = "form-control", id = "is" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(z => z.UpdatedBy)
+                @Html.TextBoxFor(z => z.UpdatedBy, new { @class = "form-control", id = "is" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(z => z.UpdatedDate)
+                @Html.TextBoxFor(z => z.UpdatedDate, new { @class = "form-control", id = "is" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(z => z.IsAnswer)
+                @Html.CheckBoxFor(z => z.IsAnswer, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @if (FormName == "IsAnswered")
+                {
+                    <input type="submit" class="btn btn-success" value="Edit" />
+
+                }
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model List<EcommerceProject.Models.SubCategory>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Index</h2>
+<div class="alert"></div>
+<div class="row" id="subcategoryform">
+    @Html.Action("AddSubCategory")
+</div>
+<div class="row" id="subcategorydetils">
+    @Html.Action("SubCategroyDetails")
+</div>
+<script>
+    function onsuccess(data) {
+        if (data.done) {
+            LoadData();
+            Clear();
+        }
+        else {
+            alert(data.message);
+        }
+    }
+    function OnFailure() {
+        toastr.error("Errror");
+    }
+    function Clear() {
+        $("#form0")[0].reset();
+    }
+    function LoadData() {
+        console.log("inside load data");
+        $.ajax({
+            url: '/Admin/SubCategroy/SubCategroyDetails',
+            type: 'Get'
+        }).done(function (data) {
+            $('#subcategorydetils').html(data);
+
+        }).fail(function (data) {
+            $('.alert').html('Erorr In Save');
+
+        });
+    }
+</script>

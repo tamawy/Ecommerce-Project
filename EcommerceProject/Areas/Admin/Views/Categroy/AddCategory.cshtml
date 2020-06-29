@@ -1,0 +1,36 @@
+﻿@model EcommerceProject.VM.CategroyVM
+    @{ 
+        string FormName = ViewBag.FormName;
+
+    }
+    <div class="col-md-12">
+        @using (Ajax.BeginForm(FormName, new AjaxOptions { OnSuccess = "onsuccess", OnFailure = "OnFailure" }))
+        {
+            if (FormName == "EditCategory")
+            {
+                @Html.HiddenFor(z => z.ID)
+                @Html.HiddenFor(z => z.CreatedBy)
+                @Html.HiddenFor(z => z.CreationDate)
+
+
+
+            }
+            <div class="form-group col-md-4 col-xs-12">
+                <label class="control-label"> Catgroy Name</label>
+                @Html.TextBoxFor(z => z.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(z => z.Name)
+            </div>
+            if (FormName == "EditCategory")
+            {
+                <button type="submit" class=" btn btn-primary">Edite</button>
+            }
+            else if(FormName=="PostCategory")
+            {
+                <button type="submit" class=" btn btn-primary">Save</button>
+                <button type="reset" class=" btn btn-primary">Clear</button>
+
+            }
+
+
+        }
+    </div>

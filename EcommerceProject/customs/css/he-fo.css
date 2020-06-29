@@ -1,0 +1,560 @@
+
+
+
+
+
+
+/*************************** Header *********************************/
+/********** First Header *******/
+
+header{padding: 20px 0; background-color: #fff;}
+header .first-header{position: relative;}
+
+header .first-header .logo span{color: #ffc107;}
+/**** search bare *****/
+
+
+header .first-header .search-bar .input-group-prepend .input-group-text{background-color: #fff;}
+header .first-header .search-bar input{border-left: 0; }
+
+header .first-header .search-bar .form-control:focus {
+    border-color: var(--pop-color);
+    box-shadow:none;
+}
+
+
+header .first-header .search-bar button{
+    position: absolute;
+    right: 3px;
+    top: 4px;
+    background-color: var(--pop-color);
+    line-height: 1;
+    border-radius: 3px;
+    color: #fff;
+    z-index: 10;
+}
+/**** user icons *****/
+
+
+header .first-header .user-icons .ico{
+    font-size: 25px;
+     cursor: pointer;
+     color: #343a40;
+}
+
+header .first-header .user-icons span{
+    color: #fff;
+    background-color: var(--pop-color);
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: -8px;
+    left: 45px;
+    border: 2px solid #fff;
+    font-size: 10px;
+}
+header .show-more {
+    width: 100%;
+    background-color: var(--pop-color);
+    border: 1px solid var(--pop-color);
+    transition: .5s;
+}
+header .show-more:hover{
+    background-color: #fff;
+}
+header .show-more:hover a{color: var(--pop-color);}
+header .show-more a{
+    color: #fff;
+    font-family: jose;
+}
+/*********** cart-items **********************/
+header .first-header .cart-items{
+    max-height: 300px;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    right: 10%;
+    top: 90%;
+    overflow: auto;
+    overflow-x: hidden;
+    z-index: 11;
+    display: none;
+}
+.cart-items .categ,
+.wish-list-items .categ {
+    max-height: 80px;
+    border: 1px solid #eeeeee;
+    background-color: #fff;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.cart-items .categ .top-categ-content,
+.wish-list-items .categ .top-categ-content{position: relative;}
+
+.cart-items .categ .top-categ-content h5 a,
+.wish-list-items .categ .top-categ-content h5 a{
+    font-family: jose;
+    color: #515151;
+    font-size: 13px;
+    transition: color .5s;
+}
+.cart-items .categ .top-categ-content p span,
+.wish-list-items .categ .top-categ-content  p span{
+    font-family: tenor;
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--pop-color);
+}
+
+.cart-items .categ .top-categ-content .delete,
+.wish-list-items .categ .top-categ-content .delete{
+    position: absolute;
+    top: 0;
+    right: 1%;
+    background-color: var(--pop-color);
+    padding: 5px;
+    border-radius: 20px 0 0 20px;
+    display: none;
+}
+.cart-items .categ .top-categ-content .delete a,
+.wish-list-items .categ .top-categ-content .delete a{ color: #fff;}
+
+.cart-items .categ:hover .delete,
+.wish-list-items .categ:hover .delete{display: block;}
+
+
+
+
+
+
+/*********** wish-list-items **********************/
+header .first-header .wish-list-items{
+    max-height: 300px;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    right: 18%;
+    top: 90%;
+    overflow: auto;
+    overflow-x: hidden;
+    z-index: 11;
+    display: none;
+}
+
+
+
+
+
+
+/*********** user tabs **********************/
+
+header .first-header .user-tabs{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    z-index: 11;
+    right: 1%;
+    top: 90%;
+    border: 1px solid #ddd;
+}
+
+
+/*** login and register in user tabs ***/
+.login .form-control,
+.register .form-control{
+    border: 0;
+    border-bottom: 1px solid;
+    border-radius: 0;
+    font-size: 13px;
+}
+.login .form-control:focus,
+.register .form-control:focus,
+.login button {box-shadow: none;}
+
+.login label,
+.register label{
+    font-family: jose;
+    font-size: 12px;
+    color: #626262;
+}
+
+
+
+.login .form-group,
+.register .form-group{position: relative;}
+.login .form-group .ico,
+.register .form-group .ico{
+    position: absolute;
+    right: 0px;
+    top: 40px;
+    color: #626262;
+}
+.first-header .user-tabs .login p,
+.first-header .user-tabs .register p{font-size: 10px;}
+
+
+.login button,
+.register button{
+    background-color: var(--pop-color);
+    border: 1px solid var(--pop-color);
+    transition: all .5s;
+    width: 100px;
+    font-family: jose;
+}
+.login button:hover,
+.register button:hover{
+    background-color: #fff;
+    border: 1px solid var(--pop-color);
+    color: var(--pop-color);
+    box-shadow: 0px 0px 4px 1px rgba(0,123,255,.5);
+}
+
+
+/********************************************** second Header *******/
+header .second-header{position: relative;}
+
+header .second-header  ul li >a{
+    padding: 5px 13px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+    transition: color .5s ease-in-out;
+    font-family: pop;
+}
+header .second-header  ul li >a.active{color:var(--pop-color);}
+    
+header .second-header  ul li >a:hover{color: var(--pop-color);}
+
+header .second-header .category-nav ul li >a{
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+header .second-header .category-nav .categ-ico{color: var(--pop-color);}
+
+
+header .second-header .shop-category{
+    overflow: hidden;
+    position: absolute;
+    background-color: #ffffff;
+    right: 20%;
+    top: 85%;
+    border: 1px solid #ddd;
+    width: 120%;
+    display: none;
+    z-index: 111;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 123, 255, 0.28);
+}
+
+header .second-header .shop-category .categ div a{
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 100;
+    color: #999;
+    transition: all .3s ease-in-out;
+    font-family: pop;
+    cursor: pointer;
+}
+header .second-header .shop-category .categ div a:hover{
+    color: #7c9cfe;
+   letter-spacing: 1px;
+    font-weight: bold;
+}
+header .second-header .shop-category .categ div a:first-child,
+header .second-header .shop-category .categ div a:first-child:hover{
+    font-weight: bold;
+    color: #707070;
+    font-size: 11px;
+    letter-spacing:normal;
+}
+
+.second-header nav{position: relative;}
+
+
+
+
+/******************************Header Responsev*******************************************/
+
+/*********Small Scren**********/
+@media screen and (max-width: 600px) {
+    
+    header .first-header .logo {padding-bottom: 15px;}
+    
+    header .first-header .user-icons {padding-top: 15px;}
+    
+    /**/
+    
+    header .first-header .user-tabs,
+    header .first-header .cart-items,
+    header .first-header .wish-list-items{
+    right: 0%;
+    top: 100%;
+    max-width: 101%;
+    }
+    
+    header .first-header .user-icons span {left: 54%;}
+    
+    /**/
+    
+    .second-header nav .fa-bars{
+    font-size: 20px;
+    transform: translateY(-4px);
+    }
+    .second-header nav #navbar{
+        position: absolute;
+        right: 2%;
+        top: 25px;
+        width: 100%;
+        z-index: 150;
+        background-color: #ddd;
+        transition: all 0.5s;
+    }
+   
+
+    .second-header .category-nav{ display: none;}
+
+    .second-header nav ul{text-align: center;}
+    .second-header nav ul li{
+        letter-spacing: 3px;
+        padding: 5px 0;
+    }
+    
+    
+}
+
+/*********Mediam Scren*********/
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    
+    header .first-header .logo {padding-bottom: 15px;}
+    
+    header .first-header .user-icons {padding-top: 15px;}
+    
+    /**/
+    
+
+    header .first-header .user-tabs,
+    header .first-header .cart-items,
+    header .first-header .wish-list-items{
+    right: 0%;
+    top: 101%;
+    max-width: 100%;
+    }
+    
+    header .first-header .user-icons span {left: 54%;}
+    
+    /**/
+    .second-header nav .fa-bars{
+    font-size: 20px;
+    transform: translateY(-4px);
+    }
+    
+   
+    .second-header nav #navbar{
+        position: absolute;
+        right: 2%;
+        top: 25px;
+        width: 100%;
+        z-index: 150;
+        background-color: #ddd;
+        transition: all 0.5s;
+    }
+   
+
+    .second-header .category-nav{ display: none;}
+
+
+    .second-header nav ul{text-align: center;}
+    .second-header nav ul li{
+        letter-spacing: 3px;
+        padding: 5px 0;
+    }
+    
+    
+}
+
+/*********Large scren**********/
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    
+    header .first-header .logo {font-size: 25px;}
+    
+    /**/
+    
+    header .first-header .user-tabs,
+    header .first-header .cart-items,
+    header .first-header .wish-list-items{
+    right: 0%;
+    top: 103%;
+    max-width: 50%;
+    }
+    
+    header .first-header .user-icons span{left:61%;}
+    
+    /**/
+    
+    .second-header nav .fa-bars{
+    font-size: 20px;
+    transform: translateY(-4px);
+    }
+    .second-header nav #navbar{
+        position: absolute;
+        right: 2%;
+        top: 25px;
+        width: 100%;
+        z-index: 1500;
+        background-color: #ddd;
+        transition: all 0.5s;
+    }
+    .second-header .category-nav{ display: none;}
+
+    .second-header nav ul{text-align: center;}
+    .second-header nav ul li{padding: 5px 0;}
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*************************** Footer *********************************/
+
+
+
+
+footer{padding: 50px 0; position: relative;}
+
+
+/************** newsletter****************/
+
+footer .newsletter{
+    background-color:#7c9cfe26;
+    cursor: pointer;
+    z-index: 112;
+
+}
+
+
+
+
+footer .newsletter .news-content h4 span{
+    font-weight: bold;
+    color:  var(--pop-color);
+}
+
+footer .newsletter .news-content p{
+    font-family: unset;
+    color: #898989;
+    font-weight: 100;
+}
+
+footer .newsletter .news-subscrib{background-color: #fff;}
+footer .newsletter .news-subscrib input{border-left: 0; }
+footer .newsletter .news-subscrib .input-group-prepend .input-group-text{
+    border-radius: 0;
+    background-color: #fff;
+    color: var(--pop-color);
+}
+
+footer .newsletter .news-subscrib .form-control:focus {
+    border-color: var(--pop-color);
+    box-shadow:none;
+    
+}
+footer .newsletter .news-subscrib button{
+    position: absolute;
+    right: 3px;
+    top: 4px;
+    background-color: var(--pop-color);
+    line-height: 1;
+    border-radius: 3px;
+    color: #fff;
+    z-index: 10;
+}
+
+
+
+
+
+
+
+/*********** .last-footer *************/
+
+footer .last-footer{background-color: #fafafa;}
+footer .last-footer .about .logo{
+    font-size: 30px;
+    color: var(--pop-color);
+    font-family:'logo';
+}
+footer .last-footer .about .logo span{color: #ffc107;}
+footer .last-footer .about ul li .ico{color: #007bff8a;}
+
+footer .last-footer .about ul li span{
+    font-family: inherit;
+    font-weight: 200;
+    font-size: 13px;
+    padding: 0;
+}
+
+
+
+footer .last-footer .account ul li a,
+footer .last-footer .pay-ship ul li a,
+footer .last-footer .customr ul li a{
+    text-decoration: none;
+    color: #000;
+    font-family: inherit;
+    font-weight: 200;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: all .5s;
+}
+footer .last-footer .account ul li a:hover,
+footer .last-footer .pay-ship ul li a:hover,
+footer .last-footer .customr ul li a:hover{
+    color: var(--pop-color);
+    margin-left: 10px;
+}
+footer .last-footer .account ul li a::before,
+footer .last-footer .pay-ship ul li a::before,
+footer .last-footer .customr ul li a::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight:900;
+    content: '\f061';
+    padding-right: 10px;
+    color: #007bff8a;
+}
+footer .last-footer h3{
+   font-size: 18px;
+    font-family: pop;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,88 @@
+﻿@model List<EcommerceProject.Models.Category>
+<div class="container">
+    @if (Model.Any())
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+
+                        <td>
+                            <button class="btn btn-info" onclick="DetailsCategory(@item.ID)">Details </button>
+                            <button class="btn btn-danger" onclick="EditCategory(@item.ID)"> Edit</button>
+                            <button class="btn btn-danger" onclick="DeleteCategory(@item.ID)"> Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="alert alert-danger">No data found</p>
+    }
+</div>
+<script>
+    function DetailsCategory(id) {
+        $.ajax({
+            url: '/Admin/Categroy/DetailsCategory',
+            type: 'Get',
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $('#categoryfrom').html(data);
+            $('#form0 input').attr('disabled', true)
+
+
+        }).fail(function (data) {
+
+
+
+        });
+    }
+
+    function EditCategory(id) {
+        $.ajax({
+            url: '/Admin/Categroy/EditCategory',
+            type: 'Get',
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $('#categoryfrom').html(data);
+
+
+        }).fail(function (data) {
+
+
+
+        });
+    }
+
+    function DeleteCategory(id) {
+        $.ajax({
+            url: '/Admin/Categroy/DeleteCategory',
+            type: 'Get',
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            LoadData();
+
+        }).fail(function (data) {
+            $('.alert').html('Erorr In Delete');
+
+
+        });
+    }
+</script>

@@ -1,0 +1,29 @@
+﻿@model EcommerceProject.VM.UserAddressVM
+@{
+    string FormMethod = ViewBag.FormMethod;
+}
+<h2 class="container panel-heading">@FormMethod </h2>
+<div class="col-md-12">
+    @using (Ajax.BeginForm(FormMethod, new AjaxOptions { OnSuccess = "onsuccess", OnFailure = "onfailure" }))
+    {
+
+        <div class="container">
+            <div class="form-group col-md-5 col-sm-6 col-xs-10">
+                @Html.Label("Address")
+                @Html.TextBoxFor(z => z.Address, new { @class = "form-control" })
+                @Html.ValidationMessageFor(z => z.Address)
+            </div>
+
+            <div class="form-group col-md-5 col-sm-6 col-xs-10">
+                @Html.Label("Phone")
+                @Html.TextBoxFor(z => z.phone, new { @class = "form-control" })
+                @Html.ValidationMessageFor(z => z.phone)
+            </div>
+            <div class="form-group col-md-5 col-sm-6 col-xs-10">
+                @Html.Label("User that belongs ")
+                @Html.TextBoxFor(z => z.UserFK, new { @class = "form-control" })
+            </div>
+        </div>
+
+    }
+</div>

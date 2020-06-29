@@ -1,0 +1,36 @@
+﻿@model  List<EcommerceProject.Models.Order>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Order</h2>
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>OrderNumber</th>
+                    <th>OrderDate</th>
+                    <th>Total price</th>
+                    <th>UserEmail</th>
+                    <th> </th>
+
+                </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.OrderNumber</td>
+                        <td>@item.OrderDate</td>
+                        <td>@item.TotalPrice</td>
+                        <td>@item.User.Email</td>
+                        <td><a href="~/Admin/OrderDetails/Index/@item.ID " class="btn btn-primary">Details</a></td>
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

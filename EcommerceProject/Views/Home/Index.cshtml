@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+
+    var currentUser = (EcommerceProject.Models.User)Session["user"];
+
+}
+@Html.Action("Banner")
+<div id="alert">
+    
+</div>
+<div id="user">
+    
+</div>
+@if (currentUser == null)
+{
+    <div id="login">
+        @Html.Action("Login", "Register")
+    </div>
+}
+
+
+<script>
+    function onSuccess(response) {
+        if (response.done) {
+            console.log('Inside True');
+            var message = '<h1>'+response.name+'</h1>'
+            $('#user').html(message)
+            $('#login').html('')
+            $('#alert').html('');
+            $('#register').html('');
+        } else {
+            var m = '<div class="alert alert-danger">' + response.message + '</div>';
+            $('#alert').html(m)
+        }
+    }
+    function onFailure(response) {
+
+    }
+</script>

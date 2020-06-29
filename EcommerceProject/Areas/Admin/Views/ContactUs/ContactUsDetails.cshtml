@@ -1,0 +1,36 @@
+﻿@model List<EcommerceProject.Models.ContactUs>
+    <div class="container">
+        @if (Model.Any())
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>Email</td>
+                        <td>facebook</td>
+                        <td>phone</td>
+                        <td>Address</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Email</td>
+                            <td>@item.facebook</td>
+                            <td>@item.phone</td>
+                            <td>@item.address</td>
+                            <td>
+                                <a href="" class="btn btn-info">Details</a>
+                                <a href="" class="btn btn-primary">Edit</a>
+                                <a href="" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="alert alert-danger">No data found</p>
+        }
+    </div>
