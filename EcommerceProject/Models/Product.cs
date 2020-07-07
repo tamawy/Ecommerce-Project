@@ -33,6 +33,7 @@ namespace EcommerceProject.Models
         public Nullable<long> SubCatFK { get; set; }
         public long CatFK { get; set; }
         public long BrandFK { get; set; }
+        public bool IsBestSeller { get; set; }
     
         public virtual Brand Brand { get; set; }
         public virtual Category Category { get; set; }

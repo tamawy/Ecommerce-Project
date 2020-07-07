@@ -1,0 +1,139 @@
+﻿@model List<EcommerceProject.Models.Product>
+
+    <!--start prodacts section-->
+
+    <section class="home-prodacts">
+        <div class="container">
+            <div class="prodacts-tabs">
+                <div class="home-prodacts-title">
+                    <h5 class="m-0">Prodacts</h5>
+                </div>
+                <ul class="nav nav-tabs justify-content-end">
+                    <li class="nav-item active">
+                        <a class="nav-link active" data-toggle="tab" href="#featured">
+                            <i class="fas fa-luggage-cart"></i> Featured
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#best-seller">
+                            <i class="fab fa-gratipay"></i> Best Seller
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="tab-content py-5">
+                @foreach (var item in Model)
+                {
+                    if (item.IsBestSeller)
+                    {
+                        <div id="best-seller" class="tab-pane container ">
+                            <div class="best-seller owl-carousel owl-theme">
+
+                                <div class="item  p-0">
+                                    <figure class="prodact">
+                                        <div class="prodact-img">
+                                            <img src="@item.Image" alt="" class="img-fluid">
+                                        </div>
+                                        <figcaption class="p-2 py-3">
+                                            <div class="prodact-name">
+                                                <h5 class=" m-0">@item.Name</h5>
+                                            </div>
+                                            <!-- prodact-price -->
+                                            <div class="prodact-price">
+                                                <p class="m-0">$@item.Price</p>
+                                            </div>
+                                            <!-- prodact-rate -->
+                                            <div class="prodact-rate">
+
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+
+                                            </div>
+                                            <!-- prodact-action -->
+                                            <div class="prodact-action justify-content-end">
+                                                <span data-toggle="tooltip" title="Quick View">
+                                                    <i class="far fa-eye"></i>
+                                                </span>
+                                                <span data-toggle="tooltip" title="Add to WishList">
+                                                    <i class="far fa-heart"></i>
+                                                </span>
+                                                <span data-toggle="tooltip" title="Add To Cart">
+                                                    <i class="fas fa-shopping-cart ico"></i>
+                                                </span>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    }
+                    else
+                    {
+                        <div id="featured" class="tab-pane container active">
+
+                            <div class="featured owl-carousel owl-theme">
+                                <div class="item  p-0">
+                                    <figure class="prodact">
+                                        <div class="prodact-img">
+                                            <img src="@item.Image" alt="" class="img-fluid">
+                                        </div>
+                                        <figcaption class="p-2 py-3">
+                                            <div class="prodact-name">
+                                                <h5 class=" m-0">@item.Name</h5>
+                                            </div>
+                                            <!-- prodact-price -->
+                                            <div class="prodact-price">
+                                                <p class="m-0">$@item.Price</p>
+                                            </div>
+                                            <!-- prodact-rate -->
+                                            <div class="prodact-rate">
+
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+
+                                            </div>
+                                            <!-- prodact-action -->
+                                            <div class="prodact-action justify-content-end">
+                                                <span data-toggle="tooltip" title="Quick View">
+                                                    <i class="far fa-eye"></i>
+                                                </span>
+                                                <span data-toggle="tooltip" title="Add to WishList">
+                                                    <i class="far fa-heart"></i>
+                                                </span>
+                                                <span data-toggle="tooltip" title="Add To Cart">
+                                                    <i class="fas fa-shopping-cart ico"></i>
+                                                </span>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    }
+                }
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </section>
+
+    <!--end prodacts section-->
