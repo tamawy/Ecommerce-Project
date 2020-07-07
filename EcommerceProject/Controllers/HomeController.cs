@@ -33,5 +33,7 @@ namespace EcommerceProject.Controllers
         {
             return PartialView(new EcommerceProject.DAL.BrandDAL().GetAll());
         }  
+
+        
     }
 }

@@ -44,7 +44,8 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 CatFK = productVM.CatFK,
                 SubCatFK = productVM.SubCatFK,
                 CreatedBy = 1,
-                CreationDate = DateTime.Now
+                CreationDate = DateTime.Now,
+                IsBestSeller = productVM.IsBestSeller
             };
             ViewBag.FormName = "PostProduct";
             return Json(new { done = productDAL.Add(obj, out message), message, add = true }, JsonRequestBehavior.AllowGet);
@@ -73,6 +74,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                     SubCatFK = data.SubCatFK,
                     CreatedBy = data.CreatedBy,
                     CreationDate = data.CreationDate,
+                    IsBestSeller = data.IsBestSeller
                 });
         }
 
@@ -93,7 +95,8 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 CreatedBy = data.CreatedBy,
                 CreationDate = data.CreationDate,
                 UpdatedBy = 1,
-                UpdatedDate = DateTime.Now
+                UpdatedDate = DateTime.Now,
+                IsBestSeller = data.IsBestSeller
             };
             return Json(new { done = productDAL.Edit(obj, out message), message, edit = true },
                 JsonRequestBehavior.AllowGet);
@@ -116,7 +119,8 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 UserCreated = data.User.Name,
                 CreationDate = data.CreationDate,
                 UserUpdated = data.User1?.Name, // to be viewed
-                UpdatedDate = data.UpdatedDate
+                UpdatedDate = data.UpdatedDate,
+                IsBestSeller = data.IsBestSeller
             };
             ViewBag.FormName = "DetailsProduct";
             return PartialView("AddProduct", obj);
