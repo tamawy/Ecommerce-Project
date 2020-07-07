@@ -48,6 +48,7 @@ namespace EcommerceProject.DAL
                     obj.UpdatedDate = DateTime.Now;
                     obj.CatFK = product.CatFK;
                     obj.SubCatFK = product.SubCatFK;
+                    obj.IsBestSeller = product.IsBestSeller;
                     db.SaveChanges();
                     message = "Added successfully";
                     return true;

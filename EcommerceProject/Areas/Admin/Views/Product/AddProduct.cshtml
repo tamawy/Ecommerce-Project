@@ -42,19 +42,23 @@
                      new { @class = "form-control" })
             </div>
 
-            
-                <div id="SubCatDiv">
-                    <label>Subcategory</label>
-                    <select id="SubCatFK" name="SubCatFK" class="form-control">
-                    </select>
 
-                </div>
+            <div id="SubCatDiv">
+                <label>Subcategory</label>
+                <select id="SubCatFK" name="SubCatFK" class="form-control">
+                </select>
+
+            </div>
             <label>Brand</label>
             @Html.DropDownListFor(z => z.BrandFK,
            new SelectList
            (new EcommerceProject.DAL.BrandDAL().GetAll(), "ID", "Name"),
            new { @class = "form-control" }
            )
+            <div>
+                <label>Is best seller? </label>
+                @Html.CheckBoxFor(z => z.IsBestSeller)
+            </div>
         </div>
 
         if (FormName == "EditProduct")
@@ -69,24 +73,24 @@
             <button type="submit" class="btn btn-success">Save</button>
             <button type="reset" class="btn btn-danger">Clear</button>
         }
-        else if(FormName == "DetailsProduct")
+        else if (FormName == "DetailsProduct")
         {
             <div>
                 @Html.Label("Created by")
-                @Html.TextBoxFor(z=> z.UserCreated, 
-               new { @class = "form-control"})
+                @Html.TextBoxFor(z => z.UserCreated,
+               new { @class = "form-control" })
 
-                @Html.LabelFor(z=> z.CreationDate)
-                @Html.TextBoxFor(z=> z.CreationDate, 
-               new { @class = "form-control"})
+                @Html.LabelFor(z => z.CreationDate)
+                @Html.TextBoxFor(z => z.CreationDate,
+               new { @class = "form-control" })
 
-                @Html.LabelFor(z=> z.UpdatedBy)
-                @Html.TextBoxFor(z=> z.UserUpdated, 
-               new { @class = "form-control"})
-                
-                @Html.LabelFor(z=> z.UpdatedDate)
-                @Html.TextBoxFor(z=> z.UpdatedDate, 
-               new { @class = "form-control"})
+                @Html.LabelFor(z => z.UpdatedBy)
+                @Html.TextBoxFor(z => z.UserUpdated,
+               new { @class = "form-control" })
+
+                @Html.LabelFor(z => z.UpdatedDate)
+                @Html.TextBoxFor(z => z.UpdatedDate,
+               new { @class = "form-control" })
             </div>
             <div>
                 <br />

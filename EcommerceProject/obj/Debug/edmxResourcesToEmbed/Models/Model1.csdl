@@ -1,96 +1,264 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EcommerceProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EcommerceProjectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AboutUs" EntityType="EcommerceProjectModel.AboutUs" />
+    <EntitySet Name="Brand" EntityType="EcommerceProjectModel.Brand" />
+    <EntitySet Name="Category" EntityType="EcommerceProjectModel.Category" />
+    <EntitySet Name="Color" EntityType="EcommerceProjectModel.Color" />
+    <EntitySet Name="ContactMesaage" EntityType="EcommerceProjectModel.ContactMesaage" />
+    <EntitySet Name="ContactUs" EntityType="EcommerceProjectModel.ContactUs" />
+    <EntitySet Name="Order" EntityType="EcommerceProjectModel.Order" />
+    <EntitySet Name="OrderDetails" EntityType="EcommerceProjectModel.OrderDetails" />
+    <EntitySet Name="Product" EntityType="EcommerceProjectModel.Product" />
+    <EntitySet Name="ProductColor" EntityType="EcommerceProjectModel.ProductColor" />
+    <EntitySet Name="Role" EntityType="EcommerceProjectModel.Role" />
+    <EntitySet Name="SubCategory" EntityType="EcommerceProjectModel.SubCategory" />
+    <EntitySet Name="User" EntityType="EcommerceProjectModel.User" />
+    <EntitySet Name="UserAddress" EntityType="EcommerceProjectModel.UserAddress" />
+    <AssociationSet Name="FK_AboutUs_User" Association="EcommerceProjectModel.FK_AboutUs_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="AboutUs" EntitySet="AboutUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AboutUs_User1" Association="EcommerceProjectModel.FK_AboutUs_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="AboutUs" EntitySet="AboutUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Brand_User" Association="EcommerceProjectModel.FK_Brand_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Brand" EntitySet="Brand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Brand_User1" Association="EcommerceProjectModel.FK_Brand_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Brand" EntitySet="Brand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Brand" Association="EcommerceProjectModel.FK_Product_Brand">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_User" Association="EcommerceProjectModel.FK_Category_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Category" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_User1" Association="EcommerceProjectModel.FK_Category_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Category" EntitySet="Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Category" Association="EcommerceProjectModel.FK_Product_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategory_Category" Association="EcommerceProjectModel.FK_SubCategory_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Color_User" Association="EcommerceProjectModel.FK_Color_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Color" EntitySet="Color" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Color_User1" Association="EcommerceProjectModel.FK_Color_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Color" EntitySet="Color" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductColor_Color" Association="EcommerceProjectModel.FK_ProductColor_Color">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="ProductColor" EntitySet="ProductColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactMesaage_User" Association="EcommerceProjectModel.FK_ContactMesaage_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ContactMesaage" EntitySet="ContactMesaage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactMesaage_User1" Association="EcommerceProjectModel.FK_ContactMesaage_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="ContactMesaage" EntitySet="ContactMesaage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactUs_User" Association="EcommerceProjectModel.FK_ContactUs_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ContactUs" EntitySet="ContactUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContactUs_User1" Association="EcommerceProjectModel.FK_ContactUs_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="ContactUs" EntitySet="ContactUs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="EcommerceProjectModel.FK_Order_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User1" Association="EcommerceProjectModel.FK_Order_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User2" Association="EcommerceProjectModel.FK_Order_User2">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_UserAddress" Association="EcommerceProjectModel.FK_Order_UserAddress">
+      <End Role="UserAddress" EntitySet="UserAddress" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_Order" Association="EcommerceProjectModel.FK_OrderDetails_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_Product" Association="EcommerceProjectModel.FK_OrderDetails_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_User" Association="EcommerceProjectModel.FK_OrderDetails_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetails_User1" Association="EcommerceProjectModel.FK_OrderDetails_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_SubCategory" Association="EcommerceProjectModel.FK_Product_SubCategory">
+      <End Role="SubCategory" EntitySet="SubCategory" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_User" Association="EcommerceProjectModel.FK_Product_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_User1" Association="EcommerceProjectModel.FK_Product_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductColor_Product" Association="EcommerceProjectModel.FK_ProductColor_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductColor" EntitySet="ProductColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductColor_User" Association="EcommerceProjectModel.FK_ProductColor_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ProductColor" EntitySet="ProductColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductColor_User1" Association="EcommerceProjectModel.FK_ProductColor_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="ProductColor" EntitySet="ProductColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="EcommerceProjectModel.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategory_User" Association="EcommerceProjectModel.FK_SubCategory_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCategory_User1" Association="EcommerceProjectModel.FK_SubCategory_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="SubCategory" EntitySet="SubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_User" Association="EcommerceProjectModel.FK_User_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User1" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_User1" Association="EcommerceProjectModel.FK_User_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="User1" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAddress_User" Association="EcommerceProjectModel.FK_UserAddress_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserAddress" EntitySet="UserAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAddress_User1" Association="EcommerceProjectModel.FK_UserAddress_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserAddress" EntitySet="UserAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAddress_User2" Association="EcommerceProjectModel.FK_UserAddress_User2">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserAddress" EntitySet="UserAddress" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="AboutUs">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Vision" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Mission" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="WhoAreWe" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Vision" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mission" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WhoAreWe" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CreatedBy" Type="Int64" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="User" Relationship="Self.FK_AboutUs_User" FromRole="AboutUs" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_AboutUs_User1" FromRole="AboutUs" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_AboutUs_User" FromRole="AboutUs" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_AboutUs_User1" FromRole="AboutUs" ToRole="User" />
   </EntityType>
   <EntityType Name="Brand">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="CreatedBy" Type="Int64" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Brand_User" FromRole="Brand" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_Brand_User1" FromRole="Brand" ToRole="User" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Product_Brand" FromRole="Brand" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_Brand_User" FromRole="Brand" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_Brand_User1" FromRole="Brand" ToRole="User" />
+    <NavigationProperty Name="Product" Relationship="EcommerceProjectModel.FK_Product_Brand" FromRole="Brand" ToRole="Product" />
   </EntityType>
   <EntityType Name="Category">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="CreatedBy" Type="Int64" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Category_User" FromRole="Category" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_Category_User1" FromRole="Category" ToRole="User" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
-    <NavigationProperty Name="SubCategory" Relationship="Self.FK_SubCategory_Category" FromRole="Category" ToRole="SubCategory" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_Category_User" FromRole="Category" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_Category_User1" FromRole="Category" ToRole="User" />
+    <NavigationProperty Name="Product" Relationship="EcommerceProjectModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+    <NavigationProperty Name="SubCategory" Relationship="EcommerceProjectModel.FK_SubCategory_Category" FromRole="Category" ToRole="SubCategory" />
   </EntityType>
   <EntityType Name="Color">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Code" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="CreatedBy" Type="Int64" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Color_User" FromRole="Color" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_Color_User1" FromRole="Color" ToRole="User" />
-    <NavigationProperty Name="ProductColor" Relationship="Self.FK_ProductColor_Color" FromRole="Color" ToRole="ProductColor" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_Color_User" FromRole="Color" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_Color_User1" FromRole="Color" ToRole="User" />
+    <NavigationProperty Name="ProductColor" Relationship="EcommerceProjectModel.FK_ProductColor_Color" FromRole="Color" ToRole="ProductColor" />
   </EntityType>
   <EntityType Name="ContactMesaage">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CreatedBy" Type="Int64" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="IsAnswer" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK_ContactMesaage_User" FromRole="ContactMesaage" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_ContactMesaage_User1" FromRole="ContactMesaage" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_ContactMesaage_User" FromRole="ContactMesaage" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_ContactMesaage_User1" FromRole="ContactMesaage" ToRole="User" />
   </EntityType>
   <EntityType Name="ContactUs">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="facebook" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
     <Property Name="CreatedBy" Type="Int64" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="User" Relationship="Self.FK_ContactUs_User" FromRole="ContactUs" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_ContactUs_User1" FromRole="ContactUs" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_ContactUs_User" FromRole="ContactUs" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_ContactUs_User1" FromRole="ContactUs" ToRole="User" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -106,11 +274,11 @@
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_Order_User1" FromRole="Order" ToRole="User" />
-    <NavigationProperty Name="User2" Relationship="Self.FK_Order_User2" FromRole="Order" ToRole="User" />
-    <NavigationProperty Name="UserAddress" Relationship="Self.FK_Order_UserAddress" FromRole="Order" ToRole="UserAddress" />
-    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Order" FromRole="Order" ToRole="OrderDetails" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_Order_User" FromRole="Order" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_Order_User1" FromRole="Order" ToRole="User" />
+    <NavigationProperty Name="User2" Relationship="EcommerceProjectModel.FK_Order_User2" FromRole="Order" ToRole="User" />
+    <NavigationProperty Name="UserAddress" Relationship="EcommerceProjectModel.FK_Order_UserAddress" FromRole="Order" ToRole="UserAddress" />
+    <NavigationProperty Name="OrderDetails" Relationship="EcommerceProjectModel.FK_OrderDetails_Order" FromRole="Order" ToRole="OrderDetails" />
   </EntityType>
   <EntityType Name="OrderDetails">
     <Key>
@@ -126,20 +294,20 @@
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetails_Order" FromRole="OrderDetails" ToRole="Order" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetails_Product" FromRole="OrderDetails" ToRole="Product" />
-    <NavigationProperty Name="User" Relationship="Self.FK_OrderDetails_User" FromRole="OrderDetails" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_OrderDetails_User1" FromRole="OrderDetails" ToRole="User" />
+    <NavigationProperty Name="Order" Relationship="EcommerceProjectModel.FK_OrderDetails_Order" FromRole="OrderDetails" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="EcommerceProjectModel.FK_OrderDetails_Product" FromRole="OrderDetails" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_OrderDetails_User" FromRole="OrderDetails" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_OrderDetails_User1" FromRole="OrderDetails" ToRole="User" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Int64" Nullable="false" />
-    <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Decription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Decription" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CreatedBy" Type="Int64" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
@@ -147,123 +315,124 @@
     <Property Name="SubCatFK" Type="Int64" />
     <Property Name="CatFK" Type="Int64" Nullable="false" />
     <Property Name="BrandFK" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="Brand" Relationship="Self.FK_Product_Brand" FromRole="Product" ToRole="Brand" />
-    <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
-    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Product" FromRole="Product" ToRole="OrderDetails" />
-    <NavigationProperty Name="SubCategory" Relationship="Self.FK_Product_SubCategory" FromRole="Product" ToRole="SubCategory" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Product_User" FromRole="Product" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_Product_User1" FromRole="Product" ToRole="User" />
-    <NavigationProperty Name="ProductColor" Relationship="Self.FK_ProductColor_Product" FromRole="Product" ToRole="ProductColor" />
+    <Property Name="IsBestSeller" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Brand" Relationship="EcommerceProjectModel.FK_Product_Brand" FromRole="Product" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="EcommerceProjectModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="OrderDetails" Relationship="EcommerceProjectModel.FK_OrderDetails_Product" FromRole="Product" ToRole="OrderDetails" />
+    <NavigationProperty Name="SubCategory" Relationship="EcommerceProjectModel.FK_Product_SubCategory" FromRole="Product" ToRole="SubCategory" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_Product_User" FromRole="Product" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_Product_User1" FromRole="Product" ToRole="User" />
+    <NavigationProperty Name="ProductColor" Relationship="EcommerceProjectModel.FK_ProductColor_Product" FromRole="Product" ToRole="ProductColor" />
   </EntityType>
   <EntityType Name="ProductColor">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Image" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="ProductFK" Type="Int64" Nullable="false" />
     <Property Name="ColorFk" Type="Int64" Nullable="false" />
     <Property Name="CreatedBy" Type="Int64" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Color" Relationship="Self.FK_ProductColor_Color" FromRole="ProductColor" ToRole="Color" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_ProductColor_Product" FromRole="ProductColor" ToRole="Product" />
-    <NavigationProperty Name="User" Relationship="Self.FK_ProductColor_User" FromRole="ProductColor" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_ProductColor_User1" FromRole="ProductColor" ToRole="User" />
+    <NavigationProperty Name="Color" Relationship="EcommerceProjectModel.FK_ProductColor_Color" FromRole="ProductColor" ToRole="Color" />
+    <NavigationProperty Name="Product" Relationship="EcommerceProjectModel.FK_ProductColor_Product" FromRole="ProductColor" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_ProductColor_User" FromRole="ProductColor" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_ProductColor_User1" FromRole="ProductColor" ToRole="User" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_User_Role" FromRole="Role" ToRole="User" />
   </EntityType>
   <EntityType Name="SubCategory">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CreatedBy" Type="Int64" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="CategoryFK" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="Category" Relationship="Self.FK_SubCategory_Category" FromRole="SubCategory" ToRole="Category" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Product_SubCategory" FromRole="SubCategory" ToRole="Product" />
-    <NavigationProperty Name="User" Relationship="Self.FK_SubCategory_User" FromRole="SubCategory" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_SubCategory_User1" FromRole="SubCategory" ToRole="User" />
+    <NavigationProperty Name="Category" Relationship="EcommerceProjectModel.FK_SubCategory_Category" FromRole="SubCategory" ToRole="Category" />
+    <NavigationProperty Name="Product" Relationship="EcommerceProjectModel.FK_Product_SubCategory" FromRole="SubCategory" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_SubCategory_User" FromRole="SubCategory" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_SubCategory_User1" FromRole="SubCategory" ToRole="User" />
   </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="RoleFK" Type="Int64" Nullable="false" />
     <Property Name="CreatedBy" Type="Int64" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="AboutUs" Relationship="Self.FK_AboutUs_User" FromRole="User" ToRole="AboutUs" />
-    <NavigationProperty Name="AboutUs1" Relationship="Self.FK_AboutUs_User1" FromRole="User" ToRole="AboutUs" />
-    <NavigationProperty Name="Brand" Relationship="Self.FK_Brand_User" FromRole="User" ToRole="Brand" />
-    <NavigationProperty Name="Brand1" Relationship="Self.FK_Brand_User1" FromRole="User" ToRole="Brand" />
-    <NavigationProperty Name="Category" Relationship="Self.FK_Category_User" FromRole="User" ToRole="Category" />
-    <NavigationProperty Name="Category1" Relationship="Self.FK_Category_User1" FromRole="User" ToRole="Category" />
-    <NavigationProperty Name="Color" Relationship="Self.FK_Color_User" FromRole="User" ToRole="Color" />
-    <NavigationProperty Name="Color1" Relationship="Self.FK_Color_User1" FromRole="User" ToRole="Color" />
-    <NavigationProperty Name="ContactMesaage" Relationship="Self.FK_ContactMesaage_User" FromRole="User" ToRole="ContactMesaage" />
-    <NavigationProperty Name="ContactMesaage1" Relationship="Self.FK_ContactMesaage_User1" FromRole="User" ToRole="ContactMesaage" />
-    <NavigationProperty Name="ContactUs" Relationship="Self.FK_ContactUs_User" FromRole="User" ToRole="ContactUs" />
-    <NavigationProperty Name="ContactUs1" Relationship="Self.FK_ContactUs_User1" FromRole="User" ToRole="ContactUs" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
-    <NavigationProperty Name="Order1" Relationship="Self.FK_Order_User1" FromRole="User" ToRole="Order" />
-    <NavigationProperty Name="Order2" Relationship="Self.FK_Order_User2" FromRole="User" ToRole="Order" />
-    <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_User" FromRole="User" ToRole="OrderDetails" />
-    <NavigationProperty Name="OrderDetails1" Relationship="Self.FK_OrderDetails_User1" FromRole="User" ToRole="OrderDetails" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Product_User" FromRole="User" ToRole="Product" />
-    <NavigationProperty Name="Product1" Relationship="Self.FK_Product_User1" FromRole="User" ToRole="Product" />
-    <NavigationProperty Name="ProductColor" Relationship="Self.FK_ProductColor_User" FromRole="User" ToRole="ProductColor" />
-    <NavigationProperty Name="ProductColor1" Relationship="Self.FK_ProductColor_User1" FromRole="User" ToRole="ProductColor" />
-    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
-    <NavigationProperty Name="SubCategory" Relationship="Self.FK_SubCategory_User" FromRole="User" ToRole="SubCategory" />
-    <NavigationProperty Name="SubCategory1" Relationship="Self.FK_SubCategory_User1" FromRole="User" ToRole="SubCategory" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_User_User" FromRole="User" ToRole="User1" />
-    <NavigationProperty Name="User2" Relationship="Self.FK_User_User" FromRole="User1" ToRole="User" />
-    <NavigationProperty Name="User11" Relationship="Self.FK_User_User1" FromRole="User" ToRole="User1" />
-    <NavigationProperty Name="User3" Relationship="Self.FK_User_User1" FromRole="User1" ToRole="User" />
-    <NavigationProperty Name="UserAddress" Relationship="Self.FK_UserAddress_User" FromRole="User" ToRole="UserAddress" />
-    <NavigationProperty Name="UserAddress1" Relationship="Self.FK_UserAddress_User1" FromRole="User" ToRole="UserAddress" />
-    <NavigationProperty Name="UserAddress2" Relationship="Self.FK_UserAddress_User2" FromRole="User" ToRole="UserAddress" />
+    <NavigationProperty Name="AboutUs" Relationship="EcommerceProjectModel.FK_AboutUs_User" FromRole="User" ToRole="AboutUs" />
+    <NavigationProperty Name="AboutUs1" Relationship="EcommerceProjectModel.FK_AboutUs_User1" FromRole="User" ToRole="AboutUs" />
+    <NavigationProperty Name="Brand" Relationship="EcommerceProjectModel.FK_Brand_User" FromRole="User" ToRole="Brand" />
+    <NavigationProperty Name="Brand1" Relationship="EcommerceProjectModel.FK_Brand_User1" FromRole="User" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="EcommerceProjectModel.FK_Category_User" FromRole="User" ToRole="Category" />
+    <NavigationProperty Name="Category1" Relationship="EcommerceProjectModel.FK_Category_User1" FromRole="User" ToRole="Category" />
+    <NavigationProperty Name="Color" Relationship="EcommerceProjectModel.FK_Color_User" FromRole="User" ToRole="Color" />
+    <NavigationProperty Name="Color1" Relationship="EcommerceProjectModel.FK_Color_User1" FromRole="User" ToRole="Color" />
+    <NavigationProperty Name="ContactMesaage" Relationship="EcommerceProjectModel.FK_ContactMesaage_User" FromRole="User" ToRole="ContactMesaage" />
+    <NavigationProperty Name="ContactMesaage1" Relationship="EcommerceProjectModel.FK_ContactMesaage_User1" FromRole="User" ToRole="ContactMesaage" />
+    <NavigationProperty Name="ContactUs" Relationship="EcommerceProjectModel.FK_ContactUs_User" FromRole="User" ToRole="ContactUs" />
+    <NavigationProperty Name="ContactUs1" Relationship="EcommerceProjectModel.FK_ContactUs_User1" FromRole="User" ToRole="ContactUs" />
+    <NavigationProperty Name="Order" Relationship="EcommerceProjectModel.FK_Order_User" FromRole="User" ToRole="Order" />
+    <NavigationProperty Name="Order1" Relationship="EcommerceProjectModel.FK_Order_User1" FromRole="User" ToRole="Order" />
+    <NavigationProperty Name="Order2" Relationship="EcommerceProjectModel.FK_Order_User2" FromRole="User" ToRole="Order" />
+    <NavigationProperty Name="OrderDetails" Relationship="EcommerceProjectModel.FK_OrderDetails_User" FromRole="User" ToRole="OrderDetails" />
+    <NavigationProperty Name="OrderDetails1" Relationship="EcommerceProjectModel.FK_OrderDetails_User1" FromRole="User" ToRole="OrderDetails" />
+    <NavigationProperty Name="Product" Relationship="EcommerceProjectModel.FK_Product_User" FromRole="User" ToRole="Product" />
+    <NavigationProperty Name="Product1" Relationship="EcommerceProjectModel.FK_Product_User1" FromRole="User" ToRole="Product" />
+    <NavigationProperty Name="ProductColor" Relationship="EcommerceProjectModel.FK_ProductColor_User" FromRole="User" ToRole="ProductColor" />
+    <NavigationProperty Name="ProductColor1" Relationship="EcommerceProjectModel.FK_ProductColor_User1" FromRole="User" ToRole="ProductColor" />
+    <NavigationProperty Name="Role" Relationship="EcommerceProjectModel.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="SubCategory" Relationship="EcommerceProjectModel.FK_SubCategory_User" FromRole="User" ToRole="SubCategory" />
+    <NavigationProperty Name="SubCategory1" Relationship="EcommerceProjectModel.FK_SubCategory_User1" FromRole="User" ToRole="SubCategory" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_User_User" FromRole="User" ToRole="User1" />
+    <NavigationProperty Name="User2" Relationship="EcommerceProjectModel.FK_User_User" FromRole="User1" ToRole="User" />
+    <NavigationProperty Name="User11" Relationship="EcommerceProjectModel.FK_User_User1" FromRole="User" ToRole="User1" />
+    <NavigationProperty Name="User3" Relationship="EcommerceProjectModel.FK_User_User1" FromRole="User1" ToRole="User" />
+    <NavigationProperty Name="UserAddress" Relationship="EcommerceProjectModel.FK_UserAddress_User" FromRole="User" ToRole="UserAddress" />
+    <NavigationProperty Name="UserAddress1" Relationship="EcommerceProjectModel.FK_UserAddress_User1" FromRole="User" ToRole="UserAddress" />
+    <NavigationProperty Name="UserAddress2" Relationship="EcommerceProjectModel.FK_UserAddress_User2" FromRole="User" ToRole="UserAddress" />
   </EntityType>
   <EntityType Name="UserAddress">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
     <Property Name="UserFK" Type="Int64" Nullable="false" />
     <Property Name="CreatedBy" Type="Int64" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_Order_UserAddress" FromRole="UserAddress" ToRole="Order" />
-    <NavigationProperty Name="User" Relationship="Self.FK_UserAddress_User" FromRole="UserAddress" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.FK_UserAddress_User1" FromRole="UserAddress" ToRole="User" />
-    <NavigationProperty Name="User2" Relationship="Self.FK_UserAddress_User2" FromRole="UserAddress" ToRole="User" />
+    <NavigationProperty Name="Order" Relationship="EcommerceProjectModel.FK_Order_UserAddress" FromRole="UserAddress" ToRole="Order" />
+    <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_UserAddress_User" FromRole="UserAddress" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_UserAddress_User1" FromRole="UserAddress" ToRole="User" />
+    <NavigationProperty Name="User2" Relationship="EcommerceProjectModel.FK_UserAddress_User2" FromRole="UserAddress" ToRole="User" />
   </EntityType>
   <Association Name="FK_AboutUs_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="AboutUs" Type="Self.AboutUs" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.AboutUs" Role="AboutUs" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -274,8 +443,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_AboutUs_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="AboutUs" Type="Self.AboutUs" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.AboutUs" Role="AboutUs" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -286,8 +455,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Brand_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Brand" Type="Self.Brand" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.Brand" Role="Brand" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -298,8 +467,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Brand_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Brand" Type="Self.Brand" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.Brand" Role="Brand" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -310,8 +479,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_Brand">
-    <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.Brand" Role="Brand" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Brand">
         <PropertyRef Name="ID" />
@@ -322,8 +491,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Category_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.Category" Role="Category" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -334,8 +503,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Category_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.Category" Role="Category" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -346,8 +515,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_Category">
-    <End Role="Category" Type="Self.Category" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Category">
         <PropertyRef Name="ID" />
@@ -358,8 +527,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_SubCategory_Category">
-    <End Role="Category" Type="Self.Category" Multiplicity="1" />
-    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.SubCategory" Role="SubCategory" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Category">
         <PropertyRef Name="ID" />
@@ -370,8 +539,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Color_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Color" Type="Self.Color" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.Color" Role="Color" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -382,8 +551,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Color_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Color" Type="Self.Color" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.Color" Role="Color" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -394,8 +563,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ProductColor_Color">
-    <End Role="Color" Type="Self.Color" Multiplicity="1" />
-    <End Role="ProductColor" Type="Self.ProductColor" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.Color" Role="Color" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.ProductColor" Role="ProductColor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Color">
         <PropertyRef Name="ID" />
@@ -406,8 +575,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ContactMesaage_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="ContactMesaage" Type="Self.ContactMesaage" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.ContactMesaage" Role="ContactMesaage" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -418,8 +587,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ContactMesaage_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="ContactMesaage" Type="Self.ContactMesaage" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.ContactMesaage" Role="ContactMesaage" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -430,8 +599,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ContactUs_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="ContactUs" Type="Self.ContactUs" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.ContactUs" Role="ContactUs" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -442,8 +611,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ContactUs_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="ContactUs" Type="Self.ContactUs" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.ContactUs" Role="ContactUs" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -454,8 +623,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -466,8 +635,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_User1">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -478,8 +647,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_User2">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -490,8 +659,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_UserAddress">
-    <End Role="UserAddress" Type="Self.UserAddress" Multiplicity="1" />
-    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.UserAddress" Role="UserAddress" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.Order" Role="Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserAddress">
         <PropertyRef Name="ID" />
@@ -502,8 +671,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderDetails_Order">
-    <End Role="Order" Type="Self.Order" Multiplicity="1" />
-    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.OrderDetails" Role="OrderDetails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Order">
         <PropertyRef Name="ID" />
@@ -514,8 +683,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderDetails_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.OrderDetails" Role="OrderDetails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="ID" />
@@ -526,8 +695,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderDetails_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.OrderDetails" Role="OrderDetails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -538,8 +707,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OrderDetails_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.OrderDetails" Role="OrderDetails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -550,8 +719,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_SubCategory">
-    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="0..1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.SubCategory" Role="SubCategory" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SubCategory">
         <PropertyRef Name="ID" />
@@ -562,8 +731,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -574,8 +743,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Product_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.Product" Role="Product" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -586,8 +755,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ProductColor_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="ProductColor" Type="Self.ProductColor" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.ProductColor" Role="ProductColor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="ID" />
@@ -598,8 +767,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ProductColor_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="ProductColor" Type="Self.ProductColor" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.ProductColor" Role="ProductColor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -610,8 +779,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ProductColor_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="ProductColor" Type="Self.ProductColor" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.ProductColor" Role="ProductColor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -622,8 +791,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_User_Role">
-    <End Role="Role" Type="Self.Role" Multiplicity="1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
         <PropertyRef Name="ID" />
@@ -634,8 +803,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_SubCategory_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.SubCategory" Role="SubCategory" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -646,8 +815,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_SubCategory_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.SubCategory" Role="SubCategory" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -658,8 +827,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_User_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="User1" Type="Self.User" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.User" Role="User1" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -670,8 +839,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_User_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="User1" Type="Self.User" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.User" Role="User1" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -682,8 +851,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserAddress_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="UserAddress" Type="Self.UserAddress" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.UserAddress" Role="UserAddress" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -694,8 +863,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserAddress_User1">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="UserAddress" Type="Self.UserAddress" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="1" />
+    <End Type="EcommerceProjectModel.UserAddress" Role="UserAddress" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -706,8 +875,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserAddress_User2">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="UserAddress" Type="Self.UserAddress" Multiplicity="*" />
+    <End Type="EcommerceProjectModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="EcommerceProjectModel.UserAddress" Role="UserAddress" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
         <PropertyRef Name="ID" />
@@ -717,172 +886,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="EcommerceProjectEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="AboutUs" EntityType="Self.AboutUs" />
-    <EntitySet Name="Brand" EntityType="Self.Brand" />
-    <EntitySet Name="Category" EntityType="Self.Category" />
-    <EntitySet Name="Color" EntityType="Self.Color" />
-    <EntitySet Name="ContactMesaage" EntityType="Self.ContactMesaage" />
-    <EntitySet Name="ContactUs" EntityType="Self.ContactUs" />
-    <EntitySet Name="Order" EntityType="Self.Order" />
-    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" />
-    <EntitySet Name="Product" EntityType="Self.Product" />
-    <EntitySet Name="ProductColor" EntityType="Self.ProductColor" />
-    <EntitySet Name="Role" EntityType="Self.Role" />
-    <EntitySet Name="SubCategory" EntityType="Self.SubCategory" />
-    <EntitySet Name="User" EntityType="Self.User" />
-    <EntitySet Name="UserAddress" EntityType="Self.UserAddress" />
-    <AssociationSet Name="FK_AboutUs_User" Association="Self.FK_AboutUs_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="AboutUs" EntitySet="AboutUs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AboutUs_User1" Association="Self.FK_AboutUs_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="AboutUs" EntitySet="AboutUs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Brand_User" Association="Self.FK_Brand_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Brand" EntitySet="Brand" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Brand_User1" Association="Self.FK_Brand_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="Brand" EntitySet="Brand" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Brand" Association="Self.FK_Product_Brand">
-      <End Role="Brand" EntitySet="Brand" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Category_User" Association="Self.FK_Category_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Category" EntitySet="Category" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Category_User1" Association="Self.FK_Category_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="Category" EntitySet="Category" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
-      <End Role="Category" EntitySet="Category" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
-      <End Role="Category" EntitySet="Category" />
-      <End Role="SubCategory" EntitySet="SubCategory" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Color_User" Association="Self.FK_Color_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Color" EntitySet="Color" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Color_User1" Association="Self.FK_Color_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="Color" EntitySet="Color" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductColor_Color" Association="Self.FK_ProductColor_Color">
-      <End Role="Color" EntitySet="Color" />
-      <End Role="ProductColor" EntitySet="ProductColor" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ContactMesaage_User" Association="Self.FK_ContactMesaage_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="ContactMesaage" EntitySet="ContactMesaage" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ContactMesaage_User1" Association="Self.FK_ContactMesaage_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="ContactMesaage" EntitySet="ContactMesaage" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ContactUs_User" Association="Self.FK_ContactUs_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="ContactUs" EntitySet="ContactUs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ContactUs_User1" Association="Self.FK_ContactUs_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="ContactUs" EntitySet="ContactUs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Order" EntitySet="Order" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_User1" Association="Self.FK_Order_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="Order" EntitySet="Order" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_User2" Association="Self.FK_Order_User2">
-      <End Role="User" EntitySet="User" />
-      <End Role="Order" EntitySet="Order" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Order_UserAddress" Association="Self.FK_Order_UserAddress">
-      <End Role="UserAddress" EntitySet="UserAddress" />
-      <End Role="Order" EntitySet="Order" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderDetails_Order" Association="Self.FK_OrderDetails_Order">
-      <End Role="Order" EntitySet="Order" />
-      <End Role="OrderDetails" EntitySet="OrderDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderDetails_Product" Association="Self.FK_OrderDetails_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="OrderDetails" EntitySet="OrderDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderDetails_User" Association="Self.FK_OrderDetails_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="OrderDetails" EntitySet="OrderDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OrderDetails_User1" Association="Self.FK_OrderDetails_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="OrderDetails" EntitySet="OrderDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_SubCategory" Association="Self.FK_Product_SubCategory">
-      <End Role="SubCategory" EntitySet="SubCategory" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_User" Association="Self.FK_Product_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Product_User1" Association="Self.FK_Product_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductColor_Product" Association="Self.FK_ProductColor_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="ProductColor" EntitySet="ProductColor" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductColor_User" Association="Self.FK_ProductColor_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="ProductColor" EntitySet="ProductColor" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProductColor_User1" Association="Self.FK_ProductColor_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="ProductColor" EntitySet="ProductColor" />
-    </AssociationSet>
-    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
-      <End Role="Role" EntitySet="Role" />
-      <End Role="User" EntitySet="User" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SubCategory_User" Association="Self.FK_SubCategory_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="SubCategory" EntitySet="SubCategory" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SubCategory_User1" Association="Self.FK_SubCategory_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="SubCategory" EntitySet="SubCategory" />
-    </AssociationSet>
-    <AssociationSet Name="FK_User_User" Association="Self.FK_User_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="User1" EntitySet="User" />
-    </AssociationSet>
-    <AssociationSet Name="FK_User_User1" Association="Self.FK_User_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="User1" EntitySet="User" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserAddress_User" Association="Self.FK_UserAddress_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="UserAddress" EntitySet="UserAddress" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserAddress_User1" Association="Self.FK_UserAddress_User1">
-      <End Role="User" EntitySet="User" />
-      <End Role="UserAddress" EntitySet="UserAddress" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserAddress_User2" Association="Self.FK_UserAddress_User2">
-      <End Role="User" EntitySet="User" />
-      <End Role="UserAddress" EntitySet="UserAddress" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

@@ -122,6 +122,7 @@
     <Property Name="SubCatFK" Type="bigint" />
     <Property Name="CatFK" Type="bigint" Nullable="false" />
     <Property Name="BrandFK" Type="bigint" Nullable="false" />
+    <Property Name="IsBestSeller" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ProductColor">
     <Key>
