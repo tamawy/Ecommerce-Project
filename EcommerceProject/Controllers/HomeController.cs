@@ -34,6 +34,9 @@ namespace EcommerceProject.Controllers
             return PartialView(new EcommerceProject.DAL.BrandDAL().GetAll());
         }  
 
-        
+        public PartialViewResult Product()
+        {
+            return PartialView(productDAL.GetAll().ToList());
+        }
     }
 }

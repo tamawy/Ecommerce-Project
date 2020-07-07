@@ -2096,6 +2096,7 @@
     <Content Include="Views\Home\Banner.cshtml" />
     <Content Include="Views\Home\NewProducts.cshtml" />
     <Content Include="Views\Home\Brands.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
