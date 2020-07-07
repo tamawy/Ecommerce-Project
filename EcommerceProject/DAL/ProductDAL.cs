@@ -8,7 +8,7 @@ namespace EcommerceProject.DAL
 {
     public class ProductDAL
     {
-        EcommerceProjectEntities2 db = new EcommerceProjectEntities2();
+        EcommerceProjectEntities db = new EcommerceProjectEntities();
         public bool Add(Product product, out string message)
         {
             try
@@ -45,6 +45,7 @@ namespace EcommerceProject.DAL
                     obj.Decription = product.Decription;
                     obj.CreationDate = product.CreationDate;
                     obj.UpdatedBy = product.UpdatedBy;
+                    obj.UpdatedDate = DateTime.Now;
                     obj.CatFK = product.CatFK;
                     obj.SubCatFK = product.SubCatFK;
                     db.SaveChanges();

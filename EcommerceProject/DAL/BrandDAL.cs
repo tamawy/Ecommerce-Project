@@ -8,8 +8,8 @@ namespace EcommerceProject.DAL
 {
     public class BrandDAL
     {
-        EcommerceProjectEntities2 db = new EcommerceProjectEntities2();
-        public bool Add(Brand brand)
+        EcommerceProjectEntities db = new EcommerceProjectEntities();
+        public bool Add(Brand brand, out string message)
         {
             try
             {
@@ -17,16 +17,19 @@ namespace EcommerceProject.DAL
                 {
                     db.Brand.Add(brand);
                     db.SaveChanges();
+                    message = "Added Successfully";
                     return true;
                 }
+                message = "Brand object is null";
                 return false;
             }
             catch(Exception e)
             {
+                message = e.Message;
                 return false;
             }
         }
-        public bool Edit(Brand brand)
+        public bool Edit(Brand brand, out string message)
         {
             try
             {
@@ -40,12 +43,15 @@ namespace EcommerceProject.DAL
                     obj.UpdatedBy = brand.UpdatedBy;
                     obj.UpdatedDate = DateTime.Now;
                     db.SaveChanges();
+                    message = "Edited successfully";
                     return true;
                 }
+                message = "Brand object is null";
                 return false;
             }
              catch(Exception e)
             {
+                message = e.Message;
                 return false;
             }
         }

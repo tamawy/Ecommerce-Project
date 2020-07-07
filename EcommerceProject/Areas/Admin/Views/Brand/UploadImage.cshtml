@@ -1,0 +1,12 @@
+﻿
+@using (Html.BeginForm("PostBrandImage", "Brand", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+{
+    <input type="hidden" value="@ViewBag.brandID" id="brandID" name="brandID" />
+    <label for="file">Upload Image:</label>
+    <input type="file" name="file" id="file" style="width: 100%;" />
+
+    <input type="submit" value="Save" class="btn btn-success" />
+
+}
+

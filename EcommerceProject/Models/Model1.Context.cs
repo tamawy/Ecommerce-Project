@@ -13,10 +13,10 @@ namespace EcommerceProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EcommerceProjectEntities2 : DbContext
+    public partial class EcommerceProjectEntities : DbContext
     {
-        public EcommerceProjectEntities2()
-            : base("name=EcommerceProjectEntities2")
+        public EcommerceProjectEntities()
+            : base("name=EcommerceProjectEntities")
         {
         }
     

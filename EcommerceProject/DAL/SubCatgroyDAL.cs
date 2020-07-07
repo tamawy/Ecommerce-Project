@@ -8,7 +8,7 @@ namespace EcommerceProject.DAL
 {
     public class SubCategroyDAL
     {
-        EcommerceProjectEntities2 db = new EcommerceProjectEntities2();
+        EcommerceProjectEntities db = new EcommerceProjectEntities();
         public bool Add(SubCategory subcategory, out string message)
         {
             try

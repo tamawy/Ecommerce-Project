@@ -5,4 +5,78 @@
 }
 
 <h2>Index</h2>
+<div class="row" id="BrandForm">
+    @Html.Action("Add")
+</div>
+<div id="BrandData">
+    @Html.Action("BrandData")
+</div>
 
+@{ 
+    // what is the benfite of the code in div which has id = UploadImage ??
+}
+<div class="modal" id="UploadImage">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Upload Image</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function LoadData() {
+        $.ajax({
+            url: "/Admin/Brand/BrandData",
+            type: "Get"
+        }).done(function (data) {
+            $('#BrandData').html(data)
+        }).fail(function (data) {
+            $('.alert').html('error in loading data')
+        });
+
+    }
+
+    function onsuccess(data) {
+        if (data.done) {
+            LoadData();
+            Clear(); 
+        }
+        else {
+            alert("Error");
+        }
+    }
+    var onFailure = function () {
+
+    }
+    function Clear() {
+        $("#form0")[0].reset();
+    }
+    function uploadImage(id) {
+        $.ajax({
+            url: '/Admin/Brand/uploadImage',
+            method: 'Get',
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+        $('#UploadImage .modal-body').html(data);
+        $("#UploadImage").modal('show');
+        }).fail(function (data) {
+
+        });
+    }
+</script>

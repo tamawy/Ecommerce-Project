@@ -1,0 +1,82 @@
+﻿@model List<EcommerceProject.Models.Brand>
+
+<div>
+    @if (Model.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td><img src="@item.Image" width="100px"/></td>
+                        <td>
+                            <button class="btn btn-default" onclick="uploadImage(@item.ID)">upload image</button>
+                            <button class="btn btn-info" onclick="Details(@item.ID)">Details</button>
+                            <button class="btn btn-primary" onclick="Edit(@item.ID)">Edit</button>
+                            <button class="btn btn-danger" onclick="Delete(@item.ID)">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="alert alert-danger">No data found</p>
+    }
+</div>
+
+<script>
+    function Delete(id) {
+        $.ajax({
+            url: "/Admin/Brand/Delete",
+            type: "Get",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            LoadData();
+        }).fail(function (data) {
+            $('.alert').html('Error in delete');
+        });
+    }
+
+    function Edit(id) {
+        $.ajax({
+            url: "/Admin/Brand/Edit",
+            type: "Get",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $('#ProductForm').html(data);
+            BindSubCat();
+        }).fail(function () {
+            $('.alert').html("Error in editing data");
+        });
+    }
+
+    function Add() {
+        $.ajax({
+            url: "/Admin/Brand/AddProduct",
+            type: "Get",
+
+        }).done(function (data) {
+            $('#ProductForm').html(data);
+        }).fail(function () {
+            $('.alert').html("Error in load form");
+        });
+    }
+    function Details() {
+
+    }
+
+</script>

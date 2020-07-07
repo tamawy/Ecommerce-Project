@@ -9,7 +9,7 @@ namespace EcommerceProject.DAL
 {
     public class OrderDAL
     {
-        EcommerceProjectEntities2 db = new EcommerceProjectEntities2();
+        EcommerceProjectEntities db = new EcommerceProjectEntities();
 
         public bool Add(Order order)
         {

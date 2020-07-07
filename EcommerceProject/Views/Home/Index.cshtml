@@ -10,15 +10,17 @@
 </div>
 <div id="user">
     
-</div>
+</div id="login">
 @if (currentUser == null)
 {
-    <div id="login">
-        @Html.Action("Login", "Register")
-    </div>
+    @Html.Action("Login", "Register")
 }
-
-
+<div>
+    @Html.Action("NewProducts")
+</div>
+<div>
+    @Html.Action("Brands")
+</div>
 <script>
     function onSuccess(response) {
         if (response.done) {

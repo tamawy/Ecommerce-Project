@@ -8,7 +8,7 @@ namespace EcommerceProject.DAL
 {
     public class ContactMessageDAL
     {
-        EcommerceProjectEntities2 db = new EcommerceProjectEntities2();
+        EcommerceProjectEntities db = new EcommerceProjectEntities();
 
         //Edit
         public bool Edit(ContactMesaage contactmsg)

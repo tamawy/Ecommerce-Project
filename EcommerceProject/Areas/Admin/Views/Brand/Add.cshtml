@@ -1,0 +1,32 @@
+﻿@model EcommerceProject.VM.BrandVM
+@{
+    string FormName = ViewBag.FormName;
+}
+<div>
+    @using (Ajax.BeginForm(FormName,
+        new AjaxOptions { OnSuccess = "onsuccess", OnFailure = "onFailur" }))
+    {
+
+        <div class="form-group col-md-4 col-sm-4 col-xs-12">
+            <div>
+                @Html.LabelFor(z => z.Name, new { @class = "control-label" })
+                @Html.TextBoxFor(z => z.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(z => z.Name)
+            </div>
+        </div>
+        if (FormName == "EditBrand")
+        {
+            @Html.HiddenFor(z => z.ID)
+            @Html.HiddenFor(z => z.Image)
+            @Html.HiddenFor(z => z.CreatedBy)
+            @Html.HiddenFor(z => z.CreationDate)
+            <button class="btn btn-success">Edit</button>
+
+        }
+        else if (FormName == "PostBrand")
+        {
+            <button type="submit" class="btn btn-success">Save</button>
+            <button type="reset" class="btn btn-danger">Clear</button>
+        }
+    }
+</div>

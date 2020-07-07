@@ -43,7 +43,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 BrandFK = productVM.BrandFK,
                 CatFK = productVM.CatFK,
                 SubCatFK = productVM.SubCatFK,
-                CreatedBy = 5,
+                CreatedBy = 1,
                 CreationDate = DateTime.Now
             };
             ViewBag.FormName = "PostProduct";
@@ -92,7 +92,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 SubCatFK = data.SubCatFK,
                 CreatedBy = data.CreatedBy,
                 CreationDate = data.CreationDate,
-                UpdatedBy = 5,
+                UpdatedBy = 1,
                 UpdatedDate = DateTime.Now
             };
             return Json(new { done = productDAL.Edit(obj, out message), message, edit = true },
@@ -115,7 +115,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 CatFK = data.CatFK,
                 UserCreated = data.User.Name,
                 CreationDate = data.CreationDate,
-                UserUpdated = data.User1.Name,
+                UserUpdated = data.User1?.Name, // to be viewed
                 UpdatedDate = data.UpdatedDate
             };
             ViewBag.FormName = "DetailsProduct";
@@ -159,7 +159,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 if (product != null)
                 {
                     product.Image = filePath;
-                    product.UpdatedBy = 5;
+                    product.UpdatedBy = 2;
                     product.UpdatedDate = DateTime.Now;
                     productDAL.Edit(product, out message);
                 }

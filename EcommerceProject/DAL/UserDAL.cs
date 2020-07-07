@@ -8,7 +8,7 @@ namespace EcommerceProject.DAL
 {
     public class UserDAL
     {
-        EcommerceProjectEntities2 db = new EcommerceProjectEntities2();
+        EcommerceProjectEntities db = new EcommerceProjectEntities();
 
         public bool Add(User user, out string message)
         {

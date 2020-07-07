@@ -1,0 +1,14 @@
+﻿@model List<EcommerceProject.Models.Brand>
+<div class="brands py-3">
+    <div class="container">
+        <!--slider img brands by owl carousel-->
+        <div class="owl-carousel owl-theme brand">
+            @foreach (var item in Model)
+            {
+                <div class="item"><img src="@item.Image" alt=""></div>
+
+            }
+        </div>
+    </div>
+</div>
+

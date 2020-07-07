@@ -9,7 +9,7 @@ namespace EcommerceProject.DAL
     public class ProductColorDAL
     {
         //creat an object from Entity Data Model to use database easly
-        EcommerceProjectEntities2 db = new EcommerceProjectEntities2();
+        EcommerceProjectEntities db = new EcommerceProjectEntities();
 
         //Method that used to add in database in this table
         public bool Add(ProductColor productColor)

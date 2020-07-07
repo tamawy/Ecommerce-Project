@@ -9,7 +9,7 @@ namespace EcommerceProject.DAL
     public class UserAddressDAL
     {
         //create object from DataBase.
-        EcommerceProjectEntities2 db = new EcommerceProjectEntities2();
+        EcommerceProjectEntities db = new EcommerceProjectEntities();
 
         //create function to delete object from DataBase selected By Id.
         public bool Delete(long id)
