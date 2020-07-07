@@ -347,103 +347,106 @@
     </header>
         @RenderBody()
 
-    <footer>
-        <div class="last-footer py-4">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-lg-3  col-6 py-3">
-                        <div class="about">
-                            <a href="./index.html">
-                                <img src="~/customs/img/logo.png" alt="" class="pb-3">
-                            </a>
-                            <ul class="list-group col-12 list-unstyled">
-                                @{
-                                    var contact = new EcommerceProject.DAL.ContactUsDAL().GetAll().FirstOrDefault();
-                                    if (contact != null)
-                                    {
-                                        <div class="row">
-                                            @if (!string.IsNullOrEmpty(contact.phone))
-                                            {
-                                                <li class="col-12 py-2">
-                                                    <div class="row">
-
-                                                        <i class="fas fa-phone-volume col-3 ico"></i>
-                                                        <span class="col-9">@contact.phone</span>
-                                                    </div>
-                                                </li>
-                                            }
-
+<footer>
+    <div>
+        @Html.Action("Brands", "Home")
+    </div>
+    <div class="last-footer py-4">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-3  col-6 py-3">
+                    <div class="about">
+                        <a href="./index.html">
+                            <img src="~/customs/img/logo.png" alt="" class="pb-3">
+                        </a>
+                        <ul class="list-group col-12 list-unstyled">
+                            @{
+                                var contact = new EcommerceProject.DAL.ContactUsDAL().GetAll().FirstOrDefault();
+                                if (contact != null)
+                                {
+                                    <div class="row">
+                                        @if (!string.IsNullOrEmpty(contact.phone))
+                                        {
                                             <li class="col-12 py-2">
                                                 <div class="row">
-                                                    <i class="fas fa-envelope-open-text col-3 ico"></i>
-                                                    <span class="col-9">@contact.Email</span>
+
+                                                    <i class="fas fa-phone-volume col-3 ico"></i>
+                                                    <span class="col-9">@contact.phone</span>
                                                 </div>
-
                                             </li>
-                                            <li class="col-12 py-2">
-                                                <div class="row">
-                                                    <i class="fas fa-map-marker-alt col-3 ico"></i>
-                                                    <span class="col-9"> @contact.address</span>
-                                                </div>
+                                        }
 
-                                            </li>
-                                        </div>
-                                    }
+                                        <li class="col-12 py-2">
+                                            <div class="row">
+                                                <i class="fas fa-envelope-open-text col-3 ico"></i>
+                                                <span class="col-9">@contact.Email</span>
+                                            </div>
 
+                                        </li>
+                                        <li class="col-12 py-2">
+                                            <div class="row">
+                                                <i class="fas fa-map-marker-alt col-3 ico"></i>
+                                                <span class="col-9"> @contact.address</span>
+                                            </div>
+
+                                        </li>
+                                    </div>
                                 }
 
-                            </ul>
-                        </div>
+                            }
+
+                        </ul>
                     </div>
+                </div>
 
-                    <div class="col-lg-3  col-6 py-3">
-                        <div class="account">
-                            <h3 class="pb-3">MY ACCOUNT</h3>
+                <div class="col-lg-3  col-6 py-3">
+                    <div class="account">
+                        <h3 class="pb-3">MY ACCOUNT</h3>
 
-                            <ul class="list-group col-12 list-unstyled">
-                                <li class=""><a href="">Sitemap</a></li>
-                                <li class=""><a href="">Privacy Policy</a></li>
-                                <li class=""><a href="">Your Account</a></li>
-                                <li class=""><a href="">Adanced Search</a></li>
-                                <li class=""><a href="">Contact Us</a></li>
-                            </ul>
+                        <ul class="list-group col-12 list-unstyled">
+                            <li class=""><a href="">Sitemap</a></li>
+                            <li class=""><a href="">Privacy Policy</a></li>
+                            <li class=""><a href="">Your Account</a></li>
+                            <li class=""><a href="">Adanced Search</a></li>
+                            <li class=""><a href="">Contact Us</a></li>
+                        </ul>
 
-                        </div>
                     </div>
+                </div>
 
-                    <div class="col-lg-3  col-6 py-3">
-                        <div class="pay-ship">
-                            <h3 class="pb-3">PAYMENT & SHIPPING</h3>
+                <div class="col-lg-3  col-6 py-3">
+                    <div class="pay-ship">
+                        <h3 class="pb-3">PAYMENT & SHIPPING</h3>
 
-                            <ul class="list-group col-12 list-unstyled">
-                                <li class=""><a href="">Terms Of Use</a></li>
-                                <li class=""><a href="">Payment Method</a></li>
-                                <li class=""><a href="">Locations We Ship To</a></li>
-                                <li class=""><a href="">Shipping Guide</a></li>
-                                <li class=""><a href="">Estimated Delivery Time</a></li>
-                            </ul>
+                        <ul class="list-group col-12 list-unstyled">
+                            <li class=""><a href="">Terms Of Use</a></li>
+                            <li class=""><a href="">Payment Method</a></li>
+                            <li class=""><a href="">Locations We Ship To</a></li>
+                            <li class=""><a href="">Shipping Guide</a></li>
+                            <li class=""><a href="">Estimated Delivery Time</a></li>
+                        </ul>
 
-                        </div>
                     </div>
+                </div>
 
-                    <div class="col-lg-3 col-6 py-3">
-                        <div class="customr">
-                            <h3 class="pb-3">CUSTOMER SERVICE</h3>
+                <div class="col-lg-3 col-6 py-3">
+                    <div class="customr">
+                        <h3 class="pb-3">CUSTOMER SERVICE</h3>
 
-                            <ul class="list-group col-12 list-unstyled">
-                                <li class=""><a href="">Shipping Policy</a></li>
-                                <li class=""><a href="">Compensation First</a></li>
-                                <li class=""><a href="">My Account</a></li>
-                                <li class=""><a href="">Return Policy</a></li>
-                                <li class=""><a href="">Contact Us</a></li>
-                            </ul>
+                        <ul class="list-group col-12 list-unstyled">
+                            <li class=""><a href="">Shipping Policy</a></li>
+                            <li class=""><a href="">Compensation First</a></li>
+                            <li class=""><a href="">My Account</a></li>
+                            <li class=""><a href="">Return Policy</a></li>
+                            <li class=""><a href="">Contact Us</a></li>
+                        </ul>
 
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
 
     <script src="~/customs/js/jQuery3.js"></script>

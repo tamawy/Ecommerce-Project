@@ -38,5 +38,6 @@ namespace EcommerceProject.Controllers
         {
             return PartialView(productDAL.GetAll().ToList());
         }
+
     }
 }
