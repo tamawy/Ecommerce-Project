@@ -37,7 +37,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
             Brand brand = new Brand()
             {
                 Name = brandVM.Name,
-                Image = "",
+                Image = " ",
                 CreatedBy = 1,
                 CreationDate = DateTime.Now
             };
@@ -53,6 +53,43 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 JsonRequestBehavior.AllowGet);
         }
         
+        public PartialViewResult Edit(long id)
+        {
+            var data = brandDAL.Getone(id);
+            ViewBag.FormName = "EditBrand";
+            return PartialView("Add",
+                new BrandVM()
+                {
+                    ID = data.ID,
+                    Name = data.Name,
+                    CreatedBy = data.CreatedBy,
+                    CreationDate = data.CreationDate,
+                    UpdatedBy = data.UpdatedBy,
+                    UpdatedDate = data.UpdatedDate,
+                    Image = data.Image
+                }
+                );
+        }
+
+        [HttpPost]
+        public JsonResult EditBrand(BrandVM data)
+        {
+            string message;
+            Brand brand = new Brand()
+            {
+                ID = data.ID,
+                Name = data.Name,
+                CreatedBy = data.CreatedBy,
+                CreationDate = data.CreationDate,
+                UpdatedBy = data.UpdatedBy,
+                UpdatedDate = data.UpdatedDate,
+                Image = data.Image
+            };
+
+            return Json(new { done = brandDAL.Edit(brand, out message),
+                message , edit = true},
+                JsonRequestBehavior.AllowGet);
+        }
         public ActionResult UploadImage(long id)
         {
             ViewBag.brandID = id;

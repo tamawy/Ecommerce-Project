@@ -6,14 +6,18 @@
 }
 @Html.Action("Banner")
 <div id="alert">
-    
+
 </div>
 <div id="user">
-    
-</div id="login">
+
+</div>
+
+
 @if (currentUser == null)
 {
-    @Html.Action("Login", "Register")
+    <div id="login">
+        @Html.Action("Login", "Register")
+    </div>
 }
 <div>
     @Html.Action("NewProducts")
@@ -25,7 +29,7 @@
     function onSuccess(response) {
         if (response.done) {
             console.log('Inside True');
-            var message = '<h1>'+response.name+'</h1>'
+            var message = '<h1>' + response.name + '</h1>'
             $('#user').html(message)
             $('#login').html('')
             $('#alert').html('');

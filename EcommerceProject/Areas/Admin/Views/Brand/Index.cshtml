@@ -4,7 +4,8 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Brands</h2>
+<div id="alert"></div>
 <div class="row" id="BrandForm">
     @Html.Action("Add")
 </div>
@@ -53,7 +54,10 @@
     function onsuccess(data) {
         if (data.done) {
             LoadData();
-            Clear(); 
+            Clear();
+            if (data.edit) {
+                Add();
+            }
         }
         else {
             alert("Error");
