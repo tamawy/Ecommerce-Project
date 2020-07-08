@@ -9,7 +9,7 @@ namespace EcommerceProject.DAL
     public class CategoryDAL
     {
         EcommerceProjectEntities db = new EcommerceProjectEntities();
-        public bool Add(Category category)
+        public bool Add(Category category, out string message)
         {
             try
             {
@@ -17,17 +17,19 @@ namespace EcommerceProject.DAL
                 {
                     db.Category.Add(category);
                     db.SaveChanges();
+                    message = "Added Successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
             }
             catch (Exception e)
             {
-
+                message = e.Message;
                 return false;
             }
         }
-        public bool Edit(Category category)
+        public bool Edit(Category category, out string message)
         {
             try
             {
@@ -38,18 +40,20 @@ namespace EcommerceProject.DAL
                     obj.UpdatedBy = category.UpdatedBy;
                     obj.UpdatedDate = category.UpdatedDate;
                     db.SaveChanges();
+                    message = "Edited Successfully";
                     return true;
                 }
+                message = "The object passed is null";
                 return false;
 
             }
             catch (Exception e)
             {
-
+                message = e.Message;
                 return false;
             }
         }
-        public bool Delete(long id)
+        public bool Delete(long id, out string message)
         {
             Category obj = db.Category.Where(z => z.ID == id).FirstOrDefault();
 
@@ -60,14 +64,16 @@ namespace EcommerceProject.DAL
                 {
                     db.Category.Remove(obj);
                     db.SaveChanges();
+                    message = "Deleted Successfully";
                     return true;
 
                 }
+                message = "The object is null";
                 return false;
             }
             catch (Exception e)
             {
-
+                message = e.Message;
                 return false;
             }
         }

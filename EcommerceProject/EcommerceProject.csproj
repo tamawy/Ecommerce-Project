@@ -131,7 +131,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AboutAsController.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CategroyController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ColorController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactMessageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactUsController.cs" />
@@ -1950,8 +1950,6 @@
     <Content Include="Areas\Admin\Views\OrderDetails\Index.cshtml" />
     <Content Include="Areas\Admin\Views\OrderDetails\OrderDetails.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Categroy\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Categroy\CategoryDetails.cshtml" />
     <Content Include="Areas\Admin\Views\SubCategroy\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SubCategroy\SubCategoryDetails.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
@@ -1966,7 +1964,6 @@
     <Content Include="Areas\Admin\Views\AboutAs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ContactUs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ContactUs\ContactUsDetails.cshtml" />
-    <Content Include="Areas\Admin\Views\Categroy\AddCategory.cshtml" />
     <Content Include="Areas\Admin\Views\Product\AddProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Product\UploadImage.cshtml" />
     <Content Include="Areas\Admin\Views\SubCategroy\AddSubCategory.cshtml" />
@@ -2061,6 +2058,9 @@
     <Content Include="Areas\Admin\Views\Brand\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\UploadImage.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\BrandData.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\AddCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\CategoryDetails.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

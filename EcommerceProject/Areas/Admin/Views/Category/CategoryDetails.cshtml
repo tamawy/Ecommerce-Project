@@ -1,8 +1,9 @@
-﻿@model List<EcommerceProject.Models.Category>
+﻿
+@model List<EcommerceProject.Models.Category>
 <div class="container">
     @if (Model.Any())
     {
-        <table class="table table-bordered">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -18,7 +19,7 @@
 
                         <td>
                             <button class="btn btn-info" onclick="DetailsCategory(@item.ID)">Details </button>
-                            <button class="btn btn-danger" onclick="EditCategory(@item.ID)"> Edit</button>
+                            <button class="btn btn-primary" onclick="EditCategory(@item.ID)"> Edit</button>
                             <button class="btn btn-danger" onclick="DeleteCategory(@item.ID)"> Delete</button>
                         </td>
                     </tr>
@@ -34,7 +35,7 @@
 <script>
     function DetailsCategory(id) {
         $.ajax({
-            url: '/Admin/Categroy/DetailsCategory',
+            url: '/Admin/Category/DetailsCategory',
             type: 'Get',
             data: {
                 id: id
@@ -53,7 +54,7 @@
 
     function EditCategory(id) {
         $.ajax({
-            url: '/Admin/Categroy/EditCategory',
+            url: '/Admin/Category/EditCategory',
             type: 'Get',
             data: {
                 id: id
@@ -71,18 +72,32 @@
 
     function DeleteCategory(id) {
         $.ajax({
-            url: '/Admin/Categroy/DeleteCategory',
+            url: '/Admin/Category/DeleteCategory',
             type: 'Get',
             data: {
                 id: id
             }
         }).done(function (data) {
             LoadData();
-
+            message = '<p class="alert alert-success">' + data.message + '</p>';
+            $('#alert').html(message);
         }).fail(function (data) {
             $('.alert').html('Erorr In Delete');
 
 
         });
     }
+
+    function Add() {
+        $.ajax({
+            url: "/Admin/Category/AddCategory",
+            type: "Get",
+
+        }).done(function (data) {
+            $('#categoryfrom').html(data);
+        }).fail(function () {
+            $('.alert').html("Error in load form");
+        });
+    }
 </script>
+

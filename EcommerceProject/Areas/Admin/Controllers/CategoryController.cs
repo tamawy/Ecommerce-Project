@@ -4,22 +4,23 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EcommerceProject.DAL;
-using EcommerceProject.Models;
 using EcommerceProject.VM;
+using EcommerceProject.Models;
 
 namespace EcommerceProject.Areas.Admin.Controllers
 {
-    public class CategroyController : Controller
+    public class CategoryController : Controller
     {
+        // GET: Admin/Category
         CategoryDAL CategroyDAL = new CategoryDAL();
-        // GET: Admin/Categroy
+        // GET: Admin/Category
         public ActionResult Index()
         {
             return View();
         }
-        public PartialViewResult CategroyDetails()
+        public PartialViewResult CategoryDetails()
         {
-            return PartialView(CategroyDAL.GetAll());
+            return PartialView(CategroyDAL.GetAll().OrderByDescending(z => z.ID).ToList());
         }
         public PartialViewResult AddCategory()
         {
@@ -61,6 +62,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult PostCategory(CategroyVM vm)
         {
+            string message;
             Category category = new Category()
             {
                 Name = vm.Name,
@@ -68,16 +70,18 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 CreationDate = DateTime.Now
 
             };
-            if (CategroyDAL.Add(category))
-            {
-                return Json(new { done = true }, JsonRequestBehavior.AllowGet);
-
-            }
-            return Json(new { done = false }, JsonRequestBehavior.AllowGet);
+            return Json(new 
+            { 
+                done = CategroyDAL.Add(category, out message),
+                message, 
+                add = true
+            }, 
+                JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public JsonResult EditCategory(CategroyVM vm)
         {
+            string message;
             Category category = new Category()
             {
                 ID = vm.ID,
@@ -88,22 +92,24 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 UpdatedBy = 1,
 
             };
-            if (CategroyDAL.Edit(category))
-            {
-                return Json(new { done = true }, JsonRequestBehavior.AllowGet);
+            return Json(new 
+            { 
+                done = CategroyDAL.Edit(category, out message) ,
+                message, 
+                edit = true
+            },
+                JsonRequestBehavior.AllowGet);
 
-            }
-            return Json(new { done = false }, JsonRequestBehavior.AllowGet);
         }
         public JsonResult DeleteCategory(long id)
         {
-            if (CategroyDAL.Delete(id))
-
+            string message;
+            return Json(new
             {
-                return Json(new { done = true }, JsonRequestBehavior.AllowGet);
-
-            }
-            return Json(new { done = false }, JsonRequestBehavior.AllowGet);
+                done = CategroyDAL.Delete(id, out message),
+                message
+            }, 
+            JsonRequestBehavior.AllowGet) ;
         }
     }
 }
