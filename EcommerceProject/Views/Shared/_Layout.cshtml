@@ -24,7 +24,7 @@
             <div class="first-header">
                 <div class="row">
                     <div class="col-md-3 col-12">
-                        <a href="home" class="logo text-center">
+                        <a href="~/home" class="logo text-center">
                             <img src="~/customs/img/logo.png" alt="">
                         </a>
                     </div>
@@ -189,75 +189,51 @@
                         <!-- Tab Content -->
                         <div class="tab-content">
                             <div class="tab-pane container active" id="login">
-                                <!-- Login Tab -->
-                                <div class="login">
-                                    <div class="form-group">
-                                        <label class="p-0">Email address</label>
-                                        <input type="email" class="form-control" id="lo-email" autocomplete="off">
-                                        <i class="fas fa-at ico"></i>
-                                        <p class="m-0 text-danger d-none lo-email"> Pleas Enter Your Email.</p>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="p-0">Password</label>
-                                        <input type="password" class="form-control" id="lo-pass">
-                                        <i class="fas fa-unlock-alt ico"></i>
-                                        <p class="m-0 text-danger d-none lo-pass"> Pleas Enter Your password.</p>
-                                    </div>
-
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="remember" style="
-                      padding: 10px 25px">
-                                        <label class="custom-control-label" for="remember">Remember Me</label>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-primary mt-4 rounded-0">Login</button>
-                                </div>
-
+                                @Html.Action("Login", "Register");
                             </div>
-                            <!-- register -->
-                            <div class="tab-pane container fade" id="register">
-                                <!-- Login Tab -->
-                                <div class="register">
-                                    <div class="form-group">
-                                        <label for="">Name</label>
-                                        <input type="text" id="name" class="form-control" autocomplete="off">
-                                        <i class="far fa-user ico"></i>
-                                        <p class="m-0 text-danger d-none name"> Pleas Enter Your Name.</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Email</label>
-                                        <input type="email" id="email" class="form-control" autocomplete="off">
-                                        <i class="fas fa-at ico"></i>
-                                        <p class="m-0 text-danger d-none email"> Pleas Enter Your Email.</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Password</label>
-                                        <input type="password" id="pass" class="form-control">
-                                        <i class="fas fa-unlock ico"></i>
-                                        <p class="m-0 text-danger d-none pass"> Pleas Enter Your Password.</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Re-Password</label>
-                                        <input type="password" id="re-pass" class="form-control">
-                                        <i id="ico" class="fas fa-undo ico"></i>
-                                        <p class="m-0 text-danger d-none re-pass"> This Not Equal Password.</p>
-                                    </div>
-                                    <div class="m-or-f">
-                                        <div class="custom-control custom-radio custom-control-inline male">
-                                            <input type="radio" class="custom-control-input" id="maleRadio" name="radio">
-                                            <label class="custom-control-label" for="maleRadio">Male</label>
+                                <!-- register -->
+                                <div class="tab-pane container fade" id="register">
+                                    <!-- Login Tab -->
+                                    <div class="register">
+                                        <div class="form-group">
+                                            <label for="">Name</label>
+                                            <input type="text" id="name" class="form-control" autocomplete="off">
+                                            <i class="far fa-user ico"></i>
+                                            <p class="m-0 text-danger d-none name"> Pleas Enter Your Name.</p>
                                         </div>
-                                        <div class="custom-control custom-radio custom-control-inline female">
-                                            <input type="radio" class="custom-control-input" id="femaleRadio" name="radio" value="Male">
-                                            <label class="custom-control-label" for="femaleRadio">Female</label>
+                                        <div class="form-group">
+                                            <label for="">Email</label>
+                                            <input type="email" id="email" class="form-control" autocomplete="off">
+                                            <i class="fas fa-at ico"></i>
+                                            <p class="m-0 text-danger d-none email"> Pleas Enter Your Email.</p>
                                         </div>
-                                        <button type="button" class="btn btn-danger mt-4 d-block rounded-0">Sign Up</button>
+                                        <div class="form-group">
+                                            <label for="">Password</label>
+                                            <input type="password" id="pass" class="form-control">
+                                            <i class="fas fa-unlock ico"></i>
+                                            <p class="m-0 text-danger d-none pass"> Pleas Enter Your Password.</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Re-Password</label>
+                                            <input type="password" id="re-pass" class="form-control">
+                                            <i id="ico" class="fas fa-undo ico"></i>
+                                            <p class="m-0 text-danger d-none re-pass"> This Not Equal Password.</p>
+                                        </div>
+                                        <div class="m-or-f">
+                                            <div class="custom-control custom-radio custom-control-inline male">
+                                                <input type="radio" class="custom-control-input" id="maleRadio" name="radio">
+                                                <label class="custom-control-label" for="maleRadio">Male</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline female">
+                                                <input type="radio" class="custom-control-input" id="femaleRadio" name="radio" value="Male">
+                                                <label class="custom-control-label" for="femaleRadio">Female</label>
+                                            </div>
+                                            <button type="button" class="btn btn-danger mt-4 d-block rounded-0">Sign Up</button>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>  <!-- End Login And Register Tab-->
                 </div><!-- End First Header Row-->
             </div><!-- End First Header-->
