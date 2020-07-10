@@ -60,7 +60,7 @@
     <Property Name="CreationDate" Type="datetime" Nullable="false" />
     <Property Name="UpdatedBy" Type="bigint" />
     <Property Name="UpdatedDate" Type="datetime" />
-    <Property Name="IsAnswer" Type="bigint" Nullable="false" />
+    <Property Name="IsAnswer" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ContactUs">
     <Key>

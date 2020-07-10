@@ -1,0 +1,147 @@
+﻿@model EcommerceProject.VM.ContactMessageVM
+
+<!--contact form-->
+<section class="form text-capitalize">
+        <div class="container">
+            <div class="heading">
+                <p>
+                    leave a messsage
+                </p>
+                <h2>
+                    We love to hear from you
+                </h2>
+            </div>
+            <form>
+                <div class="main-form">
+                    <div class="container">
+                        <div class="row">
+                            @using (Ajax.BeginForm("AddContactMessage", new AjaxOptions
+                            { OnSuccess = "OnSuccess", OnFailure = "OnFailure" }))
+                            {
+
+                                <!--name form with validation-->
+                                <div class="form-group col-sm-12 col-lg-6">
+                                    <label>your name:</label>
+                                    @Html.TextBoxFor(z => z.Name, new
+                                    {
+                                        @class = "form-control",
+                                        type = "text",
+                                        placeholder = "your name",
+                                        required = "required"
+                                    })
+                                    <!--validation to name input-->
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+                                <!--email form with validation-->
+                                <div class="form-group col-sm-12 col-lg-6">
+                                    <label>your email:</label>
+                                    @Html.TextBoxFor(z => z.Email, new
+                                        {
+                                            @class = "form-control",
+                                            type = "email",
+                                            placeholder = "your email",
+                                            required = "required"
+                                        })
+                                    <!--validation to email input-->
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+                                <div class="form-group col-12">
+                                    <label>messsage:</label>
+                                    @Html.TextAreaFor(z => z.Message, new
+                                            {
+                                                @class = "text-area",
+                                                placeholder = "your email",
+                                                required = "required"
+                                            })
+                                    <!--validation to message input-->
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+                                <div>
+                                    <button type="submit" class="btn btn-primary">Send</button>
+                                </div>
+
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+@*
+<section class="form text-capitalize">
+    <div class="container">
+        <div class="heading">
+            <p>
+                leave a messsage
+            </p>
+            <h2>
+                We love to hear from you
+            </h2>
+        </div>
+        <div class="main-form">
+            <form class="validated">
+                <div class="container">
+                    <div class="row">
+                        <!--name form with validation-->
+                        <div class="form-group col-sm-12 col-lg-6">
+                            <label>your name:</label>
+                            <input type="text" class="form-control" placeholder="your name" required />
+                            <!--validation to name input-->
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <!--email form with validation-->
+                        <div class="form-group col-sm-12 col-lg-6">
+                            <label>your email:</label>
+                            <input type="email" class="form-control" placeholder="your email" required />
+                            <!--validation to email input-->
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <!--phone form with validation-->
+                        <div class="form-group col-sm-12 col-lg-6">
+                            <label>your Phone:</label>
+                            <input type="number" class="form-control" placeholder="your Phone" required />
+                            <!--validation to phone input-->
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <!--subject form with validation-->
+                        <div class="form-group col-sm-12 col-lg-6">
+                            <label>subject:</label>
+                            <input type="text" class="form-control" placeholder="subject" required />
+                            <!--validation to subject input-->
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <!--message form with validation-->
+                        <div class="form-group col-12">
+                            <label>messsage:</label>
+                            <textarea placeholder="messsage" class="text-area" required></textarea>
+                            <!--validation to message input-->
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                    </div>
+                    <div>
+                        <input class="btn btn-primary" type="submit" value="send" />
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+</section>
+*@

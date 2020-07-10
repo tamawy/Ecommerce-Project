@@ -1,0 +1,51 @@
+﻿
+@model EcommerceProject.Models.ContactUs
+<section class="info">
+    <div class="container">
+        <div class="row">
+            <figure class="col-lg-3 col-sm-5 col-12 pt-4">
+                <div class="row">
+                    <div class="icon col-4">
+                        <span><i class="fas fa-mobile"></i></span>
+                    </div>
+                    <div class="col-8 figcaption">
+                        <h5>Phone</h5>
+                        <p>@Model.phone</p>
+                    </div>
+                </div>
+            </figure>
+            <figure class="col-lg-3 col-sm-5 col-12 pt-4">
+                <div class="row">
+                    <div class="icon col-4">
+                        <span><i class="far fa-envelope"></i></span>
+                    </div>
+                    <div class="col-8 figcaption">
+                        <h5>Email</h5>
+                        <p>@Model.Email</p>
+                    </div>
+                </div>
+            </figure>
+            <figure class="col-lg-3  col-sm-5 col-12 pt-3">
+                <div class="row">
+                    <div class="icon col-4">
+                        <span><i class="fas fa-map-marker-alt"></i></span>
+                    </div>
+                    <div class="col-8 figcaption">
+                        <h5>Address</h5>
+                        <p>@Model.address</p>
+                    </div>
+                </div>
+            </figure>
+            <div class="list col-lg-1 col-sm-1 col-12 ml-2 text-primary">
+                <span class="span"><i class="fas fa-chevron-circle-down"></i></span>
+                <div class="drobdown justify-content-center" id="show">
+                    <ul class="list-group list-unstyled">
+                        <li id="face" class="list-group-item p-0">
+                            <a href="@Model.facebook"><i class="fab fa-facebook"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

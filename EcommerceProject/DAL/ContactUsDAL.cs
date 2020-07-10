@@ -80,6 +80,10 @@ namespace EcommerceProject.DAL
         {
             return db.ContactUs.ToList();
         }
+        public ContactUs GetOne(long id)
+        {
+            return db.ContactUs.Where(z => z.ID == id).FirstOrDefault();
+        }
 
     }
 }

@@ -9,7 +9,27 @@ namespace EcommerceProject.DAL
     public class ContactMessageDAL
     {
         EcommerceProjectEntities db = new EcommerceProjectEntities();
-
+        public bool Add(ContactMesaage contactMesaage, out string message)
+        {
+            try
+            {
+                if (contactMesaage != null)
+                {
+                    db.ContactMesaage.Add(contactMesaage);
+                    db.SaveChanges();
+                    message = "Added Successfully";
+                    return true;
+                }
+                
+                message = "Object is null";
+                return false;
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+                return false;
+            }
+        }
         //Edit
         public bool Edit(ContactMesaage contactmsg)
         {

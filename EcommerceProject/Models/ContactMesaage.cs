@@ -22,7 +22,7 @@ namespace EcommerceProject.Models
         public System.DateTime CreationDate { get; set; }
         public Nullable<long> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public long IsAnswer { get; set; }
+        public bool IsAnswer { get; set; }
     
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }

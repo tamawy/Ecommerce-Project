@@ -65,7 +65,7 @@
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="UpdatedBy" Type="bigint" />
           <Property Name="UpdatedDate" Type="datetime" />
-          <Property Name="IsAnswer" Type="bigint" Nullable="false" />
+          <Property Name="IsAnswer" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ContactUs">
           <Key>
@@ -1059,7 +1059,7 @@
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedBy" Type="Int64" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="IsAnswer" Type="Int64" Nullable="false" />
+          <Property Name="IsAnswer" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="User" Relationship="EcommerceProjectModel.FK_ContactMesaage_User" FromRole="ContactMesaage" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="EcommerceProjectModel.FK_ContactMesaage_User1" FromRole="ContactMesaage" ToRole="User" />
         </EntityType>

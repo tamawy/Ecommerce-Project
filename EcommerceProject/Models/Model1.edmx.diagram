@@ -5,18 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7cfc47e9f54e4ed5a389714fdc5abc00" Name="Diagram1">
-        <EntityTypeShape EntityType="EcommerceProjectModel.AboutUs" Width="1.5" PointX="5.25" PointY="13.375" />
-        <EntityTypeShape EntityType="EcommerceProjectModel.Brand" Width="1.5" PointX="5.25" PointY="6.75" />
-        <EntityTypeShape EntityType="EcommerceProjectModel.Category" Width="1.5" PointX="5.25" PointY="10" />
-        <EntityTypeShape EntityType="EcommerceProjectModel.Color" Width="1.5" PointX="5.25" PointY="27.875" />
-        <EntityTypeShape EntityType="EcommerceProjectModel.ContactMesaage" Width="1.5" PointX="5.25" PointY="24.375" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.AboutUs" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.Brand" Width="1.5" PointX="5.25" PointY="10" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.Category" Width="1.5" PointX="5.25" PointY="13.375" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.Color" Width="1.5" PointX="5.25" PointY="20.25" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.ContactMesaage" Width="1.5" PointX="5.25" PointY="27.75" />
         <EntityTypeShape EntityType="EcommerceProjectModel.ContactUs" Width="1.5" PointX="5.25" PointY="16.75" />
-        <EntityTypeShape EntityType="EcommerceProjectModel.Order" Width="1.5" PointX="7.5" PointY="22.5" />
-        <EntityTypeShape EntityType="EcommerceProjectModel.OrderDetails" Width="1.5" PointX="9.75" PointY="17.5" />
-        <EntityTypeShape EntityType="EcommerceProjectModel.Product" Width="1.5" PointX="7.5" PointY="12.375" />
-        <EntityTypeShape EntityType="EcommerceProjectModel.ProductColor" Width="1.5" PointX="9.75" PointY="22" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.Order" Width="1.5" PointX="7.5" PointY="23.5" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.OrderDetails" Width="1.5" PointX="9.75" PointY="20.875" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.Product" Width="1.5" PointX="7.5" PointY="14.125" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.ProductColor" Width="1.5" PointX="9.75" PointY="17" />
         <EntityTypeShape EntityType="EcommerceProjectModel.Role" Width="1.5" PointX="0.75" PointY="17.625" />
-        <EntityTypeShape EntityType="EcommerceProjectModel.SubCategory" Width="1.5" PointX="7.5" PointY="17.875" />
+        <EntityTypeShape EntityType="EcommerceProjectModel.SubCategory" Width="1.5" PointX="7.5" PointY="19.5" />
         <EntityTypeShape EntityType="EcommerceProjectModel.User" Width="1.5" PointX="3" PointY="14.375" />
         <EntityTypeShape EntityType="EcommerceProjectModel.UserAddress" Width="1.5" PointX="5.25" PointY="31.125" />
         <AssociationConnector Association="EcommerceProjectModel.FK_AboutUs_User" />
