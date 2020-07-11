@@ -2101,6 +2101,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\ContactMessage.cshtml" />
     <Content Include="Views\Contact\ContactUs.cshtml" />
+    <Content Include="Views\Home\Testmonial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

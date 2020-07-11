@@ -11,14 +11,13 @@
                     We love to hear from you
                 </h2>
             </div>
-            <form>
+            <form class="validated">
                 <div class="main-form">
                     <div class="container">
                         <div class="row">
                             @using (Ajax.BeginForm("AddContactMessage", new AjaxOptions
                             { OnSuccess = "OnSuccess", OnFailure = "OnFailure" }))
                             {
-
                                 <!--name form with validation-->
                                 <div class="form-group col-sm-12 col-lg-6">
                                     <label>your name:</label>

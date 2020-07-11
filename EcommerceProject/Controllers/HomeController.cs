@@ -39,5 +39,11 @@ namespace EcommerceProject.Controllers
             return PartialView(productDAL.GetAll().ToList());
         }
 
+        public PartialViewResult Testmonial()
+        {
+            return PartialView(new ContactMessageDAL().GetAll()
+                .Where(z => z.IsAnswer == true).ToList());
+        }
+
     }
 }

@@ -1,0 +1,35 @@
+﻿@model List<EcommerceProject.Models.ContactMesaage>
+<!--start testmonial section-->
+<section class="testmonial">
+    <div class="container">
+        
+        <div class="jumbotron text-center py-5 owl-carousel owl-theme">
+            @foreach (var item in Model)
+            {
+                <div class="item">
+                    <div class="testmonial-content p-5">
+                        <div class="row">
+                            <div class="col-2">
+                                <i class="fas fa-quote-left quote-ico"></i>
+                            </div>
+                            <div class="col-10">
+                                <p class="m-0">@item.Message</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testmonial-person pt-5">
+                        <div class="person-img d-flex justify-content-center pt-3">
+                            <img src="./img/testmonial-img/person1.jpg" alt="" class="rounded-circle img-fluid">
+                        </div>
+                        <div class="person-about pt-2">
+                            <h6 class="m-0">@item.Name</h6>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        
+    </div>
+</section>
+
+<!--end testmonial section-->
