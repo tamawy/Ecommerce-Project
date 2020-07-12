@@ -1,0 +1,35 @@
+﻿@model EcommerceProject.Models.AboutUs
+@{
+    string formName = ViewBag.FormName;
+}
+
+
+@using (Ajax.BeginForm(formName,
+   new AjaxOptions { OnSuccess = "onSuccess", OnFailure = "onFailure" }))
+{
+    @Html.LabelFor(z => z.Vision)
+    @Html.TextAreaFor(z => z.Vision)
+    @Html.ValidationMessageFor(z => z.Vision)
+
+    @Html.LabelFor(z => z.Mission)
+    @Html.TextAreaFor(z => z.Mission)
+    @Html.ValidationMessageFor(z => z.Mission)
+
+    @Html.LabelFor(z => z.WhoAreWe)
+    @Html.TextAreaFor(z => z.WhoAreWe)
+    @Html.ValidationMessageFor(z => z.WhoAreWe)
+
+    @if (formName == "PostEdit")
+    {
+        @Html.HiddenFor(z => z.ID)
+        @Html.HiddenFor(z => z.CreationDate)
+        @Html.HiddenFor(z => z.CreatedBy)
+
+        <button class="btn btn-primary" type="submit">Edit</button>
+    }
+    else if (formName == "PostAdd")
+    {
+        <button class="btn btn-success" type="submit">Save</button>
+        <button class="btn btn-danger" type="reset">Clear</button>
+    }
+}

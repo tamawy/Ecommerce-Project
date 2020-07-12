@@ -1,0 +1,55 @@
+﻿@model List<EcommerceProject.Models.AboutUs>
+<div class="container">
+    @if (Model.Any())
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Vision</th>
+                    <th>Mission</th>
+                    <th>WhoAreWe</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Vision</td>
+                        <td>@item.Mission</td>
+                        <td>@item.WhoAreWe</td>
+                        <td>
+                            <a class="btn btn-primary" onclick="edit(@item.ID)">Edit</a>
+                            <a class="btn btn-danger" onclick="Delete(@item.ID)">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="alert alert-danger">No data found</p>
+    }
+</div>
+
+<script>
+    function edit(id) {
+        $.ajax({
+            url: "/Admin/AboutUs/Edit",
+            type: "GET",
+            data: {
+                id : id
+            }
+        })
+    }
+
+    function Delete(id) {
+        $.ajax({
+            url: "/Admin/AboutUs/Delete",
+            type: "GET",
+            data: {
+                id: id
+            }
+        })
+    }
+</script>
