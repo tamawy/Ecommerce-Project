@@ -1,38 +1,40 @@
 ﻿@model EcommerceProject.VM.UserVM
-<div class="login">
-    @using (Ajax.BeginForm("Login", "Register",
-        new AjaxOptions { OnSuccess = "onSuccess", OnFailure = "onFailure" }))
-    {
-        <div class="form-group">
-            @Html.LabelFor(z => z.Email)
-            @Html.TextBoxFor(z => z.Email, new
-       {
-           @class = "form-control",
-           type = "email",
-           id = "lo-email",
-           autocomplete = "off"
-       })
-            @Html.ValidationMessageFor(z => z.Email)
-            <i class="fas fa-at ico"></i>
-            <p class="m-0 text-danger d-none lo-email"> Pleas Enter Your Email.</p>
-        </div>
+<div class="tab-pane container active" id="login">
+    <div class="login">
+        @using (Ajax.BeginForm("Login", "Register",
+            new AjaxOptions { OnSuccess = "onSuccess", OnFailure = "onFailure" }))
+        {
+            <div class="form-group">
+                @Html.LabelFor(z => z.Email)
+                @Html.TextBoxFor(z => z.Email, new
+           {
+               @class = "form-control",
+               type = "email",
+               id = "lo-email",
+               autocomplete = "off"
+           })
+                @Html.ValidationMessageFor(z => z.Email)
+                <i class="fas fa-at ico"></i>
+                <p class="m-0 text-danger d-none lo-email"> Pleas Enter Your Email.</p>
+            </div>
 
-        <div class="form-group">
-            <label class="p-0">Password</label>
-            @Html.PasswordFor(z => z.Password, new
-       {
-           @class = "form-control",
-           id = "lo-pass"
-       })
-            @Html.ValidationMessageFor(z => z.Password)
-            <i class="fas fa-unlock-alt ico"></i>
-            <p class="m-0 text-danger d-none lo-pass"> Pleas Enter Your password.</p>
-        </div>
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="remember" style="
+            <div class="form-group">
+                <label class="p-0">Password</label>
+                @Html.PasswordFor(z => z.Password, new
+           {
+               @class = "form-control",
+               id = "lo-pass"
+           })
+                @Html.ValidationMessageFor(z => z.Password)
+                <i class="fas fa-unlock-alt ico"></i>
+                <p class="m-0 text-danger d-none lo-pass"> Pleas Enter Your password.</p>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="remember" style="
                                             padding: 10px 25px">
-            <label class="custom-control-label" for="remember">Remember Me</label>
-        </div>
-        <button type="submit" class="btn btn-primary mt-4 rounded-0">Login</button>
-    }
+                <label class="custom-control-label" for="remember">Remember Me</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4 rounded-0">Login</button>
+        }
+    </div>
 </div>

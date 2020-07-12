@@ -71,9 +71,11 @@
                                     else
                                     {
                                         <div class="user">
-                                            <i class="far fa-user ico"></i><a href="/User/index">@currentUser.Name</a>
+                                            <i class="far fa-user ico"></i>
+                                            <a href="/User/index">@currentUser.Name.Split(' ')[0]
+                                            </a>
                                         </div>
-                                        <a href="/Register/Logout">Logout</a>
+                                        <a href="/Register/Logout" style="color:rgb(255,0,0);">Logout</a>
                                     }
 
                                 </div>
@@ -109,11 +111,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
 
                         <hr>
                         <div class="show-more px-3 py-2">
@@ -188,52 +185,11 @@
 
                         <!-- Tab Content -->
                         <div class="tab-content">
-                            <div class="tab-pane container active" id="login">
-                                @Html.Action("Login", "Register");
-                            </div>
-                                <!-- register -->
-                                <div class="tab-pane container fade" id="register">
-                                    <!-- Login Tab -->
-                                    <div class="register">
-                                        <div class="form-group">
-                                            <label for="">Name</label>
-                                            <input type="text" id="name" class="form-control" autocomplete="off">
-                                            <i class="far fa-user ico"></i>
-                                            <p class="m-0 text-danger d-none name"> Pleas Enter Your Name.</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Email</label>
-                                            <input type="email" id="email" class="form-control" autocomplete="off">
-                                            <i class="fas fa-at ico"></i>
-                                            <p class="m-0 text-danger d-none email"> Pleas Enter Your Email.</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Password</label>
-                                            <input type="password" id="pass" class="form-control">
-                                            <i class="fas fa-unlock ico"></i>
-                                            <p class="m-0 text-danger d-none pass"> Pleas Enter Your Password.</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Re-Password</label>
-                                            <input type="password" id="re-pass" class="form-control">
-                                            <i id="ico" class="fas fa-undo ico"></i>
-                                            <p class="m-0 text-danger d-none re-pass"> This Not Equal Password.</p>
-                                        </div>
-                                        <div class="m-or-f">
-                                            <div class="custom-control custom-radio custom-control-inline male">
-                                                <input type="radio" class="custom-control-input" id="maleRadio" name="radio">
-                                                <label class="custom-control-label" for="maleRadio">Male</label>
-                                            </div>
-                                            <div class="custom-control custom-radio custom-control-inline female">
-                                                <input type="radio" class="custom-control-input" id="femaleRadio" name="radio" value="Male">
-                                                <label class="custom-control-label" for="femaleRadio">Female</label>
-                                            </div>
-                                            <button type="button" class="btn btn-danger mt-4 d-block rounded-0">Sign Up</button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Login -->
+                            @Html.Action("Login", "Register")
+                            <!-- register -->
+                            @Html.Action("Register", "Register")
+                        </div>
                     </div>  <!-- End Login And Register Tab-->
                 </div><!-- End First Header Row-->
             </div><!-- End First Header-->

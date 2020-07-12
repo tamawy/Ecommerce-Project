@@ -1,65 +1,106 @@
 ﻿@model EcommerceProject.VM.UserVM
-@{ 
-            string action = ViewBag.Action;
+@{
+    string action = ViewBag.Action;
 }
 
-<div>
-    @using (Ajax.BeginForm(action,
-        new AjaxOptions { OnSuccess = "onSuccess", OnFailure = "onFailure" }))
-    {
-        if (action == "PostEdit")
-        {
-            @Html.HiddenFor(z => z.ID)
-            @Html.HiddenFor(z => z.CreationDate)
-            @Html.HiddenFor(z => z.IsActive)
-        }
-        <div>
-            @Html.LabelFor(z => z.Name)
-            @Html.TextBoxFor(z => z.Name, new { @class = "form-control" })
-            @Html.ValidationMessageFor(z => z.Name)
-        </div>
-        <div>
-
-            @Html.LabelFor(z => z.Email)
-            @Html.TextBoxFor(z => z.Email, new
+<!-- register -->
+<div class="tab-pane container fade" id="register">
+    <!-- Login Tab -->
+    <div class="register">
+        
+        
+        <div class="m-or-f">
+            @using (Ajax.BeginForm(action,"Register",
+                new AjaxOptions { OnSuccess = "onSuccess", OnFailure = "onFailure" }))
             {
-                @class = "form-control",
-                type = "email",
-            })
-            @Html.ValidationMessageFor(z => z.Email)
-            <label id="confirmationEmail"></label>
-        </div>
+                if (action == "PostEdit")
+                {
+                    @Html.HiddenFor(z => z.ID)
+                    @Html.HiddenFor(z => z.CreationDate)
+                    @Html.HiddenFor(z => z.IsActive)
+                }
+                <div class="form-group">
+                    @Html.LabelFor(z => z.Name)
+                    @Html.TextBoxFor(z => z.Name,
+                   new
+                        {
+                       @class = "form-control",
+                       id = "name",
+                       type = "text",
+                       autocomplete = "off"
+                   })
+                    <i class="far fa-user ico"></i>
+                    <p class="m-0 text-danger d-none name"> Pleas Enter Your Name.</p>
+                    @Html.ValidationMessageFor(z => z.Name)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(z => z.Email)
+                    @Html.TextBoxFor(z => z.Email, new
+                    {
+                        @class = "form-control",
+                        type = "email",
+                        id = "emial",
+                        autocomplete = "off"
+                    })
+                    @Html.ValidationMessageFor(z => z.Email)
+                    <i class="fas fa-at ico"></i>
+                    <p class="m-0 text-danger d-none email"> Pleas Enter Your Email.</p>
+                    <label id="confirmationEmail"></label>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(z => z.Password)
+                    @Html.PasswordFor(z => z.Password, new
+                    {
+                        id = "pass",
+                        @class = "form-control",
+                        type = "password"
+                    })
+                    @Html.ValidationMessageFor(z => z.Password)
+                    <i class="fas fa-unlock ico"></i>
+                    <p class="m-0 text-danger d-none pass"> Pleas Enter Your Password.</p>
+                </div>
+                <div class="form-group">
+                    <label for="">Re-Password</label>
+                    <input type="password" id="re-pass" class="form-control">
+                    <i id="ico" class="fas fa-undo ico"></i>
+                    <p class="m-0 text-danger d-none re-pass"> This Not Equal Password.</p>
+                </div>
 
-        <div>
-            @Html.LabelFor(z => z.Password)
-            @Html.PasswordFor(z => z.Password, new { id = "password", @class = "form-control" })
-            @Html.ValidationMessageFor(z => z.Password)
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(z => z.Phone)
+                    @Html.TextBoxFor(z => z.Phone,
+                   new
+                        {
+                       @class = "form-control",
+                       id = "phone",
+                       type = "phone",
+                       autocomplete = "off"
+                   })
+                    <i class="far fa-user ico"></i>
+                    <p class="m-0 text-danger d-none name"> Pleas Enter Your Phone.</p>
+                    @Html.ValidationMessageFor(z => z.Phone)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(z => z.Address)
+                    @Html.TextBoxFor(z => z.Address,
+                   new
+                        {
+                       @class = "form-control",
+                       id = "Address",
+                       type = "text",
+                       autocomplete = "off"
+                   })
+                    <i class="far fa-user ico"></i>
+                    <p class="m-0 text-danger d-none name"> Pleas Enter Your Address.</p>
+                    @Html.ValidationMessageFor(z => z.Name)
+                </div>
 
-        <div>
-            <label>Confirm Password</label>
-            @Html.PasswordFor(z => z.ConfirmPassword, new { @class = "form-control" })
-            @Html.ValidationMessageFor(z => z.ConfirmPassword)
-            <label id="confirmationPassword"></label>
-        </div>
+                string buttonName = (action == "PostUser") ? "Sign Up" : "Edit";
+                <div>
+                    <button type="submit" class="btn btn-success mt-4 d-block rounded-0">@buttonName</button>
+                </div>
+            }
 
-
-        <div>
-            @Html.LabelFor(z => z.Address)
-            @Html.TextAreaFor(z => z.Address, new { @class = "form-control" })
-            @Html.ValidationMessageFor(z => z.Address)
         </div>
-
-        <div>
-            @Html.LabelFor(z => z.Phone)
-            @Html.TextBoxFor(z => z.Phone, new { @class = "form-control" })
-            @Html.ValidationMessageFor(z => z.Phone)
-        </div>
-
-        string buttonName = (action == "PostUser") ? "Register" : "Edit";
-        <div>
-            <button type="submit" class="btn btn-success">@buttonName</button>
-        </div>
-    }
+    </div>
 </div>
-
