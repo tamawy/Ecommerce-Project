@@ -22,4 +22,4 @@ and Visual studio which support ASP.NET MVC.
   prefered (chrome, firefox or opera).
   
   # Note.
-    The project have not finished yet.
+    The project has not been finished yet.
