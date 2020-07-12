@@ -1,0 +1,60 @@
+﻿@model EcommerceProject.Models.AboutUs
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- start page baner section  -->
+<section class="page-baner">
+    <div class="container">
+        <div class="page-baner-content text-center">
+            <h5>About Us</h5>
+            <div class="baner-link">
+                <span><a href="">Home / </a></span>
+                <span><a href="">About Us</a></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end page baner section  -->
+@if (Model != null)
+{
+    <section class="why-we-are">
+        <!--section has one raw divided into two column:first column for image ,second for paragraph(defination)    -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <img src="~/customs/img/about-page/why-we-are.jpg" class="img-thumbnail" alt="who-we-are-picture">
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div class="control-content">
+
+                        <h1> WHO WE ARE</h1>
+                        <p>
+                            @Model.WhoAreWe
+                        </p>
+                        <h1> Our Mission</h1>
+                        <p>
+                            @Model.Mission
+                        </p>
+                        <h1> Our Vission</h1>
+                        <p>
+                            @Model.Vision
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- END OF section  -->
+}
+else
+{
+    <p class="alert alert-danger">No Data Found</p>
+}
+<section>
+    <div>
+        @Html.Action("Testmonial", "Home")
+    </div>
+</section>

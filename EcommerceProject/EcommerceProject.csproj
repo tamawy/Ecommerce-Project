@@ -142,6 +142,7 @@
     <Compile Include="Areas\Admin\Controllers\SubCategroyController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserAddressController.cs" />
     <Compile Include="Common\CommonEnum.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -2103,6 +2104,7 @@
     <Content Include="Views\Contact\ContactUs.cshtml" />
     <Content Include="Views\Home\Testmonial.cshtml" />
     <Content Include="Views\Contact\Map.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

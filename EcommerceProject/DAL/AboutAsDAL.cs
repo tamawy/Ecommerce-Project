@@ -69,7 +69,7 @@ namespace EcommerceProject.DAL
                 return false;
             }
         }
-        public AboutUs Detail(long id)
+        public AboutUs GetOne(long id)
         {
             return db.AboutUs.Where(z => z.ID == id).FirstOrDefault();
         }
