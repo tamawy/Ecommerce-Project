@@ -52,5 +52,10 @@ namespace EcommerceProject.Controllers
                 },
                 JsonRequestBehavior.AllowGet);
         }
+
+        public PartialViewResult Map()
+        {
+            return PartialView();
+        }
     }
 }

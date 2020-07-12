@@ -2102,6 +2102,7 @@
     <Content Include="Views\Contact\ContactMessage.cshtml" />
     <Content Include="Views\Contact\ContactUs.cshtml" />
     <Content Include="Views\Home\Testmonial.cshtml" />
+    <Content Include="Views\Contact\Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
