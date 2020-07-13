@@ -22,4 +22,6 @@ and Visual studio which support ASP.NET MVC.
   prefered (chrome, firefox or opera).
   
   # Note.
-    The project has not been finished yet.
+    *The project has not been finished yet.
+    *"EcommerceProject.sql" file is updataed every database update,
+    so make sure to run the file on the database to get the updated.
