@@ -20,7 +20,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
             return View();
         }
         //partialview used to show data of database
-        public PartialViewResult AboutAUsDetails()
+        public PartialViewResult AboutUsDetails()
         {
             return PartialView(aboutUsDAL.GetAll());
         }
@@ -34,6 +34,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult PostAdd(AboutUsVM aboutUsVM)
         {
+            string message;
             var obj = new AboutUs()
             {
                 ID = aboutUsVM.ID,
@@ -43,13 +44,19 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 Vision = aboutUsVM.Vision,
                 WhoAreWe = aboutUsVM.WhoAreWe
             };
-            return Json("");
+            return Json(
+                new
+                {
+                    done = aboutUsDAL.Add(obj, out message),
+                    message
+                },
+                JsonRequestBehavior.AllowGet);
         }
         public PartialViewResult Edit(long id)
         {
             ViewBag.FormName = "PostEdit";
             var aboutUs = aboutUsDAL.GetOne(id);
-            var aboutUsVM = new AboutUsVM()
+            var obj = new AboutUsVM()
             {
                 ID = aboutUs.ID,
                 CreatedBy = aboutUs.CreatedBy,
@@ -60,8 +67,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 Vision = aboutUs.Vision,
                 WhoAreWe = aboutUs.WhoAreWe
             };
-            return PartialView("Add",
-                aboutUsVM);
+            return PartialView("Add", obj);
         }
 
         [HttpPost]
@@ -80,9 +86,11 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 WhoAreWe = aboutUsVM.WhoAreWe
             };
             return Json(
-                new { 
+                new
+                {
                     done = aboutUsDAL.Edit(obj, out message),
-                    message
+                    message,
+                    edit = true
                 },
                 JsonRequestBehavior.AllowGet);
         }

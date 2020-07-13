@@ -4,9 +4,63 @@
 }
 
 <h2>About Us</h2>
-
-<div class="container">
-
-    @Html.Action("AboutAsDetails")    @*Calling the parialview Action*@
+<div id="alert">
 
 </div>
+<div class="row" id="AboutUsForm">
+    @Html.Action("Add")
+</div>
+
+<div class="container" id="AboutUsDetails">
+
+    @Html.Action("AboutUsDetails")    @*Calling the parialview Action*@
+
+</div>
+
+<script>
+    function onSuccess(data) {
+        if (data.done) {
+            LoadData();
+            Clrear();
+            if (data.edit) {
+                var message = '<p class="alert alert-success">' + data.message + '</p>';
+                 
+                $('#alert').html(message);
+                Add();
+            }
+            else {
+                var message = '<p class="alert alert-success">' + data.message + '</p>';
+                $('#alert').html(message);
+            }
+        }
+        else {
+            alert("Error")
+        }
+    }
+
+    function onFailure(data) {
+        alert("Fail to find Post Action")
+    }
+    function Add() {
+        $.ajax({
+            url: "/Admin/AboutUs/Add",
+            type: "Get"
+        }).done(function (data) {
+            $("#AboutUsForm").html(data);
+        }).fail(function (data) {
+        });
+    }
+    function Clrear() {
+        $('#form0')[0].reset();
+    }
+    function LoadData() {
+        $.ajax({
+            url: "/Admin/AboutUs/AboutUsDetails",
+            type: "Get"
+        }).done(function (data) {
+            $("#AboutUsDetails").html(data)
+        }).fail(function (data) {
+            $('.alert').html("Error in loading data");
+        });
+    }
+</script>

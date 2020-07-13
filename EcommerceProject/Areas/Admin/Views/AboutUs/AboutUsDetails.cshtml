@@ -2,7 +2,7 @@
 <div class="container">
     @if (Model.Any())
     {
-        <table class="table table-bordered">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Vision</th>
@@ -38,9 +38,13 @@
             url: "/Admin/AboutUs/Edit",
             type: "GET",
             data: {
-                id : id
+                id: id
             }
-        })
+        }).done(function (data) {
+            $('#AboutUsForm').html(data)
+        }).fail(function (data) {
+            alert
+        });
     }
 
     function Delete(id) {
@@ -50,6 +54,15 @@
             data: {
                 id: id
             }
-        })
+        }).done(function (data) {
+            if (data.done) {
+                LoadData();
+                var message = '<p class="alert alert-success">' + data.message + '</p>';
+                $('#alert').html(message);
+            } else {
+                alert('Error in delete ' + data.message)
+            }
+        }).fail(function (data) {
+        });
     }
 </script>

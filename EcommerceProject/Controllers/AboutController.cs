@@ -6,13 +6,13 @@ using System.Web.Mvc;
 
 namespace EcommerceProject.Controllers
 {
-    public class AboutUsController : Controller
+    public class AboutController : Controller
     {
         // GET: AboutUs
         public ActionResult Index()
         {
             return View(
-                new EcommerceProject.DAL.AboutAsDAL().GetAll().FirstOrDefault());
+                new EcommerceProject.DAL.AboutUsDAL().GetAll().FirstOrDefault());
         }
     }
 }

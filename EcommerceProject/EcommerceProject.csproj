@@ -142,7 +142,7 @@
     <Compile Include="Areas\Admin\Controllers\SubCategroyController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserAddressController.cs" />
     <Compile Include="Common\CommonEnum.cs" />
-    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -2063,8 +2063,8 @@
     <Content Include="Areas\Admin\Views\Category\AddCategory.cshtml" />
     <Content Include="Areas\Admin\Views\Category\CategoryDetails.cshtml" />
     <Content Include="Areas\Admin\Views\AboutUs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AboutUs\AboutAUsDetails.cshtml" />
     <Content Include="Areas\Admin\Views\AboutUs\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\AboutUs\AboutUsDetails.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2106,7 +2106,7 @@
     <Content Include="Views\Contact\ContactUs.cshtml" />
     <Content Include="Views\Home\Testmonial.cshtml" />
     <Content Include="Views\Contact\Map.cshtml" />
-    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
