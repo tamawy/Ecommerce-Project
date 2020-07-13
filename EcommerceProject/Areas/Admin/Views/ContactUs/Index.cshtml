@@ -4,8 +4,57 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Contact Us</h2>
 
-<div class="container">
+<div id="alert">
+
+</div>
+
+<div class="container" id="contact-us-form">
+    @Html.Action("Add")
+</div>
+<div class="container" id="contact-us-details">
     @Html.Action("ContactUsDetails")    @*Calling the parialview Action*@
 </div>
+
+<script>
+    function LoadData() {
+        $.ajax({
+            url: "/Admin/ContactUs/ContactUsDetails",
+            type: "Get"
+        }).done(function (data) {
+            $("#contact-us-details").html(data);
+        }).fail(function (data) {
+
+        });
+    }
+
+    function onSuccess(data) {
+        if (data.done) {
+            LoadData();
+            clear();
+            var message = '<p class="alert alert-success">' + data.message + '</p>';
+            $('#alert').html(message);
+        }
+        if (data.edit) {
+            Add();
+        }
+    }
+
+    function onFalilure(data) {
+
+    }
+
+    function clear() {
+        $("#form0")[0].reset();
+    }
+    function Add() {
+        $.ajax({
+            url: "/Admin/ContactUs/Add",
+            type: "Get"
+        }).done(function (data) {
+            $('#contact-us-form').html(data);
+        }).fail(function (data) {
+        });
+    }
+</script>

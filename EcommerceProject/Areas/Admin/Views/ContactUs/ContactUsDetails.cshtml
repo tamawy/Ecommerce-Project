@@ -20,9 +20,9 @@
                             <td>@item.phone</td>
                             <td>@item.address</td>
                             <td>
-                                <a href="" class="btn btn-info">Details</a>
-                                <a href="" class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a class="btn btn-info" onclick="Details(@item.ID)">Details</a>
+                                <a class="btn btn-primary" onclick="Edit(@item.ID)">Edit</a>
+                                <a class="btn btn-danger" onclick="Delete(@item.ID)">Delete</a>
                             </td>
                         </tr>
                     }
@@ -34,3 +34,52 @@
             <p class="alert alert-danger">No data found</p>
         }
     </div>
+
+<script>
+    function Edit(id) {
+        $.ajax({
+            url: "/Admin/ContactUs/Edit",
+            type: "Get",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $('#contact-us-form').html(data);
+        }).fail(function (data) {
+        })
+    }
+
+    function Delete(id) {
+        $.ajax({
+            url: "/Admin/Contactus/Delete",
+            type: "Get",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            if (data.done) {
+                LoadData();
+                var message = '<p class="alert alert-success">' + data.message + '</p>';
+                $('#alert').html(message);
+            } else {
+                var message = '<p class="alert alert-danger">' + data.message + '</p>';
+            }
+        }).fail(function (data) {
+        })
+    }
+
+    function Details(id) {
+        $.ajax({
+            url: "/Admin/Contactus/Details",
+            type: "Get",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            LoadData();
+            $('#contact-us-form').html(data);
+            $('#form0 input').attr("disabled", true);
+        }).fail(function (data) {
+        })
+    }
+</script>

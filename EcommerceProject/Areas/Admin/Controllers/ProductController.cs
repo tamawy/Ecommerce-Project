@@ -48,7 +48,14 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 IsBestSeller = productVM.IsBestSeller
             };
             ViewBag.FormName = "PostProduct";
-            return Json(new { done = productDAL.Add(obj, out message), message, add = true }, JsonRequestBehavior.AllowGet);
+            return Json(
+                new 
+                { 
+                    done = productDAL.Add(obj, out message), 
+                    message, 
+                    add = true 
+                }, 
+                JsonRequestBehavior.AllowGet);
             
         }
 

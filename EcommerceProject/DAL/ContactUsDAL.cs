@@ -10,7 +10,7 @@ namespace EcommerceProject.DAL
     {
         EcommerceProjectEntities db = new EcommerceProjectEntities();
 
-        public bool Add(ContactUs contactUs)
+        public bool Add(ContactUs contactUs, out string message)
         {
             try
             {
@@ -18,17 +18,20 @@ namespace EcommerceProject.DAL
                 {
                     db.ContactUs.Add(contactUs);
                     db.SaveChanges();
+                    message = "Added successfully";
                     return true;
                 }
 
+                message = "Object is null";
                 return false;  }
             
             catch(Exception e)
             {
+                message = e.Message;
                 return false;
             }
         }
-        public bool Edit(ContactUs contactUs)
+        public bool Edit(ContactUs contactUs, out string message)
         {
             try
             {
@@ -42,19 +45,21 @@ namespace EcommerceProject.DAL
                     obj.UpdatedBy = contactUs.UpdatedBy;
                     obj.UpdatedDate = contactUs.UpdatedDate;
                     db.SaveChanges();
-
+                    message = "Edited successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
               }
 
             catch (Exception e)
             {
+                message = e.Message;
                 return false;
             }
 
         }
-        public bool Delete(long id)
+        public bool Delete(long id, out string message)
         {
             try
             {
@@ -63,19 +68,18 @@ namespace EcommerceProject.DAL
                 {
                     db.ContactUs.Remove(obj);
                     db.SaveChanges();
+                    message = "Deleted successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
             }
             catch (Exception e)
             {
+                message = e.Message;
                 return false;
             }
          }
-        public ContactUs Detail(long id)
-        {
-            return db.ContactUs.Where(z => z.ID == id).FirstOrDefault();
-        }
         public List<ContactUs> GetAll()
         {
             return db.ContactUs.ToList();
