@@ -1970,9 +1970,6 @@
     <Content Include="Areas\Admin\Views\Product\UploadImage.cshtml" />
     <Content Include="Areas\Admin\Views\SubCategroy\AddSubCategory.cshtml" />
     <Content Include="Areas\Admin\Views\OrderDetails\AddOrderDetails.cshtml" />
-    <Content Include="Areas\Admin\Views\ContactMessage\IndexPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\ContactMessage\ShowAll.cshtml" />
-    <Content Include="Areas\Admin\Views\ContactMessage\AddContactMessage.cshtml" />
     <Content Include="Areas\Admin\Views\UserAddress\form.cshtml" />
     <Content Include="customs\css\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="customs\css\bootstrap\css\bootstrap-grid.min.css.map" />
@@ -2067,6 +2064,9 @@
     <Content Include="Areas\Admin\Views\AboutUs\Add.cshtml" />
     <Content Include="Areas\Admin\Views\AboutUs\AboutUsDetails.cshtml" />
     <Content Include="Areas\Admin\Views\ContactUs\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactMessage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactMessage\ContactMessageTable.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactMessage\Form.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Contact Messages</h2>
+
+<div id="alert">
+
+</div>
+<div id="c-m-form">
+    @Html.Action("Form")
+</div>
+
+<div id="c-m-details">
+    @Html.Action("ContactMessageTable")
+</div>
+
+<script>
+    function LoadData() {
+        $.ajax({
+            url: "/Admin/ContactMessage/ContactMessageTable",
+            type: "Get"
+        }).done(function (data) {
+            $('#c-m-details').html(data);
+        }).fail(function (data) {
+
+        });
+    }
+</script>

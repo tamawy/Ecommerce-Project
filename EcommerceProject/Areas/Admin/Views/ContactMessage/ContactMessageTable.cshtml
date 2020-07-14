@@ -1,0 +1,77 @@
+﻿@model List<EcommerceProject.Models.ContactMesaage>
+
+<div class="container">
+    @if (Model.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Email</td>
+                        <td>
+                            <button class="btn btn-success" onclick="markAsAnswered(@item.ID)">Mark as answered</button>
+                            <button class="btn btn-primary">Mark as Testmonial</button>
+                            <button class="btn btn-secondary" onclick="details(@item.ID)">Details</button>
+                            <button class="btn btn-danger" onclick="Delete(@item.ID)">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="alert alert-danger">No data found</p>
+    }
+</div>
+<script>
+    function details(id) {
+        $.ajax({
+            url: "/admin/ContactMessage/Details",
+            type: "Get",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $('#c-m-form').html(data);
+            $('#form0 input').attr('disabled', true);
+            $('#form0 textarea').attr('disabled', true);
+            $('#form0 checkbox').attr('disabled', true);
+        }).fail(function (data) {
+        });
+    }
+
+    var markAsAnswered = function (id) {
+        $.ajax({
+            url: "/admin/ContactMessage/Answered",
+            type: "Post",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            var message = '<p class="alert alert-success">' + data.message + '</p>';
+            $('#alert').html(message);
+        }).fail(function (data) {
+        });
+    }
+    var Delete = function(id) {
+        $.ajax({
+            url: "/admin/ContactMessage/Delete",
+            type: "Post",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            var message = '<p class="alert alert-success">' + data.message + '</p>';
+            $('#alert').html(message);
+            LoadData();
+        }).fail(function (data) {
+        });
+    }
+</script>

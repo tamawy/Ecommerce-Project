@@ -20,13 +20,17 @@ namespace EcommerceProject.VM
         public string Message { get; set; }
 
         [Required(ErrorMessage = "*")]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         [Required(ErrorMessage = "*")]
         public DateTime CreationDate { get; set; }
 
-        public int UpdatedBy { get; set; }
+        public long UpdatedBy { get; set; }
 
         public DateTime UpdatedDate { get; set; }
+
+        [Display(Name = "Is answered?")]
+        public bool IsAnswer { get; set; }
+
     }
 }

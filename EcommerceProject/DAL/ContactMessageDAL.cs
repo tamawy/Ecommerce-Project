@@ -31,7 +31,7 @@ namespace EcommerceProject.DAL
             }
         }
         //Edit
-        public bool Edit(ContactMesaage contactmsg)
+        public bool Edit(ContactMesaage contactmsg, out string message)
         {
             try
             {
@@ -41,17 +41,20 @@ namespace EcommerceProject.DAL
 
                     obj.IsAnswer = contactmsg.IsAnswer;
                     db.SaveChanges();
+                    message = "Edited Successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
             }
             catch (Exception e)
             {
+                message = e.Message;
                 return false;
             }
         }
         //Delete 
-        public bool Delete(long id)
+        public bool Delete(long id, out string message)
         {
             ContactMesaage obj = db.ContactMesaage.Where(z => z.ID == id).FirstOrDefault();
             try
@@ -60,12 +63,15 @@ namespace EcommerceProject.DAL
                 {
                     db.ContactMesaage.Remove(obj);
                     db.SaveChanges();
+                    message = "Deleted Successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
+                message = e.Message;
                 return false;
             }
         }
