@@ -37,7 +37,7 @@ namespace EcommerceProject.DAL
                 return false;
             }
         }
-        public bool Edit(SubCategory subcategory)
+        public bool Edit(SubCategory subcategory, out string message)
         {
             try
             {
@@ -48,18 +48,20 @@ namespace EcommerceProject.DAL
                     obj.UpdatedBy = subcategory.UpdatedBy;
                     obj.UpdatedDate = subcategory.UpdatedDate;
                     db.SaveChanges();
+                    message = "Edited Successfuly";
                     return true;
                 }
+                message = "SubCategory Empty";
                 return false;
 
             }
             catch (Exception e)
             {
-
+                message = e.Message;
                 return false;
             }
         }
-        public bool Delete(long id)
+        public bool Delete(long id, out string message)
         {
             SubCategory obj = db.SubCategory.Where(z => z.ID == id).FirstOrDefault();
 
@@ -70,14 +72,16 @@ namespace EcommerceProject.DAL
                 {
                     db.SubCategory.Remove(obj);
                     db.SaveChanges();
+                    message = "Deleted Successfuly";
                     return true;
 
                 }
+                message = "SubCategory Empty";
                 return false;
             }
             catch (Exception e)
             {
-
+                message = e.Message;
                 return false;
             }
         }

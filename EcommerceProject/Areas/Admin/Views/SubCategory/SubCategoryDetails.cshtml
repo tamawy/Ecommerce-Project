@@ -35,7 +35,7 @@
 <script>
     function DetailsSubCategory(id) {
         $.ajax({
-            url: '/Admin/SubCategroy/DetailsSubCategory',
+            url: '/Admin/SubCategory/DetailsSubCategory',
             type: 'Get',
             data: {
                 id: id
@@ -45,21 +45,18 @@
             $('#form0 input').attr('disabled', true)
             $('#form0 select').attr('disabled', true)
         }).fail(function (data){
-
         });
     }
     function EditSubCategory(id) {
         $.ajax({
-            url: '/Admin/SubCategroy/EditSubCategory',
+            url: '/Admin/SubCategory/EditSubCategory',
             type: 'Get',
             data: {
                 id: id
             }
         }).done(function (data) {
             $('#subcategoryform').html(data);
-
         }).fail(function (data) {
-
         });
     }
     function DeleteSubCategory(id) {
@@ -71,12 +68,8 @@
         }
         }).done(function (data) {
             LoadData();
-
         }).fail(function (data) {
             $('.alert').html('Erorr In Delete');
         });
     }
-
-
 </script>
-

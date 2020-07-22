@@ -3,19 +3,22 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-<h2>Index</h2>
+<h2>SubCategory</h2>
 <div class="alert"></div>
 <div class="row" id="subcategoryform">
     @Html.Action("AddSubCategory")
 </div>
 <div class="row" id="subcategorydetils">
-    @Html.Action("SubCategroyDetails")
+    @Html.Action("SubCategoryDetails")
 </div>
 <script>
     function onsuccess(data) {
         if (data.done) {
             LoadData();
             Clear();
+            if (data.edit) {
+                Add();
+            }
         }
         else {
             alert(data.message);
@@ -30,7 +33,7 @@
     function LoadData() {
         console.log("inside load data");
         $.ajax({
-            url: '/Admin/SubCategroy/SubCategroyDetails',
+            url: '/Admin/SubCategory/SubCategoryDetails',
             type: 'Get'
         }).done(function (data) {
             $('#subcategorydetils').html(data);
@@ -38,6 +41,15 @@
         }).fail(function (data) {
             $('.alert').html('Erorr In Save');
 
+        });
+    }
+    function Add() {
+        $.ajax({
+            url: "/admin/subcategory/AddSubCategory",
+            type: 'get'
+        }).done(function (data) {
+            $('#subcategoryform').html(data);
+        }).fail(function (data) {
         });
     }
 </script>

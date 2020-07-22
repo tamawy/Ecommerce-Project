@@ -17,19 +17,20 @@
             @Html.TextBoxFor(z => z.Name, new { @class = "form-control" })
             @Html.ValidationMessageFor(z => z.Name)
             <label>Category</label>
-            @Html.DropDownListFor(z => z.CategoryFK, new SelectList(ss, "ID", "Name"), 
+            @Html.DropDownListFor(z => z.CategoryFK, new SelectList(ss, "ID", "Name"),
            "Choose Category", new { @class = "form-control" })
         </div>
         if (FormName == "EditSubCategory")
         {
-            <button type="submit" class=" btn btn-primary">Edite</button>
+            <button type="submit" class=" btn btn-primary">Edit</button>
         }
         else if (FormName == "PostSubCategory")
         {
-            <button type="submit" class=" btn btn-primary">Save</button>
-            <button type="reset" class=" btn btn-primary">Clear</button>
+            <button type="submit" class=" btn btn-success">Save</button>
+            <button type="reset" class=" btn btn-danger">Clear</button>
         }
     }
 
 </div>
+
 

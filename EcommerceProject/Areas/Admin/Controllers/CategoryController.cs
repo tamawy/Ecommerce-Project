@@ -20,7 +20,8 @@ namespace EcommerceProject.Areas.Admin.Controllers
         }
         public PartialViewResult CategoryDetails()
         {
-            return PartialView(CategroyDAL.GetAll().OrderByDescending(z => z.ID).ToList());
+            return PartialView(CategroyDAL.GetAll()
+                .OrderByDescending(z => z.ID).ToList());
         }
         public PartialViewResult AddCategory()
         {

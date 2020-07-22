@@ -9,7 +9,7 @@ using EcommerceProject.VM;
 
 namespace EcommerceProject.Areas.Admin.Controllers
 {
-    public class SubCategroyController : Controller
+    public class SubCategoryController : Controller
     {
         SubCategroyDAL SubCategroyDAL = new SubCategroyDAL();
         // GET: Admin/Categroy
@@ -17,7 +17,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
         {
             return View();
         }
-        public PartialViewResult SubCategroyDetails()
+        public PartialViewResult SubCategoryDetails()
         {
             return PartialView(SubCategroyDAL.GetAll());
         }
@@ -68,15 +68,19 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 CreatedBy = 1,
                 CreationDate = DateTime.Now
             };
-            if (SubCategroyDAL.Add(subcategory, out message))
-            {
-                return Json(new { done = true, message }, JsonRequestBehavior.AllowGet);
-            }
-            return Json(new { done = false, message }, JsonRequestBehavior.AllowGet);
+            return Json(
+                new 
+                { 
+                    done = SubCategroyDAL.
+                    Add(subcategory, out message),
+                    message 
+                }, 
+                JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public JsonResult EditSubCategory(SubCategoryVM vm)
         {
+            string message;
             SubCategory sucategory = new SubCategory()
             {
                 ID = vm.ID,
@@ -86,19 +90,27 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 UpdatedBy = 1,
                 UpdatedDate = DateTime.Now
             };
-            if (SubCategroyDAL.Edit(sucategory))
-            {
-                return Json(new { done = true }, JsonRequestBehavior.AllowGet);
-            }
-            return Json(new { done = false }, JsonRequestBehavior.AllowGet);
+            return Json(
+                new
+                {
+                    done = SubCategroyDAL
+                    .Edit(sucategory, out message),
+                    message,
+                    edit = true
+                },
+                JsonRequestBehavior.AllowGet);
         }
         public JsonResult DeleteSubCategory(long id)
         {
-            if (SubCategroyDAL.Delete(id))
-            {
-                return Json(new { done = true }, JsonRequestBehavior.AllowGet);
-            }
-            return Json(new { done = false }, JsonRequestBehavior.AllowGet);
+            string message;
+            return Json(
+                new 
+                { 
+                    done = SubCategroyDAL
+                    .Delete(id, out message),
+                    message
+                }, 
+                JsonRequestBehavior.AllowGet);
         }
 
     }
