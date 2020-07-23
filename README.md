@@ -22,7 +22,14 @@ and Visual studio which support ASP.NET MVC.
  
  
  
-# Note
+# Notes
 - **The project has not been finished yet**
 - **"EcommerceProject.sql"** file is updataed every database update,
     so make sure to run the file on the database to get the updated.
+
+# Project Snapshots
+<img src="imgs/I1.png" width="750">
+<img src="imgs/I2.png" width="750">
+<img src="imgs/I3.png" width="750">
+<img src="imgs/I4.png" width="750">
+<img src="imgs/I5.png" width="750">
