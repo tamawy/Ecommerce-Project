@@ -1,0 +1,23 @@
+﻿@model List<EcommerceProject.Models.Brand>
+
+<!-- filter by brand -->
+<div class="filter-brand">
+    <div class="panel-group" id="filter-brand">
+        <div class="panel panel-default">
+            <div class="panel-heading py-2 px-1">
+                <a class="" data-toggle="collapse" data-parent="#filter-brand" href="#collapse4">Filter By Brand</a>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse in show">
+                <div class="panel-body pt-2">
+                    <div class="list-group">
+                        @foreach (var item in Model)
+                        {
+                            <a href="#" class="">@item.Name</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>

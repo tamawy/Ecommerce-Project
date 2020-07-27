@@ -147,6 +147,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductDetailsController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\AboutUsDAL.cs" />
     <Compile Include="DAL\BrandDAL.cs" />
@@ -2111,6 +2112,12 @@
     <Content Include="Views\Contact\Map.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\ProductDetails\Index.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Shop\products.cshtml" />
+    <Content Include="Views\Shop\category.cshtml" />
+    <Content Include="Views\Shop\brands.cshtml" />
+    <Content Include="Views\Shop\filterByPrice.cshtml" />
+    <Content Include="Views\Shop\filterByColor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

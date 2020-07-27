@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Header -->
+<!-- start page baner section  -->
+<section class="page-baner">
+    <div class="container">
+        <div class="page-baner-content text-center">
+            <h5>Shop With Us</h5>
+            <div class="baner-link">
+                <span><a href="/Home">Home / </a></span>
+                <span><a href="/shop/">Shop</a></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end page baner section  -->
+
+<!-- start shop section  -->
+<section class="shop">
+    <div class="container">
+        <div class="row">
+            <div class="filter-icon d-md-none d-sm-block">
+                <i class="fas fa-filter filter"></i>
+            </div>
+            <div class="col-3 d-none d-md-block" id="aside">
+                <aside class="filter pt-2 ">
+                    <!-- filter by category -->
+                    <div>
+                        @Html.Action("category")
+                    </div>
+
+                    <!-- filter by price -->
+
+                    <div>
+                        @Html.Action("filterByPrice")
+                    </div>
+                    <!-- filter by color -->
+                    <div>
+                        @Html.Action("filterByColor")
+                    </div>
+                    <!-- filter by brand -->
+                    <div>
+                        @Html.Action("brands")
+                    </div>
+
+                </aside>
+            </div>
+
+            <!-- shop-items section -->
+                @Html.Action("products")
+
+        </div>
+    </div>
+</section>

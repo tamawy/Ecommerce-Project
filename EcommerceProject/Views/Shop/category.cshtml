@@ -1,0 +1,23 @@
+﻿@model List<EcommerceProject.Models.Category>
+
+<!-- filter by category -->
+<div class="filter-category">
+    <div class="panel-group" id="filter-category">
+        <div class="panel panel-default">
+            <div class="panel-heading py-2 px-1">
+                <a class="" data-toggle="collapse" data-parent="#filter-category" href="#collapse1">Filter By Category</a>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in show">
+                <div class="panel-body pt-2">
+                    <div class="list-group categorys">
+                        @foreach (var item in Model)
+                        {
+                            <a href="#" class="py-1"><i class="fas fa-mobile-alt categ-ico"></i>@item.Name</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
