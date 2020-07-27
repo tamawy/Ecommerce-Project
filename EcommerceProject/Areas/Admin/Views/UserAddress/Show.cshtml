@@ -1,11 +1,10 @@
 ﻿@model List<EcommerceProject.Models.UserAddress>
 @if (Model.Any())
 {
-    <h2>Info.</h2>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>USerName</th>
+                <th>User Name</th>
                 <th>Address</th>
                 <th>Phone</th>
                 <th>
@@ -30,7 +29,7 @@
 }
 else
 {
-    <p class="alert alert-warning">No Data Found</p>
+    <p class="alert alert-danger">No Data Found</p>
 }
 <script>
     function Details(Id) {

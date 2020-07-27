@@ -18,13 +18,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("AMA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li><a href="/admin/Product">Product</a></li>
+                    <li><a href="/admin/AboutUs">AboutUs</a></li>
+                    <li><a href="/admin/Brand">Brand</a></li>
+                    <li><a href="/admin/Category">Category</a></li>
+                    <li><a href="/admin/Subcategory">Subcategory</a></li>
+                    <li><a href="/admin/ContactMessage">Contact Message</a></li>
+                    <li><a href="/admin/ContactUs">Contact Us</a></li>
+                    <li><a href="/admin/Color">Color</a></li>
+                    <li><a href="/admin/OrderDetails">Order details</a></li>
+                    <li><a href="/admin/Order">Order</a></li>
+                    <li><a href="/admin/UserAddress">UserAddress</a></li>
+                    <li><a href="/admin/ProductColor">Product Color</a></li>
                 </ul>
             </div>
         </div>

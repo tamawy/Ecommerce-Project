@@ -1,0 +1,90 @@
+﻿@model EcommerceProject.Models.Product
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- start singel product section -->
+<section class="product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <div class="prodact-imgs text-center pb-4">
+                    <div class="top-img py-4">
+                        <img src="@Model.Image" alt="" class="img-fluid top-img">
+                    </div>
+                    <div class="imgs">
+                        <ul class="list-group list-group-horizontal justify-content-center">
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="product-details">
+                    <div class="prod-name">
+                        <h5>@Model.Name</h5>
+                    </div>
+                    <div class="prod-rate">
+
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+
+                    </div>
+                    <div class="prod-price">
+                        <p>$@Model.Price</p>
+                    </div>
+                    <hr>
+                    <div class="prod-description">
+                        <h6>DESCRIPTION</h6>
+                        <p>
+                            @Model.Decription
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="prod-information">
+                        <h6>ADDITIONAL INFORMATION</h6>
+                        @*<div class="color">
+                                Color: <span></span>
+                            </div>*@
+
+                        <div class="prod-brand">
+                            Brand: <span>@Model.Brand.Name</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="prod-action text-center py-3">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="quant">
+                                    <input id="jq-quant" class="jq-quant form-control h-auto px-2 p-0 shadow-none" type="text" value="1">
+                                    <div class="qunt-action">
+                                        <span id="plus">+</span>
+                                        <span id="sub">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5 ">
+                                <a class='buy' href="">Buy Now</a>
+                            </div>
+                            <div class="col-2">
+                                <a href="">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </div>
+                            <div class="col-2">
+                                <a href="">
+                                    <i class="far fa-heart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end singel product section -->

@@ -145,6 +145,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductDetailsController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\AboutUsDAL.cs" />
@@ -2109,6 +2110,7 @@
     <Content Include="Views\Home\Testmonial.cshtml" />
     <Content Include="Views\Contact\Map.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\ProductDetails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
