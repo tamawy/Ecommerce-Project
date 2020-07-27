@@ -11,9 +11,9 @@ namespace EcommerceProject.Controllers
     {
         ProductDAL productDAL = new ProductDAL();
         // GET: ProductDetails
-        public ActionResult Index(long id)
+        public ActionResult Index(long? id)
         {
-            return View(productDAL.GetOne(id));
+            return View(productDAL.GetOne(id)); ;
         }
     }
 }

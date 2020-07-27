@@ -82,8 +82,13 @@ namespace EcommerceProject.DAL
             }
         }
 
-        public Product GetOne(long id)
+        public Product GetOne(long? id)
         {
+            if (id == null)
+            {
+                return null;
+            }
+
             return db.Product.Where(z => z.ID == id).FirstOrDefault();
         }
 
