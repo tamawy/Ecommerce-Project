@@ -1,1 +1,30 @@
-﻿
+﻿@model List<EcommerceProject.Models.Color>
+
+@if (Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Color Name</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>
+                        <ul>
+                            <li style="list-style-type:square; background-color: @item.Code"></li>
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="alert alert-danger">No data</p>
+}

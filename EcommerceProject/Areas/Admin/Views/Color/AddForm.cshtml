@@ -1,0 +1,22 @@
+﻿@model EcommerceProject.VM.ColorVM
+
+<div>
+    @using (Ajax.BeginForm("PostColor",
+        new AjaxOptions { OnSuccess = "onSuccess", OnFailure = "onFailure" }))
+    {
+        <div>
+            @Html.LabelFor(z => z.Name, new { @class = "control-label"})
+            @Html.TextBoxFor(z => z.Name, new { @class = "form-control"})
+            @Html.ValidationMessageFor(z => z.Name)
+        </div>
+        <div>
+            @Html.LabelFor(z => z.Code, new { @class = "control-label" })
+            <input type="color" name="Code"/>
+            @Html.ValidationMessageFor(z => z.Code)
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Add Color</button>
+            <button type="reset" class="btn btn-danger">Clear</button>
+        </div>
+    }
+</div>

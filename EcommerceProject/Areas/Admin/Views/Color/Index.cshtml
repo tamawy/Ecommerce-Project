@@ -3,6 +3,42 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<div id="alert">
 
-<h2>Color</h2>
+</div>
+<div>
+    @Html.Action("AddForm")
+</div>
+<div id="color-details">
+    @Html.Action("ColorData")
+</div>
+<script>
+    function onSuccess(data) {
+        if (data.done) {
+            var message = '<p class="alert alert-success">' + data.message + '</p>';
+            $('#alert').html(message);
+            ColorData();
+            Clear();
+        }
+        else {
+            var message = '<p class="alert alert-danger">' + data.message + '</p>';
+            $('#alert').html(message);
+        }
+    }
 
+    function onFailure(data) {
+            var message = '<p class="alert alert-danger">Faild to go to Action</p>';
+    }
+    function Clear() {
+        $('#form0')[0].reset();
+    }
+    function ColorData() {
+        $.ajax({
+            url: "/Admin/Color/ColorData",
+            type: "GET"
+        }).done(function (data) {
+            $('#color-details').html(data);
+        }).fail(function (data) {
+        });
+    }
+</script>

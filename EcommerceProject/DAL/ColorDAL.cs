@@ -9,7 +9,7 @@ namespace EcommerceProject.DAL
     public class ColorDAL
     {
         EcommerceProjectEntities db = new EcommerceProjectEntities();
-        public bool Add(Color color)
+        public bool Add(Color color, out string message)
         {
             try
             {
@@ -17,16 +17,19 @@ namespace EcommerceProject.DAL
                 {
                     db.Color.Add(color);
                     db.SaveChanges();
+                    message = "Color Added Successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
             }
             catch(Exception e)
             {
+                message = e.Message;
                 return false;
             }
         }
-        public bool Edit(Color color)
+        public bool Edit(Color color, out string message)
         {
             try
             {
@@ -40,16 +43,19 @@ namespace EcommerceProject.DAL
                     obj.UpdatedBy = color.UpdatedBy;
                     obj.UpdatedDate = DateTime.Now;
                     db.SaveChanges();
+                    message = "Color Edited Successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
             }
             catch(Exception e)
             {
+                message = e.Message;
                 return false;
             }
         }
-        public bool Delete(long id)
+        public bool Delete(long id, out string message)
         {
             try
             {
@@ -58,12 +64,15 @@ namespace EcommerceProject.DAL
                 {
                     db.Color.Remove(obj);
                     db.SaveChanges();
+                    message = "Color Deleted Successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
             }
             catch(Exception e)
             {
+                message = e.Message;
                 return false;
             }
         }
