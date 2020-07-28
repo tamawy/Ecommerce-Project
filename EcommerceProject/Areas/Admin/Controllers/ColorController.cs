@@ -20,6 +20,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
         }
         public PartialViewResult AddForm()
         {
+            ViewBag.FormName = "PostColor";
             return PartialView();
         }
         [HttpPost]
@@ -45,6 +46,55 @@ namespace EcommerceProject.Areas.Admin.Controllers
         public PartialViewResult ColorData()
         {
             return PartialView(colorDAL.GetAll());
+        }
+        public PartialViewResult EditForm(long id)
+        {
+            ViewBag.FormName = "PostEdit";
+            var color = colorDAL.Getone(id);
+            var obj = new ColorVM()
+            {
+                ID = color.ID,
+                Name = color.Name,
+                Code = color.Code,
+                CreatedBy = color.CreatedBy,
+                CreationDate = color.CreationDate
+            };
+            return PartialView("AddForm", obj);
+        }
+        public JsonResult PostEdit(ColorVM colorVM)
+        {
+            string message;
+            var obj = new Color()
+            {
+                ID = colorVM.ID,
+                Name = colorVM.Name,
+                Code = colorVM.Code,
+                CreatedBy = colorVM.CreatedBy,
+                CreationDate = colorVM.CreationDate,
+                UpdatedBy = 2,
+                UpdatedDate = DateTime.Now
+            };
+
+            return Json(
+                new
+                {
+                    done = colorDAL.Edit(obj, out message),
+                    message,
+                    edit = true
+                },
+                JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Delete(long id)
+        {
+            string message;
+            return Json(
+                new
+                {
+                    done = colorDAL.Delete(id, out message),
+                    message
+                },
+                JsonRequestBehavior.AllowGet);
         }
     }
 }

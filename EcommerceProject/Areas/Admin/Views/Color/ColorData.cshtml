@@ -3,6 +3,7 @@
 @if (Model.Any())
 {
     <table class="table table-striped">
+        <caption style="text-align:center;">Colors in your database</caption>
         <thead>
             <tr>
                 <th>Color Name</th>
@@ -19,6 +20,10 @@
                             <li style="list-style-type:square; background-color: @item.Code"></li>
                         </ul>
                     </td>
+                    <td>
+                        <button class="btn btn-primary" onclick="edit(@item.ID)">Edit</button>
+                        <button class="btn btn-danger" onclick="Delete(@item.ID)">Delete</button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -28,3 +33,37 @@ else
 {
     <p class="alert alert-danger">No data</p>
 }
+
+<script>
+    function edit(id) {
+        $.ajax({
+            url: "/admin/color/editform",
+            type: "Get",
+            data: {
+                id:id
+            }
+        }).done(function (data) {
+            $('#form').html(data);
+        }).fail(function (data) {
+        });
+    }
+    function Delete(id) {
+        $.ajax({
+            url: "/admin/color/delete",
+            type: "Get",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            var message;
+            if (data.done) {
+                message = '<p class="alert alert-success">' + data.message + '</p>';
+            }
+            else {
+                message = '<p class="alert alert-danger">' + data.message + '</p>';
+            }
+            ColorData();
+        }).fail(function (data) {
+        });
+    }
+</script>

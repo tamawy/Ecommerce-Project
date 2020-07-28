@@ -6,7 +6,7 @@
 <div id="alert">
 
 </div>
-<div>
+<div id="form">
     @Html.Action("AddForm")
 </div>
 <div id="color-details">
@@ -19,6 +19,9 @@
             $('#alert').html(message);
             ColorData();
             Clear();
+            if (data.edit) {
+                Add();
+            }
         }
         else {
             var message = '<p class="alert alert-danger">' + data.message + '</p>';
@@ -38,6 +41,15 @@
             type: "GET"
         }).done(function (data) {
             $('#color-details').html(data);
+        }).fail(function (data) {
+        });
+    }
+    function Add() {
+        $.ajax({
+            url: "/Admin/Color/AddForm",
+            type: "GET"
+        }).done(function (data) {
+            $('#form').html(data)
         }).fail(function (data) {
         });
     }
