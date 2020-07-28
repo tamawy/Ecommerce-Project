@@ -2,25 +2,23 @@
 <div class="container">
     @if (Model.Any())
     {
-        <table class="table table-bordered">
+        <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Image</th>
                     <th>Product</th>
                     <th>Color</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.Image</td>
                         <td>@item.Product.Name</td>
                         <td>@item.Color.Name</td>
                         <td>
-                            <a href="" class="btn btn-info">Details</a>
-                            <a href="" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <button onclick="edit(@item.ID)" class="btn btn-primary">Edit</button>
+                            <button onclick="Delete(@item.ID)" class="btn btn-danger">Delete</button>
                         </td>
                     </tr>
                 }
@@ -32,5 +30,40 @@
         <p class="alert alert-danger">No data found</p>
     }
 </div>
+<script>
+    function edit(id) {
+        $.ajax({
+            url: "/admin/productColor/edit",
+            type: "Get",
+            data: {
+                id : id
+            }
+        }).done(function (data) {
+            $('#form').html(data)
+        }).fail(function (data) {
+        });
+    }
+
+    function Delete (id){
+        $.ajax({
+            url: "/admin/productColor/delete",
+            type: "Get",
+            data: {
+                id : id
+            }
+        }).done(function (data) {
+            var message;
+            if (data.done) {
+                message = '<p class="alert alert-success">' + data.message + '</p>';
+                Table();
+            }else {
+                message = '<p class="alert alert-danger">' + data.message + '</p>';
+            }
+            $('#alert').html(message)
+            
+        }).fail(function (data) {
+        });
+    }
+</script>
 
 

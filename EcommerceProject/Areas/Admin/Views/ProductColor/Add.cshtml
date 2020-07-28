@@ -1,0 +1,41 @@
+﻿@model EcommerceProject.VM.ProductColorVM
+@{ 
+    string formName = ViewBag.FormName;
+}
+    <div>
+        @using (Ajax.BeginForm(formName,
+            new AjaxOptions { OnSuccess = "onSuccess", OnFailure = "onFailure" }))
+        {
+            <div>
+                <label class="control-label">Product name</label>
+                @Html.DropDownListFor(z => z.ProductFK,
+                    new SelectList
+                    (new EcommerceProject.DAL.ProductDAL().GetAll()
+                    , "ID", "Name", new { @class = "form-control" })
+               )
+            </div>
+            <div>
+                <label class="control-label">Product Color</label>
+                @Html.DropDownListFor(z => z.ColorFk,
+                new SelectList
+                (new EcommerceProject.DAL.ColorDAL().GetAll()
+                , "ID", "Name", new { @class = "form-control" })
+           )
+            </div>
+
+            if (formName == "PostEdit")
+            {
+                @Html.HiddenFor(z => z.ID)
+                @Html.HiddenFor(z => z.CreatedBy)
+                @Html.HiddenFor(z => z.CreationDate)
+                <button type="submit" class="btn btn-success">Edit</button>
+            }
+            else
+            {
+                <div>
+                    <button type="submit" class="btn btn-success">Add</button>
+                    <button type="reset" class="btn btn-danger">Clear</button>
+                </div>
+            }
+        }
+    </div>

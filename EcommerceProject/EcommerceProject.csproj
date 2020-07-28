@@ -231,6 +231,7 @@
     <Compile Include="VM\ContactUsVM.cs" />
     <Compile Include="VM\OrderDetailsVM.cs" />
     <Compile Include="VM\OrderVM.cs" />
+    <Compile Include="VM\ProductColorVM.cs" />
     <Compile Include="VM\ProductVM.cs" />
     <Compile Include="VM\SubCategoryVM.cs" />
     <Compile Include="VM\UserAddressVM.cs" />
@@ -2072,6 +2073,7 @@
     <Content Include="Areas\Admin\Views\SubCategory\SubCategoryDetails.cshtml" />
     <Content Include="Areas\Admin\Views\Color\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Color\AddForm.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductColor\Add.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

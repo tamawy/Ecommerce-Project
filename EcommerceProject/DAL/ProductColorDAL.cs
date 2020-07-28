@@ -12,7 +12,7 @@ namespace EcommerceProject.DAL
         EcommerceProjectEntities db = new EcommerceProjectEntities();
 
         //Method that used to add in database in this table
-        public bool Add(ProductColor productColor)
+        public bool Add(ProductColor productColor, out string message)
         {
             try
             {
@@ -20,19 +20,21 @@ namespace EcommerceProject.DAL
                 {
                     db.ProductColor.Add(productColor);
                     db.SaveChanges();
+                    message = "Added Successfully";
                     return true;
                 }
-
+                message = "Object is null";
                 return false;
             }
 
             catch (Exception e)
             {
+                message = e.Message;
                 return false;
             }
         }
         //Method that used to edit in database in this table
-        public bool Edit(ProductColor productColor)
+        public bool Edit(ProductColor productColor, out string message)
         {
             try
             {
@@ -40,22 +42,25 @@ namespace EcommerceProject.DAL
                 if (obj != null)
                 {
                     obj.Image = productColor.Image;
-                    obj.Product.Name = productColor.Product.Name;
-                    obj.Color.Name = productColor.Color.Name;
+                    obj.ProductFK = productColor.ProductFK;
+                    obj.ColorFk = productColor.ColorFk;
                     obj.UpdatedBy = productColor.UpdatedBy;
                     obj.UpdatedDate = productColor.UpdatedDate;
                     db.SaveChanges();
+                    message = "Edited Successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
             }
             catch (Exception e)
             {
+                message = e.Message;
                 return false;
             }
         }
         //Method that used to delete from database in this table
-        public bool Delete(long id)
+        public bool Delete(long id, out string message)
         {
             try
             {
@@ -64,17 +69,20 @@ namespace EcommerceProject.DAL
                 {
                     db.ProductColor.Remove(obj);
                     db.SaveChanges();
+                    message = "Deleted Successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
             }
             catch (Exception e)
             {
+                message = e.Message;
                 return false;
             }
         }
         //Method that used to show all data from database in this table
-        public ProductColor Detail(long id)
+        public ProductColor GetOne(long id)
         {
             return db.ProductColor.Where(z => z.ID == id).FirstOrDefault();
         }

@@ -4,11 +4,61 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
-<div class="container">
-
-    @Html.Action("ProductColorDetails")        @*Calling the parialview Action*@
-
+<div id="alert">
 
 </div>
+<br />
+<div id="form">
+    
+    @Html.Action("Add")
+</div>
 
+<div class="container" id="table">
+    @Html.Action("ProductColorDetails")        @*Calling the parialview Action*@
+</div>
+
+<script>
+    function onSuccess(data) {
+        if (data.done) {
+            var message = '<p class="alert alert-success">' + data.message + '</p>';
+            $('#alert').html(data);
+            Clear();
+            Table();
+        }
+        else {
+            var message = '<p class="alert alert-danger">' + data.message + '</p>';
+            $('#alert').html(data);
+        }
+        if (data.edit) {
+            Add();
+        }
+    }
+
+    function onFailure(data) {
+
+    }
+    function Table() {
+        $.ajax({
+            url: "/admin/productcolor/ProductColorDetails",
+            type: "Get"
+        }).done(function (data) {
+            $('#table').html(data);
+        }).fail(function (data) {
+
+        });
+    }
+    function Add() {
+        $.ajax({
+            url: "/admin/productcolor/Add",
+            type: "Get"
+        }).done(function (data) {
+            $('#form').html(data);
+        }).fail(function (data) {
+
+        });
+    }
+
+    function Clear() {
+        $('#form0')[0].reset();
+    }
+</script>
