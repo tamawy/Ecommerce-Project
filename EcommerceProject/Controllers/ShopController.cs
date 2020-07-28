@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using EcommerceProject.Models;
 using EcommerceProject.DAL;
-using EcommerceProject.VM;
 
 namespace EcommerceProject.Controllers
 {
     public class ShopController : Controller
     {
         ProductDAL productDAL = new ProductDAL();
+        BrandDAL brandDAL = new BrandDAL();
         // GET: Shop
         public ActionResult Index()
         {
@@ -27,14 +26,30 @@ namespace EcommerceProject.Controllers
             return PartialView(new CategoryDAL().GetAll());
         }
 
+        public PartialViewResult filterByCategory(long catID)
+        {
+            return PartialView("products",
+                productDAL.FilterByCategory(catID));
+        }
+
         public PartialViewResult brands()
         {
-            return PartialView(new BrandDAL().GetAll());
+            return PartialView(brandDAL.GetAll());
         }
-        
+        public PartialViewResult filterByBrands(long brandID)
+        {
+            return PartialView("products", 
+                productDAL.FilterByBrand(brandID)
+                );
+        }
         public PartialViewResult filterByPrice()
         {
             return PartialView();
+        }
+        public PartialViewResult getElementsByPrice(long price)
+        {
+            return PartialView("products",
+                productDAL.FilterByPrice(price));
         }
 
         public PartialViewResult filterByColor()

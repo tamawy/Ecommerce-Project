@@ -10,9 +10,11 @@
             <div id="collapse1" class="panel-collapse collapse in show">
                 <div class="panel-body pt-2">
                     <div class="list-group categorys">
+
                         @foreach (var item in Model)
                         {
-                            <a href="#" class="py-1"><i class="fas fa-mobile-alt categ-ico"></i>@item.Name</a>
+                            <a class="py-1" onclick="filterByCat(@item.ID)">
+                        <i class="fas fa-mobile-alt categ-ico"></i>@item.Name</a>
                         }
                     </div>
                 </div>

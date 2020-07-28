@@ -91,10 +91,21 @@ namespace EcommerceProject.DAL
 
             return db.Product.Where(z => z.ID == id).FirstOrDefault();
         }
-
+        public List<Product> FilterByBrand(long brandID)
+        {
+            return GetAll().Where(z => z.BrandFK == brandID).ToList();
+        }
+        public List<Product> FilterByCategory(long categoryID)
+        {
+            return GetAll().Where(z => z.CatFK == categoryID).ToList();
+        }
         public List<Product> GetAll()
         {
             return db.Product.OrderByDescending(z => z.ID).ToList();
+        }
+        public List<Product> FilterByPrice(long price)
+        {
+            return GetAll().Where(z => z.Price == price).ToList();
         }
     }
 }

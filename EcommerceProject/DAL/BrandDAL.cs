@@ -77,7 +77,7 @@ namespace EcommerceProject.DAL
         {
             return GetAll().Where(z => z.ID == id).FirstOrDefault();
         }
-
+   
         public List<Brand> GetAll()
         {
             return db.Brand.ToList();

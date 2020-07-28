@@ -12,7 +12,7 @@
                     <div class="list-group">
                         @foreach (var item in Model)
                         {
-                            <a href="#" class="">@item.Name</a>
+                            <a onclick="filterByBrand(@item.ID)">@item.Name</a>
                         }
                     </div>
                 </div>

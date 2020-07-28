@@ -1,105 +1,101 @@
 ﻿@model List<EcommerceProject.Models.Product>
 <!-- shop-items section -->
-<div class="col-md-9 col-sm-12" id="full-page">
-    <div class="shop-items">
-        <div class="shop-bar py-2">
-            <ul class="list-group list-group-horizontal list-unstyled">
-                <li class="">
-                    <div class="shop-tab">
-                        <i class="fas fa-th-large mx-2 tab-icon active"></i>
-                        <i class="fas fa-bars mx-2 tab-icon"></i>
-                    </div>
-                </li>
-                <!-- <li class="mx-4  line .d-md-none" ></li> -->
-                <li class="mx-3 ">
-                    <div class="shop-sort">
-                        <label for="">Sort By</label>
-                        <select name="select">
-                            <option value="">- - - -</option>
-                            <option value="">Price: Lowest first</option>
-                            <option value="">Price: Highest first</option>
-                            <option value="">Product Name: A to Z</option>
-                            <option value="">Product Name: Z to A</option>
-                            <option value="">In stock</option>
-                            <option value="">Reference: Lowest first</option>
-                            <option value="">Reference: Highest first</option>
-                        </select>
-                    </div>
-                </li>
 
-                <li class="">
-                    <div class="shop-items-count">
-                        <label for="">Show</label>
-                        <select name="select">
-                            <option value="">10</option>
-                            <option value="">20</option>
-                            <option value="">30</option>
-                            <option value="">40</option>
-                        </select>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <hr>
-        <div class="items">
-            <div class="row">
+<div class="shop-items">
+    <div class="shop-bar py-2">
+        <ul class="list-group list-group-horizontal list-unstyled">
+            <li class="">
+                <div class="shop-tab">
+                    <i class="fas fa-th-large mx-2 tab-icon active"></i>
+                    <i class="fas fa-bars mx-2 tab-icon"></i>
+                </div>
+            </li>
+            <!-- <li class="mx-4  line .d-md-none" ></li> -->
+            <li class="mx-3 ">
+                <div class="shop-sort">
+                    <label for="">Sort By</label>
+                    <select name="select">
+                        <option value="">- - - -</option>
+                        <option value="">Price: Lowest first</option>
+                        <option value="">Price: Highest first</option>
+                        <option value="">Product Name: A to Z</option>
+                        <option value="">Product Name: Z to A</option>
+                        <option value="">In stock</option>
+                        <option value="">Reference: Lowest first</option>
+                        <option value="">Reference: Highest first</option>
+                    </select>
+                </div>
+            </li>
 
-                <!-- item  -->
-                @foreach (var item in Model)
-                {
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="item">
-                            <figure class="prodact">
-                                <div class="prodact-img">
-                                    <img src="@item.Image" alt="@item.Name" class="img-fluid">
+            <li class="">
+                <div class="shop-items-count">
+                    <label for="">Show</label>
+                    <select name="select">
+                        <option value="">10</option>
+                        <option value="">20</option>
+                        <option value="">30</option>
+                        <option value="">40</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <hr>
+    <div class="items">
+        <div class="row">
+
+            <!-- item  -->
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="item">
+                        <figure class="prodact">
+                            <div class="prodact-img">
+                                <img src="@item.Image" alt="@item.Name" class="img-fluid">
+                            </div>
+                            <figcaption class="p-2 py-3">
+                                <div class="prodact-name">
+                                    <h5 class=" m-0">@item.Name</h5>
                                 </div>
-                                <figcaption class="p-2 py-3">
-                                    <div class="prodact-name">
-                                        <h5 class=" m-0">@item.Name</h5>
-                                    </div>
-                                    <!-- prodact-price -->
-                                    <div class="prodact-price">
-                                        <p class="m-0">$@item.Price</p>
-                                    </div>
-                                    <!-- prodact-rate -->
-                                    
-                                    <!-- prodact-action -->
-                                    <div class="prodact-action justify-content-end">
-                                        <span data-toggle="tooltip" title="Quick View">
-                                            <a href="/productdetails/index/@item.ID">
-                                                <i class="far fa-eye"></i>
-                                            </a>
-                                        </span>
-                                        <span data-toggle="tooltip" title="Add To Cart">
-                                            <i class="fas fa-shopping-cart ico"></i>
-                                        </span>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </div>
+                                <!-- prodact-price -->
+                                <div class="prodact-price">
+                                    <p class="m-0">$@item.Price</p>
+                                </div>
+                                <!-- prodact-rate -->
+                                <!-- prodact-action -->
+                                <div class="prodact-action justify-content-end">
+                                    <span data-toggle="tooltip" title="Quick View">
+                                        <a href="/productdetails/index/@item.ID" target="_blank">
+                                            <i class="far fa-eye"></i>
+                                        </a>
+                                    </span>
+                                    <span data-toggle="tooltip" title="Add To Cart">
+                                        <i class="fas fa-shopping-cart ico"></i>
+                                    </span>
+                                </div>
+                            </figcaption>
+                        </figure>
                     </div>
-                }
+                </div>
+            }
 
 
-            </div>
         </div>
-
-
-
-        <nav aria-label="Page navigation example ">
-            <ul class="pagination justify-content-center py-4 m-0">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1"><i class="fas fa-arrow-left"></i></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#"><i class="fas fa-arrow-right"></i></a>
-                </li>
-            </ul>
-        </nav>
     </div>
 
 
+
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination justify-content-center py-4 m-0">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1"><i class="fas fa-arrow-left"></i></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#"><i class="fas fa-arrow-right"></i></a>
+            </li>
+        </ul>
+    </nav>
 </div>

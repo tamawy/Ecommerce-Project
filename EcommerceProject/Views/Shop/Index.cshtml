@@ -48,10 +48,53 @@
 
                 </aside>
             </div>
-
             <!-- shop-items section -->
+            <div class="col-md-9 col-sm-12" id="full-page">
                 @Html.Action("products")
 
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+    function filterByBrand(brandID) {
+        $.ajax({
+            url: "/shop/filterByBrands",
+            type: "GET",
+            data: {
+                brandID: brandID
+            }
+        }).done(function (data) {
+            $('#full-page').html(data);
+        }).fail(function () {
+        });
+    }
+    function filterByCat(id) {
+        
+        $.ajax({
+            url: "/shop/filterByCategory",
+            type: "GET",
+            data: {
+                catID: id
+            }
+        }).done(function (data) {
+            $('#full-page').html(data);
+        }).fail(function () {
+        });
+    }
+
+    function filterByPrice() {
+        var price = $('#myRange').val();
+        $.ajax({
+            url: "/shop/getElementsByPrice",
+            type: "GET",
+            data: {
+                price: price
+            }
+        }).done(function (data) {
+            $('#full-page').html(data);
+        }).fail(function () {
+        });
+    }
+</script>
