@@ -215,8 +215,8 @@
                                         @foreach (var item in categories)
                                         {
                                             <li class="nav-item">
-                                                <a class="nav-link" href="index.html">
-                                                    <i class="fas fa-arrow-right categ-ico"></i> @item.Name
+                                                <a class="nav-link" onclick="filterByCat(@item.ID)">
+                                                    <i class="fas fa-arrow-right categ-ico" ></i> @item.Name
                                                 </a>
                                             </li>
                                         }
