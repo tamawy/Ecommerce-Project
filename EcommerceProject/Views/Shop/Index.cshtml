@@ -59,6 +59,7 @@
 
 <script>
     function filterByBrand(brandID) {
+
         $.ajax({
             url: "/shop/filterByBrands",
             type: "GET",
@@ -83,7 +84,6 @@
         }).fail(function () {
         });
     }
-
     function filterByPrice() {
         var price = $('#myRange').val();
         $.ajax({
@@ -97,4 +97,17 @@
         }).fail(function () {
         });
     }
+    function filterByColor(id) {
+        $.ajax({
+            url: "/shop/getElementByColor",
+            type: "GET",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $('#full-page').html(data);
+        }).fail(function () {
+        });
+    }
+    
 </script>

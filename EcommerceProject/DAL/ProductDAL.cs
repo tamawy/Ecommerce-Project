@@ -107,5 +107,16 @@ namespace EcommerceProject.DAL
         {
             return GetAll().Where(z => z.Price == price).ToList();
         }
+        public List<Product> FilterByColor(long id)
+        {
+            var items = new ProductColorDAL().GetAll().
+                Where(z => z.ColorFk == id).Select(z => z.ProductFK).ToList();
+            List<Product> products = new List<Product>();
+            foreach (var item in items)
+            {
+                products.Add(new ProductDAL().GetOne(item));
+            }
+            return products;
+        }
     }
 }

@@ -56,5 +56,10 @@ namespace EcommerceProject.Controllers
         {
             return PartialView();
         }
+        public PartialViewResult getElementByColor(long id)
+        {
+            return PartialView("products",
+                productDAL.FilterByColor(id));
+        }
     }
 }
