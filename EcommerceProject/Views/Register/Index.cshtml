@@ -41,6 +41,7 @@ else
             message = '<div class="alert alert-success">' + data.message + '</div>';
             $('.alert').html(message)
         }
+        location.reload();
     }
     function onFailure(data) {
         var message = '<div class="alert alert-success">' + data.message + '</div>';

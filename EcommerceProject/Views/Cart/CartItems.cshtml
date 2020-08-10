@@ -1,0 +1,73 @@
+﻿
+<section class="cart">
+    <div class="container">
+        @if (Session["UserOrder"] != null)
+        {
+            
+            foreach (var item in (List<EcommerceProject.Models.OrderDetails>) Session["UserOrder"])
+                    {
+                <div class="cart-prod ">
+                    <ul class="list-group list-group-horizontal">
+                        <div class="row w-100">
+                            <div class="col-md-2 col-4 p-0">
+                                <li class="list-group-item"><img src="@item.Product.Image" alt="" class="w-100"></li>
+                            </div>
+                            <div class="col-md-4 col-8 p-0">
+                                <li class="list-group-item">
+                                    <div class="prod-details text-center mt-2 pt-4">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <h5>@item.Product.Name</h5>
+                                            </div>
+                                            <div class="col-12 pt-2 text-center">
+                                                <p class="m-0">Price:  $<span class="price">@item.Product.Price</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+                            <div class="col-md-2 col-4 pt-md-5">
+                                <li class="list-group-item">
+                                    <div class="quant">
+                                        <input id="jq-quant" class="jq-quant form-control h-auto px-2 p-0 shadow-none" type="text" value="1">
+                                        <div class="qunt-action">
+                                            <span id="plus">+</span>
+                                            <span id="sub">-</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+
+                            <div class="col-md-2 col-4 pt-md-5 prod-details">
+                                <li class="list-group-item">
+                                    <p class="m-0">TotalPrice: $<span id="total-price">@item.TotalPrice</span></p>
+                                </li>
+                            </div>
+
+                            <div class="col-md-2 col-4 p-0">
+                                <li class="list-group-item">
+                                    <div class="prod-icons text-center pt-md-5">
+                                        <div class="row">
+                                            <div class="col-6  res-ico">
+                                                <i class="far fa-trash-alt tab-icon"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+
+                        </div>
+                    </ul>
+                </div>
+            }
+        }
+        else { 
+            <p class="alert alert-danger">No products added to cart</p>
+        }
+    </div>
+</section>
+
+<script>
+    
+</script>
+

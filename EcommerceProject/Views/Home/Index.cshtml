@@ -23,7 +23,6 @@
 <script>
     function onSuccess(response) {
         if (response.done) {
-            console.log('Inside True');
             var message = '<h1>' + response.name + '</h1>'
             $('#user').html(message)
             $('#login').html('')
@@ -33,6 +32,7 @@
             var m = '<div class="alert alert-danger">' + response.message + '</div>';
             $('#alert').html(m)
         }
+        location.reload();
     }
     function onFailure(response) {
 

@@ -143,6 +143,7 @@
     <Compile Include="Areas\Admin\Controllers\UserAddressController.cs" />
     <Compile Include="Common\CommonEnum.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductDetailsController.cs" />
@@ -2123,6 +2124,8 @@
     <Content Include="Views\Shop\brands.cshtml" />
     <Content Include="Views\Shop\filterByPrice.cshtml" />
     <Content Include="Views\Shop\filterByColor.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\CartItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

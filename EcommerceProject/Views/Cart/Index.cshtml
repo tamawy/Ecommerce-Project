@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- start page baner section  -->
+<section class="page-baner">
+    <div class="container">
+        <div class="page-baner-content text-center">
+            <h5>My Cart</h5>
+            <div class="baner-link">
+                <span><a href="">Home / </a></span>
+                <span><a href="">Cart</a></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end page baner section  -->
+
+<div>
+    @Html.Action("CartItems")
+</div>

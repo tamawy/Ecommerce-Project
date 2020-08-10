@@ -1,6 +1,15 @@
 ﻿<!DOCTYPE html>
 @{ 
     var currentUser = (EcommerceProject.Models.User)Session["user"];
+    int n;
+    if (Session["UserOrder"] == null)
+    {
+        n = 0;
+    }
+    else
+    {
+        n = ((List<EcommerceProject.Models.OrderDetails>)Session["UserOrder"]).Count;
+    }
 }
 <html>
 <head>
@@ -52,7 +61,7 @@
                                 <div class="col-4">
                                     <div class="cart" id="cart">
                                         <i class="fas fa-shopping-cart ico"></i>
-                                        <span class="badge badge-danger">1</span>
+                                        <span class="badge badge-danger">@n</span>
                                     </div>
                                 </div>
 
@@ -84,32 +93,40 @@
                     <!-- Cart items -->
                     <div class="cart-items text-center col-4 p-2" id="cart-items">
 
-                        <div class="categ my-3">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="top-categ-img px-1">
-                                        <img src="~/customs/img/top-category/3.png" alt="" class="img-fluid">
-                                    </div>
-                                </div>
-                                <div class="col-7">
-                                    <div class="top-categ-content pt-1">
-                                        <h5 class="pb-2 m-0">
-                                            <a href="">Fusion Backpack</a>
-                                        </h5>
-                                        <p class="m-0">
-                                            <span>$100.00</span>
-                                        </p>
-                                        <div class="delete">
-                                            <a href=""><i class="far fa-trash-alt del"></i></a>
+                        @if (Session["UserOrder"] != null)
+                        {
+                            foreach (var item in (List<EcommerceProject.Models.OrderDetails>)Session["UserOrder"])
+                            {
+                                <div class="categ my-3">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <div class="top-categ-img px-1">
+                                                <img src="@item.Product.Image" alt="" class="img-fluid" style="width:50px;
+                                                     height:50px">
+                                            </div>
+                                        </div>
+                                        <div class="col-7">
+                                            <div class="top-categ-content pt-1">
+                                                <h5 class="pb-2 m-0">
+                                                    <a href="">@item.Product.Name</a>
+                                                </h5>
+                                                <p class="m-0">
+                                                    <span>$@item.Product.Price</span>
+                                                </p>
+                                                <div class="delete">
+                                                    <a href=""><i class="far fa-trash-alt del"></i></a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+
+                            }
+                        }
 
                         <hr>
                         <div class="show-more px-3 py-2">
-                            <a href="./cart.html">Show More</a>
+                            <a href="/Cart/">Show More</a>
                         </div>
                     </div><!-- End Cart items -->
                     <!-- Wish List -->
@@ -386,3 +403,22 @@
 
 </body>
 </html>
+
+<script>
+    function addToCart(id, countity) {
+        $.ajax(
+            {
+                url: "/Cart/AddToCart",
+                method: "POST",
+                data: {
+                    id: id,
+                    countity: countity
+                }
+            }
+        ).done(function (data) {
+
+        }).fail(function (data) {
+
+        });
+    }
+</script>

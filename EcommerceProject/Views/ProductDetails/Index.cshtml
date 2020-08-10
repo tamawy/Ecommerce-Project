@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 @if (Model != null)
@@ -26,15 +27,7 @@
                         <div class="prod-name">
                             <h5>@Model.Name</h5>
                         </div>
-                        <div class="prod-rate">
-
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-
-                        </div>
+                        
                         <div class="prod-price">
                             <p>$@Model.Price</p>
                         </div>
@@ -72,13 +65,8 @@
                                     <a class='buy' href="">Buy Now</a>
                                 </div>
                                 <div class="col-2">
-                                    <a href="">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </a>
-                                </div>
-                                <div class="col-2">
-                                    <a href="">
-                                        <i class="far fa-heart"></i>
+                                    <a>
+                                        <i class="fas fa-shopping-cart" onclick="addToCart(@Model.ID, 1)"></i>
                                     </a>
                                 </div>
                             </div>
