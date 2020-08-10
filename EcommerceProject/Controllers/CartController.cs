@@ -21,7 +21,7 @@ namespace EcommerceProject.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddToCart(long id, int countity) {
+        public JsonResult AddToCart(long id, int quantity) {
             if (Session["UserOrder"] == null)
             {
                 Session["UserOrder"] = new List<OrderDetails>();
@@ -29,16 +29,39 @@ namespace EcommerceProject.Controllers
 
             var p = new DAL.ProductDAL().GetOne(id);
             var list = (List<OrderDetails>)Session["UserOrder"];
-            list.Add(new OrderDetails
+            var item = list.Where(z => z.ProductFK == id).FirstOrDefault();
+            if (item != null)
             {
-                ID = list.Count + 1,
-                ProductFK = p.ID,
-                Price = p.Price,
-                TotalPrice = countity * p.Price,
-                Product = p
-            });
+                item.Quantity += quantity;
+                item.TotalPrice = item.Quantity * item.Price;
+            }
+            else
+            {
+                list.Add(new OrderDetails
+                {
+                    ID = list.Count + 1,
+                    ProductFK = p.ID,
+                    Price = p.Price,
+                    TotalPrice = quantity * p.Price,
+                    Product = p,
+                    Quantity = quantity
+                });
+            }
             Session["UserOrder"] = list;
             return Json( JsonRequestBehavior.AllowGet);
+        }
+        
+        [HttpPost]
+        public JsonResult DeleteFromCart(long id)
+        {
+            var list = (List<OrderDetails>)Session["UserOrder"];
+            var item = list.Where(z => z.ProductFK == id).FirstOrDefault();
+            if (item != null)
+            {
+                list.Remove(item);
+            }
+            Session["UserOrder"] = list;
+            return Json(PartialView("CartItems"),JsonRequestBehavior.AllowGet);
         }
     }
 }

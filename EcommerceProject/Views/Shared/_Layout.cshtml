@@ -405,20 +405,39 @@
 </html>
 
 <script>
-    function addToCart(id, countity) {
+    function addToCart(id, quantity) {
         $.ajax(
             {
                 url: "/Cart/AddToCart",
-                method: "POST",
+                method: "Post",
                 data: {
                     id: id,
-                    countity: countity
+                    quantity: quantity
                 }
             }
         ).done(function (data) {
 
         }).fail(function (data) {
 
+        });
+    }
+
+    function deleteFromCart(id) {
+        $.ajax({
+            url: "/cart/DeleteFromCart",
+            method: "Post",
+            data: {
+                id: id
+            }
+        }).done(function (data) {
+            $.ajax({
+                url: "/cart/cartItems",
+                method: "Get"
+            }).done(function (data) {
+                $('#cartItems').html(data);
+            }).fail(function (data) {
+            })
+        }).fail(function (data) {
         });
     }
 </script>
