@@ -1,12 +1,18 @@
-﻿
+﻿@{ 
+    var l = (List<EcommerceProject.Models.OrderDetails>)Session["UserOrder"];
+    var c = l?.Count;
+    int i = 1;
+}
 <section class="cart">
     <div class="container">
         @if (Session["UserOrder"] != null)
         {
-            
-            foreach (var item in (List<EcommerceProject.Models.OrderDetails>) Session["UserOrder"])
-                    {
+
+            foreach (var item in (List<EcommerceProject.Models.OrderDetails>)Session["UserOrder"])
+            {
                 <div class="cart-prod ">
+                    @{ var t = "t" + i;}
+
                     <ul class="list-group list-group-horizontal">
                         <div class="row w-100">
                             <div class="col-md-2 col-4 p-0">
@@ -29,19 +35,20 @@
                             <div class="col-md-2 col-4 pt-md-5">
                                 <li class="list-group-item">
                                     <div class="quant">
-                                        <input id="jq-quant" class="jq-quant form-control h-auto px-2 p-0 shadow-none" type="text" value="@item.Quantity">
+                                        <input id="@i" class="jq-quant form-control h-auto px-2 p-0 shadow-none" type="text" value="@item.Quantity">
                                         <div class="qunt-action">
-                                            <span id="plus">+</span>
-                                            <span id="sub">-</span>
+                                            <span onclick="modify(1, @i, @item.Price)">+</span>
+                                            <span onclick="modify(-1, @i, @item.Price)">-</span>
                                         </div>
                                     </div>
                                 </li>
                             </div>
-
                             <div class="col-md-2 col-4 pt-md-5 prod-details">
                                 <li class="list-group-item">
-                                    <p class="m-0">TotalPrice: $<span id="total-price">@item.TotalPrice</span></p>
+                                    <p class="m-0">TotalPrice: $<span id="@t">@item.TotalPrice</span></p>
+
                                 </li>
+
                             </div>
 
                             <div class="col-md-2 col-4 p-0">
@@ -50,6 +57,13 @@
                                         <div class="row">
                                             <div class="col-6  res-ico">
                                                 <i class="far fa-trash-alt tab-icon" onclick="deleteFromCart(@item.ProductFK)"></i>
+                                            </div>
+                                            <div class="row">
+                                                <i><button onclick="save(@item.ProductFK, @i)">Save</button></i>
+                                                @{
+                                                    i++;
+                                                    t = "t" + i;
+                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -61,13 +75,11 @@
                 </div>
             }
         }
-        else { 
+        else
+        {
             <p class="alert alert-danger">No products added to cart</p>
         }
     </div>
 </section>
 
-<script>
-    
-</script>
 

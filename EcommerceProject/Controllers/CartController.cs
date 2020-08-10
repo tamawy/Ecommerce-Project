@@ -21,18 +21,25 @@ namespace EcommerceProject.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddToCart(long id, int quantity) {
+        public JsonResult AddToCart(long id, int quantity, bool replace) {
             if (Session["UserOrder"] == null)
             {
                 Session["UserOrder"] = new List<OrderDetails>();
             }
-
+            
             var p = new DAL.ProductDAL().GetOne(id);
             var list = (List<OrderDetails>)Session["UserOrder"];
             var item = list.Where(z => z.ProductFK == id).FirstOrDefault();
             if (item != null)
             {
-                item.Quantity += quantity;
+                if (replace)
+                {
+                    item.Quantity = quantity;
+                }
+                else
+                {
+                    item.Quantity += quantity;
+                }
                 item.TotalPrice = item.Quantity * item.Price;
             }
             else
@@ -50,7 +57,7 @@ namespace EcommerceProject.Controllers
             Session["UserOrder"] = list;
             return Json( JsonRequestBehavior.AllowGet);
         }
-        
+
         [HttpPost]
         public JsonResult DeleteFromCart(long id)
         {

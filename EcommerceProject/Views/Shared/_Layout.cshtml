@@ -406,13 +406,20 @@
 
 <script>
     function addToCart(id, quantity) {
+        addToCart2(id, quantity, false);
+    }
+    function addToCart2(id, quantity, replace) {
+        if (replace) {
+            quantity = $('#jq-quant').val();
+        }
         $.ajax(
             {
                 url: "/Cart/AddToCart",
                 method: "Post",
                 data: {
                     id: id,
-                    quantity: quantity
+                    quantity: quantity,
+                    replace: replace
                 }
             }
         ).done(function (data) {
@@ -440,4 +447,40 @@
         }).fail(function (data) {
         });
     }
+
+    function save(id, c) {
+        var selector = '#' + c;
+        var quantity = $(selector).val();
+        $.ajax(
+            {
+                url: "/Cart/AddToCart",
+                method: "Post",
+                data: {
+                    id: id,
+                    quantity: quantity,
+                    replace: true
+                }
+            }
+        ).done(function (data) {
+
+        }).fail(function (data) {
+
+        });
+    }
+
+    function modify(value, id, p) {
+        var selctor = '#' + id;
+        var v = parseInt($(selctor).val());
+        $(selctor).val(v + value);
+        var q = $(selctor).val();
+        console.log("Quantity: " + q);
+        console.log("Price: " + p);
+        quantity(id, q, p);
+    }
+
+    function quantity(id, q, p) {
+        var select = '#t' + id;
+        $(select).html(q * p);
+    }
+
 </script>
