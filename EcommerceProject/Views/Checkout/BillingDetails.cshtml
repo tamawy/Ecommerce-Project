@@ -1,0 +1,53 @@
+﻿@{ 
+    var list = (List<EcommerceProject.Models.OrderDetails>)Session["UserOrder"];
+    long subtotalPrice = 0;
+}
+    <div class="col-lg-6">
+        <div class="price">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>BRODUCT</th>
+                        <th>TOTAL</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (list != null)
+                    {
+                        foreach (var item in list)
+                        {
+                            { subtotalPrice += item.TotalPrice; }
+                            <tr>
+                                <td>@item.Product.Name × @item.Quantity</td>
+                                <td>$@item.TotalPrice</td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>Subtotal</td>
+                            <td>$@subtotalPrice</td>
+                        </tr>
+                        <tr>
+                            <td>Shipping</td>
+                            <td>$50.00</td>
+                        </tr>
+                        { subtotalPrice += 50;}
+                        <tr>
+                            <td>Total</td>
+                            <td>$@subtotalPrice</td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+            <div class="form-group form-check">
+                <div class="custom-control custom-checkbox">
+                    <label class="custom-control-label" for="Cash-On-Delivery" data-toggle="collapse" data-target="#Cash-On-Delivery">Cash On Delivery</label>
+                </div>
+            </div>
+            <p class="collapse" id="Cash-On-Delivery">
+                Pay with cash upon delivery.
+            </p>
+        </div>
+    </div>

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Session["User"] == null)
+{
+    <div>
+        <p class="alert alert-info" style="color:darkturquoise; text-align:center">Please Login or Register First</p>
+    </div>
+}
+<section class="checkout">
+    <div class="container">
+        <h1>CHECKOUT</h1>
+        <div class="row">
+            <div class="col-lg-6">
+                <div id="accordion">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>
+                                Returning customer?
+                                <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                    Click here
+                                </a>
+
+                            </h4>
+
+                        </div>
+                        <div id="collapseOne" class="collapse " data-parent="#accordion">
+                            <div class="card-body">
+                                Welcome back! Sign in to your account.
+                                If you have shopped with us before, please enter your details below.
+                                If you are a new customer, please proceed to the Billing & Shipping section.
+                                @*@Html.Action("Login", "Register")*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            @Html.Action("customerInfo")
+            @Html.Action("BillingDetails")
+        </div>
+    </div>
+</section>

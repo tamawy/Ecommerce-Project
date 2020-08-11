@@ -11,7 +11,7 @@ namespace EcommerceProject.DAL
     {
         EcommerceProjectEntities db = new EcommerceProjectEntities();
 
-        public bool Add(Order order)
+        public bool Add(Order order, out string message)
         {
             try
             {
@@ -19,12 +19,15 @@ namespace EcommerceProject.DAL
                 {
                     db.Order.Add(order);
                     db.SaveChanges();
+                    message = "Added Successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
             }
             catch (Exception e)
             {
+                message = e.Message;
                 return false;
             }
 

@@ -11,8 +11,27 @@ namespace EcommerceProject.DAL
         //create object from DataBase.
         EcommerceProjectEntities db = new EcommerceProjectEntities();
 
+        public bool Add(UserAddress userAddress, out string message) {
+            try 
+            {
+                if (userAddress != null)
+                {
+                    db.UserAddress.Add(userAddress);
+                    db.SaveChanges();
+                    message = "Added Successfully";
+                    return true;
+                }
+                message = "Object is null";
+                return false;
+            }
+            catch(Exception e)
+            {
+                message = e.Message;
+                return true;
+            }
+        }
         //create function to delete object from DataBase selected By Id.
-        public bool Delete(long id)
+        public bool Delete(long id, out string message)
         {
             try
             {
@@ -21,11 +40,17 @@ namespace EcommerceProject.DAL
                 {
                     db.UserAddress.Remove(obj);
                     db.SaveChanges();
+                    message = "Edited Successfully";
                     return true;
                 }
+                message = "Object is null";
                 return false;
             }
-            catch (Exception) { return false; }
+            catch (Exception e)
+            {
+                message = e.Message;
+                return false; 
+            }
         }
         //create function to get details of object selected by id from DataBase.
         public UserAddress GetDetails(long id)

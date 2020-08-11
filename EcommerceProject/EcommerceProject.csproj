@@ -144,6 +144,7 @@
     <Compile Include="Common\CommonEnum.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductDetailsController.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="VM\ColorVM.cs" />
     <Compile Include="VM\ContactMessageVM.cs" />
     <Compile Include="VM\ContactUsVM.cs" />
+    <Compile Include="VM\CustomerInfo.cs" />
     <Compile Include="VM\OrderDetailsVM.cs" />
     <Compile Include="VM\OrderVM.cs" />
     <Compile Include="VM\ProductColorVM.cs" />
@@ -2126,6 +2128,9 @@
     <Content Include="Views\Shop\filterByColor.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\CartItems.cshtml" />
+    <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\Checkout\BillingDetails.cshtml" />
+    <Content Include="Views\Checkout\CustomerInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

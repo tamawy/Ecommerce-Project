@@ -28,7 +28,8 @@ namespace EcommerceProject.Areas.Admin.Controllers
         //This Action Used to delete data of declared id & Show result of delete in Index.
         public JsonResult Delete(long Id)
         {
-            return Json(new { done = obj.Delete(Id) }, JsonRequestBehavior.AllowGet);
+            string message;
+            return Json(new { done = obj.Delete(Id, out message), message }, JsonRequestBehavior.AllowGet);
         }
 
         //This PartialView return Details for Declared id.

@@ -1,0 +1,82 @@
+﻿@model EcommerceProject.VM.CustomerInfo
+
+<div class="col-lg-12">
+    <h2 class="section-title">Billing details</h2>
+</div>
+
+<div class="col-lg-6">
+    <div class="form2">
+        @using (Ajax.BeginForm("PostCustomerInfo",
+    new AjaxOptions { OnSuccess = "onsuccess", OnFailure = "onFailure" }))
+        {
+            <div class="row">
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="text">FULL NAME:</label>
+                        @Html.TextBoxFor(z => z.user.Name, new { @class = "form-control", placeholder = "ENTER YOUR NAME" })
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="EMAIL">EMAIL ADDRESS:</label>
+                        @Html.TextBoxFor(z => z.user.Email, new { @class = "form-control", placeholder = "@gmail.com", type = "email" })
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="phone">PHONE:</label>
+                        @Html.TextBoxFor(z => z.user.Phone, new { @class = "form-control", placeholder = "Enter your phone" })
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="Address">ADDRESS</label>
+                        @Html.TextAreaFor(z => z.user.Address, new { @class = "form-control", placeholder = "Enter your phone" })
+                    </div>
+                </div>
+                <div>
+                    <hr style="font-size:50px" />
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <p style="text-align: center">Delevery Information</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="phone">PHONE:</label>
+                        @Html.TextBoxFor(z => z.userAddress.phone, new { @class = "form-control", placeholder = "Enter your phone" })
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="Address">ADDRESS</label>
+                        @Html.TextAreaFor(z => z.userAddress.Address, new { @class = "form-control", placeholder = "Enter your phone" })
+                    </div>
+                </div>
+
+            </div>
+            if (Session["User"] == null)
+            {
+                <input disabled type="submit" class="btn btn-primary active " value="PLACE ORDER">
+            }
+            else
+            {
+                <input type="submit" class="btn btn-primary active " value="PLACE ORDER">
+            }
+        }
+
+    </div>
+</div>
+<script>
+    function onsuccess(data) {
+
+    }
+    function onFailure(data) {
+    }
+</script>
