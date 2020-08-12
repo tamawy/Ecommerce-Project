@@ -9,7 +9,7 @@
         <p class="alert alert-info" style="color:darkturquoise; text-align:center">Please Login or Register First</p>
     </div>
 }
-<section class="checkout">
+<section class="checkout" id="checkout-page">
     <div class="container">
         <h1>CHECKOUT</h1>
         <div class="row">
@@ -44,3 +44,18 @@
         </div>
     </div>
 </section>
+<script>
+    function onsuccess(data) {
+        console.log("Inside Checkout Script");
+        var message = "";
+        if (data.stored) {
+            message = '<p class="alert alert-success">Sent Successfully</p>';
+        }
+        else {
+            message = '<p class="alert alert-danger">Error in Sending, Please resent it later</p>';
+        }
+        $('#checkout-page').html(message);
+    }
+    function onFailure(data) {
+    }
+</script>

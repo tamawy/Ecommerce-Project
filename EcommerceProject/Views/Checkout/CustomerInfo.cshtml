@@ -4,7 +4,7 @@
     <h2 class="section-title">Billing details</h2>
 </div>
 
-<div class="col-lg-6">
+<div class="col-lg-6" id="bill-form">
     <div class="form2">
         @using (Ajax.BeginForm("PostCustomerInfo",
     new AjaxOptions { OnSuccess = "onsuccess", OnFailure = "onFailure" }))
@@ -70,13 +70,5 @@
                 <input type="submit" class="btn btn-primary active " value="PLACE ORDER">
             }
         }
-
     </div>
 </div>
-<script>
-    function onsuccess(data) {
-
-    }
-    function onFailure(data) {
-    }
-</script>

@@ -157,6 +157,7 @@
     <Compile Include="DAL\ColorDAL.cs" />
     <Compile Include="DAL\ContactMessageDAL.cs" />
     <Compile Include="DAL\ContactUsDAL.cs" />
+    <Compile Include="DAL\CustomerInfoDAL.cs" />
     <Compile Include="DAL\OrderDAL.cs" />
     <Compile Include="DAL\OrderDetailsDAL.cs" />
     <Compile Include="DAL\ProductColorDAL.cs" />

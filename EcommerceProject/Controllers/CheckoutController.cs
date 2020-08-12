@@ -10,6 +10,11 @@ namespace EcommerceProject.Controllers
     public class CheckoutController : Controller
     {
         // GET: Checkout
+        CustomerInfoDAL cIDAL = new CustomerInfoDAL();
+        UserAddressDAL userAddressDAL = new UserAddressDAL();
+        OrderDetailsDAL orderDetailsDAL = new OrderDetailsDAL();
+        OrderDAL orderDAL = new OrderDAL();
+
         public ActionResult Index()
         {
             return View();
@@ -33,47 +38,55 @@ namespace EcommerceProject.Controllers
             
             var currentUser = (User)Session["User"];
             customerInfo.orderDetails = (List<OrderDetails>)Session["UserOrder"];
-           
+            
             // Adding UserAddress to Database
-            UserAddressDAL userAddressDAL = new UserAddressDAL();
             string userAddressMessage;
-            UserAddress userAddress = customerInfo.userAddress;
-            userAddress.CreatedBy = currentUser.ID;
-            userAddress.CreationDate = DateTime.Now;
-            userAddress.UserFK = currentUser.ID;
-            userAddressDAL.Add(userAddress, out userAddressMessage);
+            UserAddress userAddress = new UserAddress()
+            {
+                Address = customerInfo.userAddress.Address,
+                phone = customerInfo.userAddress.phone,
+                CreatedBy = currentUser.ID,
+                CreationDate = DateTime.Now,
+                UserFK = currentUser.ID
+            };
+            var stored = userAddressDAL.Add(userAddress, out userAddressMessage);
 
             // Adding Order to Database
-            OrderDAL orderDAL = new OrderDAL();
             string orderMessage;
-            Order order = new Order();
-            order.UserFK = currentUser.ID;
-            order.OrderDate = DateTime.Now;
-            order.CreatedBy = currentUser.ID;
-            order.CreationDate = DateTime.Now;
-            order.OrderNumber = orderDAL.GetAll().Count + 1;
-            order.UserAddressFK = userAddressDAL.GetAll().
-                Where(z => z.UserFK == currentUser.ID).Select(z => z.ID).FirstOrDefault();
-            var totalPrice = currentUser.OrderDetails.Select(z => z.Price).Sum();
-            order.TotalPrice = totalPrice;
-            orderDAL.Add(order, out orderMessage);
+            Order order = new Order() {
+                UserFK = currentUser.ID,
+                OrderDate = DateTime.Now,
+                CreatedBy = currentUser.ID,
+                CreationDate = DateTime.Now,
+                OrderNumber = orderDAL.GetNextOrderNumber(),
+                UserAddressFK = userAddressDAL.GetUserAddressFK(currentUser.ID),
+                TotalPrice = cIDAL.TotalPrice(customerInfo)
+            };
+            stored = orderDAL.Add(order, out orderMessage) && stored;
 
             // Adding OrderDetails to DataBase
-            OrderDetailsDAL orderDetailsDAL = new OrderDetailsDAL();
             string orderDetailsMessage = "";
+            OrderDetails orderDetails;
+            
             foreach (var item in customerInfo.orderDetails)
             {
-                item.OrderFK = orderDAL.GetAll().
-                    Where(z => z.UserFK == currentUser.ID).
-                    Select(z => z.ID).FirstOrDefault();
-                item.CreatedBy = currentUser.ID;
-                item.CreationDate = DateTime.Now;
-                orderDetailsDAL.Add(item, out orderDetailsMessage);
+                orderDetails = new OrderDetails()
+                {
+                    Price = item.Price,
+                    Quantity = item.Quantity,
+                    OrderFK = orderDAL.GetOrderFK(currentUser.ID),
+                    TotalPrice = item.TotalPrice,
+                    ProductFK = item.ProductFK,
+                    CreatedBy = currentUser.ID,
+                    CreationDate = DateTime.Now
+                };
+                stored = stored && orderDetailsDAL.Add(orderDetails, out orderDetailsMessage);
             }
 
             return Json(
                 new 
                 {
+                    stored,
                     userAddressMessage,
                     orderMessage,
                     orderDetailsMessage

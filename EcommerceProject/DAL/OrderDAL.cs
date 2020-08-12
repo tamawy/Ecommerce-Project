@@ -63,5 +63,14 @@ namespace EcommerceProject.DAL
             return db.Order.ToList();
         }
 
+        public long GetOrderFK(long id) {
+            return GetAll().
+                    Where(z => z.UserFK == id).
+                    Select(z => z.ID).LastOrDefault();
+        }
+
+        public long GetNextOrderNumber() {
+            return GetAll().Count + 1;
+        }
     }
 }

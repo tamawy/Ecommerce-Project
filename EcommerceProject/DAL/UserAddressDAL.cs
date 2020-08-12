@@ -62,5 +62,12 @@ namespace EcommerceProject.DAL
         {
             return db.UserAddress.ToList();
         }
+
+
+        public long GetUserAddressFK(long id)
+        {
+            return GetAll().
+                Where(z => z.UserFK == id).Select(z => z.ID).LastOrDefault();
+        }
     }
 }

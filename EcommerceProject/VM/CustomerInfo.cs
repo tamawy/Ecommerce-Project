@@ -8,5 +8,7 @@ namespace EcommerceProject.VM
         public User user { get; set; }
         public UserAddress userAddress{ get; set; }
         public Order order{ get; set; }
+
+        
     }
 }
