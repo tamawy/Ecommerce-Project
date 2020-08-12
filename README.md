@@ -36,3 +36,5 @@ and Visual studio which support ASP.NET MVC.
 <img src="imgs/I6.png" width="750">
 <img src="imgs/I7.png" width="750">
 <img src="imgs/I8.png" width="720">
+<img src="imgs/I9.png" width="720">
+<img src="imgs/I10.png" width="720">
