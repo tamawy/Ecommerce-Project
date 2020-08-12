@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,20 +11,33 @@ namespace EcommerceProject.Areas.Admin.Controllers
     //Yasser
     public class BrandController : Controller
     {
+        Authorization authorization = new Authorization();
         BrandDAL brandDAL = new BrandDAL();
         // GET: Admin/Brand
         public ActionResult Index()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return View(brandDAL.GetAll());
         }
 
         public PartialViewResult BrandData()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return PartialView(brandDAL.GetAll().OrderByDescending(z => z.ID).ToList());
         }
 
         public PartialViewResult Add()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             ViewBag.FormName = "PostBrand";
             return PartialView();
         }
@@ -33,12 +45,13 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult PostBrand(BrandVM brandVM)
         {
+            User currentUser = (User)Session["User"];
             string message;
             Brand brand = new Brand()
             {
                 Name = brandVM.Name,
                 Image = " ",
-                CreatedBy = 1,
+                CreatedBy = currentUser.ID,
                 CreationDate = DateTime.Now
             };
             return Json(new
@@ -47,14 +60,21 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 message
             }, JsonRequestBehavior.AllowGet);
         }
+
+
         public JsonResult Delete(long id)
         {
+            
             return Json(new { done = brandDAL.Delete(id) },
                 JsonRequestBehavior.AllowGet);
         }
         
         public PartialViewResult Edit(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             var data = brandDAL.Getone(id);
             ViewBag.FormName = "EditBrand";
             return PartialView("Add",
@@ -99,6 +119,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult PostBrandImage(HttpPostedFileBase file, long brandID)
         {
+            User currentUser = (User)Session["User"];
             string message;
             if (file != null)
             {
@@ -113,7 +134,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 if (brand != null)
                 {
                     brand.Image = filePath;
-                    brand.UpdatedBy = 2;
+                    brand.UpdatedBy = currentUser.ID;
                     brand.UpdatedDate = DateTime.Now;
 
                     brandDAL.Edit(brand, out message);

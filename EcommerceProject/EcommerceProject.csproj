@@ -152,6 +152,7 @@
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\AboutUsDAL.cs" />
+    <Compile Include="DAL\Authorization.cs" />
     <Compile Include="DAL\BrandDAL.cs" />
     <Compile Include="DAL\CategoryDAL.cs" />
     <Compile Include="DAL\ColorDAL.cs" />
@@ -2133,6 +2134,7 @@
     <Content Include="Views\Checkout\Index.cshtml" />
     <Content Include="Views\Checkout\BillingDetails.cshtml" />
     <Content Include="Views\Checkout\CustomerInfo.cshtml" />
+    <Content Include="Views\Shared\ErrorView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

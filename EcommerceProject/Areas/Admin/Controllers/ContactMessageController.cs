@@ -11,23 +11,40 @@ namespace EcommerceProject.Areas.Admin.Controllers
 {
     public class ContactMessageController : Controller
     {
+        Authorization authorization = new Authorization();
         ContactMessageDAL contactMessageDAL =
             new ContactMessageDAL();
         // GET: Admin/ContactMessage
         public ActionResult Index()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return View();
         }
         public PartialViewResult Form()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return PartialView();
         }
         public PartialViewResult ContactMessageTable()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return PartialView(contactMessageDAL.GetAll());
         }
         public PartialViewResult Details(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             var contactMessage = contactMessageDAL.GetOne(id);
             var obj = new ContactMessageVM()
             {

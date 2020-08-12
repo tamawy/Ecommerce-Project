@@ -12,15 +12,24 @@ namespace EcommerceProject.Areas.Admin.Controllers
     // Ibrahim Elsayed Selim
     public class ProductController : Controller
     {
+        Authorization authorization = new Authorization();
         ProductDAL productDAL = new ProductDAL();
         // GET: Admin/Product
         public ActionResult Index()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return View();
         }
 
         public PartialViewResult ProductDetails()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return PartialView(productDAL.GetAll());
         }
 
@@ -33,6 +42,8 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult PostProduct(ProductVM productVM)
         {
+            User currentUser = (User)Session["User"];
+
             string message;
             Product obj = new Product()
             {
@@ -43,7 +54,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 BrandFK = productVM.BrandFK,
                 CatFK = productVM.CatFK,
                 SubCatFK = productVM.SubCatFK,
-                CreatedBy = 1,
+                CreatedBy = currentUser.ID,
                 CreationDate = DateTime.Now,
                 IsBestSeller = productVM.IsBestSeller
             };
@@ -67,6 +78,10 @@ namespace EcommerceProject.Areas.Admin.Controllers
 
         public PartialViewResult Edit(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             var data = productDAL.GetOne(id);
             ViewBag.FormName = "EditProduct";
             return PartialView("AddProduct",
@@ -88,6 +103,8 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult EditProduct(ProductVM data)
         {
+            User currentUser = (User)Session["User"];
+
             string message;
             var obj = new Product()
             {
@@ -101,7 +118,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 SubCatFK = data.SubCatFK,
                 CreatedBy = data.CreatedBy,
                 CreationDate = data.CreationDate,
-                UpdatedBy = 1,
+                UpdatedBy = currentUser.ID,
                 UpdatedDate = DateTime.Now,
                 IsBestSeller = data.IsBestSeller
             };
@@ -111,6 +128,10 @@ namespace EcommerceProject.Areas.Admin.Controllers
 
         public PartialViewResult DetailsProduct(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             var data = productDAL.GetOne(id);
             var obj = new ProductVM()
             {
@@ -147,6 +168,10 @@ namespace EcommerceProject.Areas.Admin.Controllers
 
         public ActionResult UploadImage(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             ViewBag.productID = id;
             return View();
         }
@@ -154,6 +179,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult PostProductImage(HttpPostedFileBase file, long productID)
         {
+            User currentUser = (User)Session["User"];
             string message;
             if (file != null)
             {
@@ -170,7 +196,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 if (product != null)
                 {
                     product.Image = filePath;
-                    product.UpdatedBy = 2;
+                    product.UpdatedBy = currentUser.ID;
                     product.UpdatedDate = DateTime.Now;
                     productDAL.Edit(product, out message);
                 }
@@ -179,5 +205,6 @@ namespace EcommerceProject.Areas.Admin.Controllers
             // after successfully uploading redirect the user
             return RedirectToAction("Index");
         }
+        
     }
 }

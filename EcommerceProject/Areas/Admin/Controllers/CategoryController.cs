@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using EcommerceProject.DAL;
 using EcommerceProject.VM;
@@ -11,25 +9,42 @@ namespace EcommerceProject.Areas.Admin.Controllers
 {
     public class CategoryController : Controller
     {
+        Authorization authorization = new Authorization();
         // GET: Admin/Category
         CategoryDAL CategroyDAL = new CategoryDAL();
         // GET: Admin/Category
         public ActionResult Index()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return View();
         }
         public PartialViewResult CategoryDetails()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return PartialView(CategroyDAL.GetAll()
                 .OrderByDescending(z => z.ID).ToList());
         }
         public PartialViewResult AddCategory()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             ViewBag.FormName = "PostCategory";
             return PartialView();
         }
         public PartialViewResult EditCategory(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             var data = CategroyDAL.GetOne(id);
             CategroyVM obj = new CategroyVM()
             {
@@ -46,6 +61,10 @@ namespace EcommerceProject.Areas.Admin.Controllers
         }
         public PartialViewResult DetailsCategory(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             var data = CategroyDAL.GetOne(id);
             CategroyVM obj = new CategroyVM()
             {
@@ -63,11 +82,12 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult PostCategory(CategroyVM vm)
         {
+            User currentUser = (User)Session["User"];
             string message;
             Category category = new Category()
             {
                 Name = vm.Name,
-                CreatedBy = 1,
+                CreatedBy = currentUser.ID,
                 CreationDate = DateTime.Now
 
             };
@@ -82,6 +102,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult EditCategory(CategroyVM vm)
         {
+            User currentUser = (User)Session["User"];
             string message;
             Category category = new Category()
             {
@@ -90,7 +111,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 CreatedBy = vm.CreatedBy,
                 CreationDate = vm.CreationDate,
                 UpdatedDate = DateTime.Now,
-                UpdatedBy = 1,
+                UpdatedBy = currentUser.ID,
 
             };
             return Json(new 

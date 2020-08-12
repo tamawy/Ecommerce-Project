@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using EcommerceProject.DAL;
 using EcommerceProject.Models;
@@ -11,23 +8,40 @@ namespace EcommerceProject.Areas.Admin.Controllers
 {
     public class SubCategoryController : Controller
     {
+        Authorization authorization = new Authorization();
         SubCategroyDAL SubCategroyDAL = new SubCategroyDAL();
         // GET: Admin/Categroy
         public ActionResult Index()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return View();
         }
         public PartialViewResult SubCategoryDetails()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return PartialView(SubCategroyDAL.GetAll());
         }
         public PartialViewResult AddSubCategory()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             ViewBag.FormName = "PostSubCategory";
             return PartialView();
         }
         public PartialViewResult EditSubCategory(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             var data = SubCategroyDAL.GetOne(id);
             SubCategoryVM obj = new SubCategoryVM()
             {
@@ -43,6 +57,10 @@ namespace EcommerceProject.Areas.Admin.Controllers
         }
         public PartialViewResult DetailsSubCategory(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             var data = SubCategroyDAL.GetOne(id);
             SubCategoryVM obj = new SubCategoryVM()
             {
@@ -59,13 +77,14 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult PostSubCategory(SubCategoryVM vm)
         {
+            User currentUser = (User)Session["User"];
             string message = "";
 
             SubCategory subcategory = new SubCategory()
             {
                 Name = vm.Name,
                 CategoryFK = vm.CategoryFK,
-                CreatedBy = 1,
+                CreatedBy = currentUser.ID,
                 CreationDate = DateTime.Now
             };
             return Json(
@@ -80,6 +99,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult EditSubCategory(SubCategoryVM vm)
         {
+            User currentUser = (User)Session["User"];
             string message;
             SubCategory sucategory = new SubCategory()
             {
@@ -87,7 +107,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 Name = vm.Name,
                 CreatedBy = vm.CreatedBy,
                 CreationDate = vm.CreationDate,
-                UpdatedBy = 1,
+                UpdatedBy = currentUser.ID,
                 UpdatedDate = DateTime.Now
             };
             return Json(

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using EcommerceProject.DAL;
 using EcommerceProject.Models;
@@ -11,24 +8,38 @@ namespace EcommerceProject.Areas.Admin.Controllers
 {
     public class OrderDetailsController : Controller
     {
+        Authorization authorization = new Authorization();
         OrderDetailsDAL orderDetailsDAL = new OrderDetailsDAL();
         // GET: Admin/OrderDetails
         public ActionResult Index()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return View(orderDetailsDAL.GetAll());
         }
         public PartialViewResult OrderDetails()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return PartialView(orderDetailsDAL.GetAll());
         }
         public PartialViewResult AddOrderDetails()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             ViewBag.FormName = "PostOrderDetails";
             return PartialView();
         }
         [HttpPost]
         public JsonResult PostOrderDetails(OrderDetailsVM vm)
         {
+
             string message;
             OrderDetails orderDetails = new OrderDetails()
             {
@@ -50,6 +61,8 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult EditOrderDetails(OrderDetailsVM vm)
         {
+            User currentUser = (User)Session["User"];
+
             OrderDetails orderDetails = new OrderDetails()
             {
                 ID = vm.ID,
@@ -59,7 +72,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 CreatedBy = vm.CreatedBy,
                 CreationDate = vm.CreationDate,
                 UpdatedDate = DateTime.Now,
-                UpdatedBy = 1
+                UpdatedBy = currentUser.ID
             };
             if (orderDetailsDAL.Edit(orderDetails))
             {
@@ -90,6 +103,10 @@ namespace EcommerceProject.Areas.Admin.Controllers
         }
         public PartialViewResult DetailsOrderDetails(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             var data = orderDetailsDAL.GetOne(id);
             OrderDetailsVM obj = new OrderDetailsVM()
             {

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using EcommerceProject.VM;
+﻿using EcommerceProject.VM;
+
 namespace EcommerceProject.DAL
 {
     public class CustomerInfoDAL

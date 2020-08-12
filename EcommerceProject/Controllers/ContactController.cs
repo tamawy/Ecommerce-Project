@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using EcommerceProject.DAL;
 using EcommerceProject.Models;
-using EcommerceProject.VM;
 
 namespace EcommerceProject.Controllers
 {

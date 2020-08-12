@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using EcommerceProject.DAL;
 using EcommerceProject.VM;
@@ -12,19 +9,32 @@ namespace EcommerceProject.Areas.Admin.Controllers
     // Eng. Wlaa
     public class ContactUsController : Controller
     {
+        Authorization authorization = new Authorization();
         // GET: Admin/ContactUs
         ContactUsDAL ContactUsDAL = new ContactUsDAL();
         public ActionResult Index()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return View();
         }
         public ActionResult ContactUsDetails()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return PartialView(ContactUsDAL.GetAll());
         }
 
         public PartialViewResult Add()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             ViewBag.FormName = "PostAdd";
             return PartialView();
         }
@@ -32,6 +42,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult PostAdd(ContactUsVM contactUsVM)
         {
+            User currentUser = (User)Session["User"];
             string message;
             var obj = new ContactUs()
             {
@@ -40,7 +51,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 phone = contactUsVM.phone,
                 facebook = contactUsVM.facebook,
                 Email = contactUsVM.Email,
-                CreatedBy = 2,
+                CreatedBy = currentUser.ID,
                 CreationDate = DateTime.Now
             };
 
@@ -55,6 +66,10 @@ namespace EcommerceProject.Areas.Admin.Controllers
 
         public PartialViewResult Edit(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             ViewBag.FormName = "PostEdit";
             var contactUs = ContactUsDAL.GetOne(id);
             var obj = new ContactUsVM()
@@ -73,6 +88,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult PostEdit(ContactUsVM contactUsVM)
         {
+            User currentUser = (User)Session["User"];
             string message;
             var obj = new ContactUs()
             {
@@ -83,7 +99,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 Email = contactUsVM.Email,
                 CreatedBy = contactUsVM.CreatedBy,
                 CreationDate = contactUsVM.CreationDate,
-                UpdatedBy = 2,
+                UpdatedBy = currentUser.ID,
                 UpdatedDate = DateTime.Now
             };
 
@@ -111,6 +127,10 @@ namespace EcommerceProject.Areas.Admin.Controllers
 
         public PartialViewResult Details(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             var contactUs = ContactUsDAL.GetOne(id);
             var obj = new ContactUsVM()
             {

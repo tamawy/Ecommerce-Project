@@ -11,7 +11,6 @@
                     We love to hear from you
                 </h2>
             </div>
-            <form>
                 <div class="main-form">
                     <div class="container">
                         <div class="row">
@@ -21,13 +20,15 @@
                                 <!--name form with validation-->
                                 <div class="form-group col-sm-12 col-lg-6">
                                     <label>your name:</label>
-                                    @Html.TextBoxFor(z => z.Name, new
+                                    <div style="width: 1000px">
+                                        @Html.TextBoxFor(z => z.Name, new
                                     {
                                         @class = "form-control",
                                         type = "text",
                                         placeholder = "your name",
                                         required = "required"
                                     })
+                                    </div>
                                     <!--validation to name input-->
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
@@ -36,13 +37,15 @@
                                 <!--email form with validation-->
                                 <div class="form-group col-sm-12 col-lg-6">
                                     <label>your email:</label>
-                                    @Html.TextBoxFor(z => z.Email, new
+                                    <div style="width:1000px">
+                                        @Html.TextBoxFor(z => z.Email, new
                                         {
                                             @class = "form-control",
                                             type = "email",
                                             placeholder = "your email",
                                             required = "required"
                                         })
+                                    </div>
                                     <!--validation to email input-->
                                     <div class="valid-feedback">Valid.</div>
                                     <div class="invalid-feedback">Please fill out this field.</div>
@@ -71,6 +74,5 @@
                     </div>
 
                 </div>
-            </form>
         </div>
     </section>

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 
 namespace EcommerceProject.Controllers
@@ -12,7 +9,7 @@ namespace EcommerceProject.Controllers
         public ActionResult Index()
         {
             return View(
-                new EcommerceProject.DAL.AboutUsDAL().GetAll().FirstOrDefault());
+                new DAL.AboutUsDAL().GetAll().FirstOrDefault());
         }
     }
 }

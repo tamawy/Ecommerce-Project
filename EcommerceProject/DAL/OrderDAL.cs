@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using EcommerceProject.DAL;
 using EcommerceProject.Models;
 
 namespace EcommerceProject.DAL

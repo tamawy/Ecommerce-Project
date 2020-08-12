@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using EcommerceProject.DAL;
 using EcommerceProject.VM;
@@ -11,12 +8,16 @@ namespace EcommerceProject.Areas.Admin.Controllers
 {
     public class AboutUsController : Controller
     {
+        Authorization authorization = new Authorization();
         // GET: Admin/AboutUs
-
         //creation an object from DAL class 
         AboutUsDAL aboutUsDAL = new AboutUsDAL();
         public ActionResult Index()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return View();
         }
         //partialview used to show data of database
@@ -26,6 +27,10 @@ namespace EcommerceProject.Areas.Admin.Controllers
         }
         public PartialViewResult Add()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             ViewBag.FormName = "PostAdd";
 
             return PartialView();
@@ -34,11 +39,13 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult PostAdd(AboutUsVM aboutUsVM)
         {
+
+            User currentUser = (User)Session["User"];
             string message;
             var obj = new AboutUs()
             {
                 ID = aboutUsVM.ID,
-                CreatedBy = 2,
+                CreatedBy = currentUser.ID,
                 CreationDate = DateTime.Now,
                 Mission = aboutUsVM.Mission,
                 Vision = aboutUsVM.Vision,
@@ -54,6 +61,10 @@ namespace EcommerceProject.Areas.Admin.Controllers
         }
         public PartialViewResult Edit(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             ViewBag.FormName = "PostEdit";
             var aboutUs = aboutUsDAL.GetOne(id);
             var obj = new AboutUsVM()
@@ -73,13 +84,14 @@ namespace EcommerceProject.Areas.Admin.Controllers
         [HttpPost]
         public JsonResult PostEdit(AboutUsVM aboutUsVM)
         {
+            User currentUser = (User)Session["User"];
             string message;
             var obj = new AboutUs()
             {
                 ID = aboutUsVM.ID,
                 CreatedBy = aboutUsVM.CreatedBy,
                 CreationDate = aboutUsVM.CreationDate,
-                UpdatedBy = 2,
+                UpdatedBy = currentUser.ID,
                 UpdatedDate = DateTime.Now,
                 Mission = aboutUsVM.Mission,
                 Vision = aboutUsVM.Vision,
@@ -105,5 +117,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 },
                 JsonRequestBehavior.AllowGet);
         }
+
+        
     }
 }

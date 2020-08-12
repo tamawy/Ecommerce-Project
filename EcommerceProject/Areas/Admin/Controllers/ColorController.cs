@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using EcommerceProject.DAL;
 using EcommerceProject.VM;
@@ -12,26 +9,36 @@ namespace EcommerceProject.Areas.Admin.Controllers
     //Yasser
     public class ColorController : Controller
     {
+        Authorization authorization = new Authorization();
         ColorDAL colorDAL = new ColorDAL();
         // GET: Admin/Color
         public ActionResult Index()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return View();
         }
         public PartialViewResult AddForm()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             ViewBag.FormName = "PostColor";
             return PartialView();
         }
         [HttpPost]
         public JsonResult PostColor(ColorVM colorVM)
         {
+            User currentUser = (User)Session["User"];
             string message;
             var obj = new Color()
             {
                 Name = colorVM.Name,
                 Code = colorVM.Code,
-                CreatedBy = 2,
+                CreatedBy = currentUser.ID,
                 CreationDate = DateTime.Now
             };
             return Json(
@@ -45,10 +52,18 @@ namespace EcommerceProject.Areas.Admin.Controllers
         }
         public PartialViewResult ColorData()
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             return PartialView(colorDAL.GetAll());
         }
         public PartialViewResult EditForm(long id)
         {
+            if (!authorization.Admin((User)Session["User"]))
+            {
+                return PartialView("ErrorView");
+            }
             ViewBag.FormName = "PostEdit";
             var color = colorDAL.Getone(id);
             var obj = new ColorVM()
@@ -63,6 +78,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
         }
         public JsonResult PostEdit(ColorVM colorVM)
         {
+            User currentUser = (User)Session["User"];
             string message;
             var obj = new Color()
             {
@@ -71,7 +87,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 Code = colorVM.Code,
                 CreatedBy = colorVM.CreatedBy,
                 CreationDate = colorVM.CreationDate,
-                UpdatedBy = 2,
+                UpdatedBy = currentUser.ID,
                 UpdatedDate = DateTime.Now
             };
 
