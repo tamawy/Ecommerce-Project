@@ -72,5 +72,6 @@ namespace EcommerceProject.DAL
         public long GetNextOrderNumber() {
             return GetAll().Count + 1;
         }
+
     }
 }

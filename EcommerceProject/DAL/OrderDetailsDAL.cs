@@ -80,5 +80,9 @@ namespace EcommerceProject.DAL
         {
             return db.OrderDetails.ToList();
         }
+        public List<OrderDetails> GetAll(long orderID)
+        {
+            return GetAll().Where(z => z.OrderFK == orderID).ToList();
+        }
     }
 }

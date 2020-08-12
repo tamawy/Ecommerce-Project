@@ -1,26 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using EcommerceProject.DAL;
-using EcommerceProject.Vm;
+using EcommerceProject.VM;
 
 namespace EcommerceProject.Areas.Admin.Controllers
 {
     public class OrderController : Controller
     {
-        OrderDAL obj = new OrderDAL();
+        OrderDAL orderDAL = new OrderDAL();
+        OrderDetailsDAL orderDetailsDAL = new OrderDetailsDAL();
+        UserDAL userDAL = new UserDAL();
+        CustomerInfo customerInfo;
+
+
         // GET: Admin/Order
-        public ActionResult Index()
+        public ViewResult Index()
         {
 
-            return View(obj.GetAll());
+            return View();
         }
-        public ActionResult OrderDet()
+        public PartialViewResult Orders()
         {
-            return View(obj.GetAll());
+            return PartialView(orderDAL.GetAll());
+        }
 
+        public PartialViewResult DetailsForm()
+        {
+            return PartialView();
+        }
+        public PartialViewResult OrderDetails(long orderID)
+        {
+            customerInfo = new CustomerInfo()
+            {
+                order = orderDAL.GetOne(orderID),
+                orderDetails = orderDetailsDAL.GetAll(orderID)
+            };
+            customerInfo.user = userDAL.GetOne(customerInfo.order.UserFK);
+            customerInfo.userAddress = new UserAddressDAL().LastAddress(customerInfo.user.ID);
+            
+            return PartialView("~/Areas/Admin/Views/order/DetailsForm.cshtml", customerInfo);
         }
     }
 }

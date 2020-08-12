@@ -82,7 +82,10 @@ namespace EcommerceProject.Controllers
                 };
                 stored = stored && orderDetailsDAL.Add(orderDetails, out orderDetailsMessage);
             }
-
+            if (stored)
+            {
+                Session["UserOrder"] = null;
+            }
             return Json(
                 new 
                 {

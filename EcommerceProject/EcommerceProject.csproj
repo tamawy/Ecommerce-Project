@@ -1962,8 +1962,6 @@
     <Content Include="Areas\Admin\Views\OrderDetails\Index.cshtml" />
     <Content Include="Areas\Admin\Views\OrderDetails\OrderDetails.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Order\OrderDetails.cshtml" />
     <Content Include="Areas\Admin\Views\UserAddress\Index.cshtml" />
     <Content Include="Areas\Admin\Views\UserAddress\Show.cshtml" />
     <Content Include="Areas\Admin\Views\Brand\Index.cshtml" />
@@ -2078,6 +2076,9 @@
     <Content Include="Areas\Admin\Views\Color\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Color\AddForm.cshtml" />
     <Content Include="Areas\Admin\Views\ProductColor\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Orders.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\DetailsForm.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

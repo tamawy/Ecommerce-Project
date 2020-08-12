@@ -1,0 +1,62 @@
+﻿@model EcommerceProject.VM.CustomerInfo
+
+@using (Ajax.BeginForm("formName", new AjaxOptions { OnSuccess = "onSuccess", OnFailure = "onFailure" }))
+{
+    <div>
+        <div style="border:2px solid lightblue; width:300px; padding:30px; margin: 30px">
+            <div>
+                <label class="form-group">Name</label>
+                @Html.TextBoxFor(z => z.user.Name, new { @class = "form-control" })
+            </div>
+            <div>
+                <label class="form-group">Email</label>
+                @Html.TextBoxFor(z => z.user.Email, new { @class = "form-control" })
+            </div>
+            <div>
+                <label class="form-group">Address</label>
+                @Html.TextBoxFor(z => z.userAddress.Address, new { @class = "form-control" })
+            </div>
+            <div>
+                <label class="form-group">Phone</label>
+                @Html.TextBoxFor(z => z.userAddress.phone, new { @class = "form-control" })
+            </div>
+        </div>
+        <div>
+            @{
+                var i = 1;
+            }
+            @if (Model?.orderDetails != null)
+            {
+                foreach (var item in Model.orderDetails)
+                {
+                    <div style="border:2px solid lightblue; width:300px; padding:10px; float:left">
+                        <label class="form-group">Product Number @i</label>
+                        <div>
+                            <label class="form-group">Product Name</label>
+                            <input type="text" value="@item.Product.Name" class="form-control" />
+                        </div>
+
+                        <div>
+                            <label class="form-group">Product Price</label>
+                            <input type="text" value="@item.Product.Price" class="form-control" />
+                        </div>
+
+                        <div>
+                            <label class="form-group">Quantity</label>
+                            <input type="text" value="@item.Quantity" class="form-control" />
+                        </div>
+
+                        <div>
+                            <label class="form-group">Sub Total Price</label>
+                            <input type="text" value="@item.TotalPrice" class="form-control" />
+                        </div>
+                    </div>
+                    { i++;}
+                }
+                <label class="form-group">TOTAL PRICE</label>
+                <input type="text" class="form-control" value="@Model.GetTotalPrice()" />
+
+            }
+        </div>
+    </div>
+}

@@ -9,6 +9,17 @@ namespace EcommerceProject.VM
         public UserAddress userAddress{ get; set; }
         public Order order{ get; set; }
 
+
+        public long GetTotalPrice()
+        {
+            long total = 0;
+            foreach (var item in orderDetails)
+            {
+                total += item.TotalPrice;
+            }
+
+            return total;
+        }
         
     }
 }

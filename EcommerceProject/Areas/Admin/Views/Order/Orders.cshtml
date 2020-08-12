@@ -1,0 +1,46 @@
+﻿@model List<EcommerceProject.Models.Order>
+<div class="container">
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>OrderNumber</th>
+                    <th>OrderDate</th>
+                    <th>Total price</th>
+                    <th>UserEmail</th>
+                    <th> </th>
+
+                </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.OrderNumber</td>
+                        <td>@item.OrderDate</td>
+                        <td>@item.TotalPrice</td>
+                        <td>@item.User.Email</td>
+                        <td><button class="btn btn-primary" onclick="Details(@item.ID)">Details</button></td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function Details(id) {
+        $.ajax({
+            url: "/order/orderdetails",
+            method: "Get",
+            data: {
+                orderID: id
+            }
+        }).done(function (data) {
+            $('#order-form').html(data);
+            $('#form0 input').attr('disabled', true);
+        }).fail(function (data) {
+        });
+    }
+</script>
