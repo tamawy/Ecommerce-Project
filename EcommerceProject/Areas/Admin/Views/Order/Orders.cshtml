@@ -21,6 +21,7 @@
                         <td>@item.TotalPrice</td>
                         <td>@item.User.Email</td>
                         <td><button class="btn btn-primary" onclick="Details(@item.ID)">Details</button></td>
+                        <td><button class="btn btn-danger" onclick="Delete(@item.ID)">Delete</button></td>
                     </tr>
 
                 }
@@ -40,6 +41,31 @@
         }).done(function (data) {
             $('#order-form').html(data);
             $('#form0 input').attr('disabled', true);
+        }).fail(function (data) {
+        });
+    }
+
+    function Delete(id) {
+        $.ajax({
+            url: "/order/Delete",
+            method: "Post",
+            data: {
+                orderID: id
+            }
+        }).done(function (data) {
+            var message = '<p class="alert alert-success">Deleted Successfully</p>';
+            $('#alert').html(message);
+            Add();
+        }).fail(function (data) {
+        });
+    }
+
+    function Add() {
+        $.ajax({
+            url: "/Admin/Order/Orders",
+            method: "Get"
+        }).done(function (data) {
+            $('#order-table').html(data);
         }).fail(function (data) {
         });
     }

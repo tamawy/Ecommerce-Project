@@ -16,10 +16,11 @@
     </div>
 </section>
 <!-- end page baner section  -->
+<div id="alert"></div>
 <div>
     @Html.Action("ContactUs")
 </div>
-<div>
+<div id="contact-form">
     @Html.Action("ContactMessage")
 </div>
 
@@ -31,12 +32,22 @@
     function OnSuccess(data) {
 
         if (data.done) {
-            alert("Message sent successfully");
+            var message = '<p class="alert alert-success">Message sent successfully</p>';
+            $('#alert').html(message);
+            Add();
         } else {
             alert("Error in sending Message");
         }
     }
-
+    function Add() {
+        $.ajax({
+            url: "/Contact/ContactMessage",
+            method: "GET"
+        }).done(function (data) {
+            $('#contact-form').html(data);
+        }).fail(function (data) {
+        });
+    }
     function OnFailure(data) {
 
     }

@@ -71,6 +71,23 @@ namespace EcommerceProject.DAL
                 return false;
             }
         }
+
+        public bool DeleteAll(long orderFK)
+        {
+            List<long> orderDetailsIdList = GetAll(orderFK).Select(z => z.ID).ToList();
+            try
+            {
+                foreach (var item in orderDetailsIdList)
+                {
+                    Delete(item);
+                }
+                return true;
+            }
+            catch (Exception) {
+                return false;
+            }
+
+        }
         public OrderDetails GetOne(long id)
         {
             return db.OrderDetails.Where(z => z.ID == id).FirstOrDefault();

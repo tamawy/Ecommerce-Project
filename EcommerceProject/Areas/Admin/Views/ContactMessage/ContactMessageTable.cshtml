@@ -16,7 +16,6 @@
                         <td>@item.Email</td>
                         <td>
                             <button class="btn btn-success" onclick="markAsAnswered(@item.ID)">Mark as answered</button>
-                            <button class="btn btn-primary">Mark as Testmonial</button>
                             <button class="btn btn-secondary" onclick="details(@item.ID)">Details</button>
                             <button class="btn btn-danger" onclick="Delete(@item.ID)">Delete</button>
                         </td>
@@ -60,6 +59,7 @@
         }).fail(function (data) {
         });
     }
+
     var Delete = function(id) {
         $.ajax({
             url: "/admin/ContactMessage/Delete",

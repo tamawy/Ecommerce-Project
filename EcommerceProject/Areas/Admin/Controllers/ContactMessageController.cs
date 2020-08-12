@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using EcommerceProject.DAL;
 using EcommerceProject.VM;
 using EcommerceProject.Models;
@@ -72,6 +68,7 @@ namespace EcommerceProject.Areas.Admin.Controllers
                 }
                 ,JsonRequestBehavior.AllowGet);
         }
+
 
         [HttpPost]
         public JsonResult Delete(long id)

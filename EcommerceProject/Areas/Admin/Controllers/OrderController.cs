@@ -56,5 +56,12 @@ namespace EcommerceProject.Areas.Admin.Controllers
             
             return PartialView("~/Areas/Admin/Views/order/DetailsForm.cshtml", customerInfo);
         }
+
+        [HttpPost]
+        public JsonResult Delete(long orderID) {
+            orderDetailsDAL.DeleteAll(orderID);
+            orderDAL.Delete(orderID);
+            return Json(JsonRequestBehavior.AllowGet);
+        }
     }
 }
